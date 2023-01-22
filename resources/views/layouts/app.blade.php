@@ -1,80 +1,86 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+	<title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	<!-- Styles -->
+	<!-- C3 Chart css -->
+	<link href="{{ asset("assets/libs/c3/c3.min.css") }}" rel="stylesheet" type="text/css"/>
+
+	<!-- Bootstrap Css -->
+	<link href="{{ asset("assets/css/bootstrap.min.css") }}" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+	<!-- Icons Css -->
+	<link href="{{ asset("assets/css/icons.min.css") }}" rel="stylesheet" type="text/css"/>
+	@yield("style")
+	<!-- App Css-->
+	@if(LaravelLocalization::getCurrentLocaleDirection() == "rtl")
+		<link href="{{ asset("assets/css/app-rtl.min.css") }}" id="app-style" rel="stylesheet" type="text/css"/>
+	@else
+		<link href="{{ asset("assets/css/app.min.css") }}" id="app-style" rel="stylesheet" type="text/css"/>
+	@endif
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body data-sidebar="dark">
+<div id="preloader">
+	<div id="status">
+		<div class="spinner"></div>
+	</div>
+</div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+<!-- Begin page -->
+<div id="layout-wrapper">
+	@include("layouts.header")
 
-                    </ul>
+	@include("layouts.sidebar")
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+	<div class="main-content">
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+		<div class="page-content">
+			<div class="container-fluid">
+				<div class="card">
+					<div class="card-body">
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+						@yield("content")
+					</div>
+				</div>
+			</div> <!-- container-fluid -->
+		</div>
+		<!-- End Page-content -->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+		@include("layouts.footer")
+	</div>
+
+
+</div>
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+<script src="{{ asset("assets/libs/jquery/jquery.min.js") }}"></script>
+<script src="{{ asset("assets/libs/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+<script src="{{ asset("assets/libs/metismenu/metisMenu.min.js") }}"></script>
+<script src="{{ asset("assets/libs/simplebar/simplebar.min.js") }}"></script>
+<script src="{{ asset("assets/libs/node-waves/waves.min.js") }}"></script>
+
+<!--C3 Chart-->
+<script src="{{ asset("assets/libs/d3/d3.min.js") }}"></script>
+<script src="{{ asset("assets/libs/c3/c3.min.js") }}"></script>
+
+<script src="{{ asset("assets/libs/jquery-knob/jquery.knob.min.js") }}"></script>
+@yield("script")
+<script src="{{ asset("assets/js/app.js") }}"></script>
+
 </body>
 </html>
