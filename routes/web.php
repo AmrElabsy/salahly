@@ -28,6 +28,7 @@ Route::group([
 ], function () {
     Route::resources([
         "device" => "DeviceController",
-        "customer" => "CustomerController"
+        "customer" => "CustomerController",
+        "status" => "StatusController"
     ]);
 });

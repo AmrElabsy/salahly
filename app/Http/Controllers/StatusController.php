@@ -8,79 +8,48 @@ use App\Http\Requests\UpdateStatusRequest;
 
 class StatusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $statuses = Status::all();
+        return view("statuses.index", compact("statuses"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view("statuses.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreStatusRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreStatusRequest $request)
     {
-        //
+        $status = new Status();
+        $status->name = $request->get("name");
+        $status->save();
+        
+        return redirect()->route("status.index")->withStatus(__("titles.status_added"));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
-     */
     public function show(Status $status)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Status $status)
     {
-        //
+        return view("statuses.edit", compact("status"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateStatusRequest  $request
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateStatusRequest $request, Status $status)
     {
-        //
+        $status->name = $request->get("name");
+        $status->save();
+        return redirect()->route("status.index")->withStatus(__("titles.status_updated"));
+    
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Status  $status
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Status $status)
     {
-        //
+        $status->delete();
+        return redirect()->route("status.index")->withStatus(__("titles.status_deleted"));
+    
     }
 }
