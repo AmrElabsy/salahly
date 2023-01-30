@@ -10,6 +10,15 @@ return [
     "status_updated" => "تم تعديل الحالة بنجاح",
     "status_deleted" => "تم حذف الحالة بنجاح",
     
+    "customer" => "العميل",
+    "customers" => "العملاء",
+    "add_customer" => "إضافة عميل جديدة",
+    "edit_customer" => "تعديل عميل",
+    "customer_added" => "تم إضافة العميل بنجاح",
+    "customer_updated" => "تم تعديل العميل بنجاح",
+    "customer_deleted" => "تم حذف العميل بنجاح",
+
+
     "add" => "إضافة",
     "edit" => "تعديل",
     "delete" => "حذف",

@@ -15,7 +15,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $customers=Customer::all();
+        return view('customers.index',compact('customers'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view("customers.create");
     }
 
     /**
@@ -36,7 +37,10 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+        $customer=new Customer();
+        $customer->name=$request->get("name");
+        $customer->save();
+        return redirect()->route("customer.index")->withStatus("titles.customer_added");
     }
 
     /**
@@ -58,7 +62,8 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view("customers.edit", compact("customer"));
+
     }
 
     /**
@@ -70,7 +75,10 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->name = $request->get("name");
+        $customer->save();
+        return redirect()->route("customer.index")->withStatus(__("titles.customer_updated"));
+    
     }
 
     /**
@@ -81,6 +89,8 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route("customer.index")->withStatus(__("titles.customer_deleted"));
+
     }
 }
