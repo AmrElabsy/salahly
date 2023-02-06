@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string("name");
             $table->unsignedBigInteger("customer_id");
             $table->timestamps();
+            $table->softDeletes();
             
-            $table->foreign("customer_id")->on("customers")->references("id");
+            $table->foreign("customer_id")->on("customers")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
         });
     }
 

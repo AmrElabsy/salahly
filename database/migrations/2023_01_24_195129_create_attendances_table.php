@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean("type")->default(false);
             $table->unsignedBigInteger("employee_id");
             $table->timestamps();
-            $table->foreign("employee_id")->on("employees")->references("id");
+            $table->foreign("employee_id")->on("employees")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
     
         });
     }

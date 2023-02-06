@@ -1,13 +1,12 @@
 @extends("layouts.app")
-@section("title", __("titles.customers"))
+@section("title", __("titles.deleted_customers"))
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.customers") }}</h2>
+			<h2>{{ __("titles.deleted_customers") }}</h2>
 			<div>
-				<a href="{{ route("customer.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("customer.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_customers") }}</a>
+				<a href="{{ route("customer.index") }}" class="btn btn-success">{{ __("titles.customers") }}</a>
 			</div>
 		</div>
 
@@ -26,7 +25,7 @@
 				<tr>
 					<th>#</th>
 					<th>{{ __("titles.customers") }}</th>
-					<th>{{ __("titles.phones") }}</th>
+					<th>Phones</th>
 					<th>Manage</th>
 				</tr>
 				</thead>
@@ -42,9 +41,10 @@
 
 						</td>
 						<td>
-							<a href="{{ route("customer.edit", $customer->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("customer.destroy", $customer->id)])
+							<a href="{{ route("customer.restore", $customer->id) }}"
+							   class="btn btn-primary">{{ __("titles.restore") }}</a>
+							<a href="{{ route("customer.forceDelete", $customer->id) }}"
+							   class="btn btn-danger">{{ __("titles.delete") }}</a>
 						</td>
 					</tr>
 

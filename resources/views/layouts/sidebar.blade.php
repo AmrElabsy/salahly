@@ -24,6 +24,13 @@
 				</li>
 
 				<li>
+					<a href="{{ route("customer.index") }}" class="waves-effect">
+						<i class="mdi mdi-account-group"></i>
+						<span> {{ __("titles.customers") }} </span>
+					</a>
+				</li>
+
+				<li>
 					<a href="{{ route("status.index") }}" class="waves-effect">
 						<i class="mdi mdi-account-group"></i>
 						<span> {{ __("titles.statuses") }} </span>

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date("holiday");
             $table->boolean("type")->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

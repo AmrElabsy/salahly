@@ -17,11 +17,16 @@ return [
     "customer_added" => "تم إضافة العميل بنجاح",
     "customer_updated" => "تم تعديل العميل بنجاح",
     "customer_deleted" => "تم حذف العميل بنجاح",
-
-
+    "customer_restored" => "تم استعادة العميل بنجاح",
+    "deleted_customers" => "العملاء المحذوفون",
+    
+    
+    
     "add" => "إضافة",
     "edit" => "تعديل",
     "delete" => "حذف",
-    "submit" => "تسجيل"
+    "submit" => "تسجيل",
+    "restore" => "استعادة",
+    "force_delete" => "حذف تام",
 
 ];

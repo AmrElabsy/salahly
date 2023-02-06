@@ -25,11 +25,12 @@ return new class extends Migration
             $table->unsignedBigInteger("device_id");
             $table->unsignedBigInteger("status_id");
             $table->timestamps();
+            $table->softDeletes();
             
-            $table->foreign("employee_id")->on("employees")->references("id");
-            $table->foreign("branch_id")->on("branches")->references("id");
-            $table->foreign("device_id")->on("devices")->references("id");
-            $table->foreign("status_id")->on("statuses")->references("id");
+            $table->foreign("employee_id")->on("employees")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
+            $table->foreign("branch_id")->on("branches")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
+            $table->foreign("device_id")->on("devices")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
+            $table->foreign("status_id")->on("statuses")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
         });
     }
 

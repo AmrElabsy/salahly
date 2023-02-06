@@ -13,8 +13,8 @@
     
                 $table->timestamps();
     
-                $table->foreign("employee_id")->on("employees")->references("id");
-                $table->foreign("holiday_id")->on("holidays")->references("id");
+                $table->foreign("employee_id")->on("employees")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
+                $table->foreign("holiday_id")->on("holidays")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
     
             });
         }

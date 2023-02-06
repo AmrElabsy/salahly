@@ -17,12 +17,13 @@ return [
     "customer_added" => "Customer added Successfully",
     "customer_updated" => "Customer updated Successfully",
     "customer_deleted" => "Customer deleted Successfully",
-
-    
+    "customer_restored" => "Customer Restored Successfully",
+    "deleted_customers" => "Deleted Customers",
     
     "add" => "Add",
     "edit" => "Edit",
     "delete" => "Delete",
-    "submit" => "Submit"
-
+    "submit" => "Submit",
+    "restore" => "Restore",
+    "force_delete" => "Force Delete",
 ];

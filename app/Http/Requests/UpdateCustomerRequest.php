@@ -24,7 +24,9 @@ class UpdateCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|min:2"
+            "name" => "required|min:3",
+            "phones" => "required|array",
+            "phones.*" => "numeric|starts_with:0|digits:11"
         ];
     }
 }

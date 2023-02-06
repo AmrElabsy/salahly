@@ -24,7 +24,18 @@ class StoreCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|min:3"
+            "name" => "required|min:3",
+            "phones" => "required|array",
+            "phones.*" => "numeric|starts_with:0|digits:11"
         ];
+    }
+    
+    public function messages() {
+        $message = [];
+        foreach ($this->get("phones", []) as $key => $value) {
+            $message["phones"][$key] = $value;
+        }
+//        dd($message);
+        return $message;
     }
 }

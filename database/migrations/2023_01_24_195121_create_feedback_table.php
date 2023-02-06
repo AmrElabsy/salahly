@@ -20,8 +20,9 @@ return new class extends Migration
             $table->unsignedBigInteger("problem_id");
             
             $table->timestamps();
+            $table->softDeletes();
             
-            $table->foreign("problem_id")->on("problems")->references("id");
+            $table->foreign("problem_id")->on("problems")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
         });
     }
 

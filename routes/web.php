@@ -26,9 +26,17 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
+    
+    Route::group(["prefix" => "customer", "as" => "customer."], function() {
+        Route::get("/deleted", "CustomerController@deleted")->name("deleted");
+        Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");
+        Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
+    });
+    
     Route::resources([
         "device" => "DeviceController",
         "customer" => "CustomerController",
         "status" => "StatusController"
     ]);
+    
 });
