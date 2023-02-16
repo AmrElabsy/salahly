@@ -2,85 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Device;
 use App\Http\Requests\StoreDeviceRequest;
 use App\Http\Requests\UpdateDeviceRequest;
+use App\Services\DeviceService;
 
 class DeviceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(
+        public DeviceService $service
+    ) {}
+    
     public function index()
     {
-        //
+        $devices = Device::all();
+        return view("devices.index", compact("devices"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $customers = Customer::all();
+        return view("devices.create", compact("customers"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreDeviceRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreDeviceRequest $request)
     {
-        //
+        try {
+            $this->service->store($request->all());
+        } catch (\Exception $e) {
+        
+        }
+        return redirect()->route("device.index")->withStatus("titles.device_added");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Device  $device
-     * @return \Illuminate\Http\Response
-     */
     public function show(Device $device)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Device  $device
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Device $device)
     {
-        //
+        $customers = Customer::all();
+        return view("devices.edit", compact("device", "customers"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateDeviceRequest  $request
-     * @param  \App\Models\Device  $device
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateDeviceRequest $request, Device $device)
     {
-        //
+        try {
+            $this->service->update($request->all(), $device);
+        } catch (\Exception $e) {
+        
+        }
+        return redirect()->route("device.index")->withStatus("titles.device_updated");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Device  $device
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Device $device)
     {
-        //
+        $device->delete();
+        return redirect()->route("device.index")->withStatus(__("titles.device_deleted"));
+    
     }
+    
+    public function deleted() {
+        $devices = Device::onlyTrashed()->get();
+        return view("Devices.deleted", compact("devices"));
+    }
+    
+    public function restore($device) {
+        Device::withTrashed()->find($device)->restore();
+        return redirect()->back()->withStatus(__("titles.device_restored"));
+    }
+    
+    public function forceDelete($device) {
+        Device::withTrashed()->find($device)->forceDelete();
+        return redirect()->back()->withStatus(__("titles.device_deleted"));
+    }
+    
 }

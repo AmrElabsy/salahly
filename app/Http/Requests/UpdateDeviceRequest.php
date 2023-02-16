@@ -24,7 +24,7 @@ class UpdateDeviceRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required"
+            "device_name" => "required"
         ];
     }
 }

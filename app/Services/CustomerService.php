@@ -14,6 +14,8 @@
             $customer->save();
     
             $this->storePhones($customer, $data["phones"]);
+            
+            return $customer;
         }
     
         public function update( $data, Model $resource ) {

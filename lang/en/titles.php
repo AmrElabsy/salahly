@@ -20,6 +20,16 @@ return [
     "customer_restored" => "Customer Restored Successfully",
     "deleted_customers" => "Deleted Customers",
     
+    "device" => "Device",
+    "devices" => "Devices",
+    "add_device" => "Add Device",
+    "edit_device" => "Edit Device",
+    "device_added" => "Device added Successfully",
+    "device_updated" => "Device updated Successfully",
+    "device_deleted" => "Device deleted Successfully",
+    "device_restored" => "Device Restored Successfully",
+    "deleted_devices" => "Deleted Devices",
+    
     "add" => "Add",
     "edit" => "Edit",
     "delete" => "Delete",

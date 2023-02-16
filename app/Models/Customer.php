@@ -16,4 +16,8 @@ class Customer extends Model
     public function phones(): HasMany {
         return $this->hasMany(Phone::class);
     }
+    
+    public function devices(): HasMany {
+        return $this->hasMany(Device::class);
+    }
 }

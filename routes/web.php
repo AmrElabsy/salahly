@@ -33,6 +33,12 @@ Route::group([
         Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
     });
     
+    Route::group(["prefix" => "device", "as" => "device."], function() {
+        Route::get("/deleted", "DeviceController@deleted")->name("deleted");
+        Route::get("/restore/{device}", "DeviceController@restore")->name("restore");
+        Route::get("/forcedelete/{device}", "DeviceController@forceDelete")->name("forceDelete");
+    });
+    
     Route::resources([
         "device" => "DeviceController",
         "customer" => "CustomerController",

@@ -32,12 +32,6 @@
 	@endif
 </head>
 <body data-sidebar="dark">
-<div id="preloader">
-	<div id="status">
-		<div class="spinner"></div>
-	</div>
-</div>
-
 <!-- Begin page -->
 <div id="layout-wrapper">
 	@include("layouts.header")

@@ -1,13 +1,13 @@
 @extends("layouts.app")
-@section("title", __("titles.customers"))
+@section("title", __("titles.devices"))
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.customers") }}</h2>
+			<h2>{{ __("titles.devices") }}</h2>
 			<div>
-				<a href="{{ route("customer.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("customer.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_customers") }}</a>
+				<a href="{{ route("device.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				<a href="{{ route("device.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_devices") }}</a>
 			</div>
 		</div>
 
@@ -25,31 +25,21 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.customers") }}</th>
-					<th>{{ __("titles.phones") }}</th>
 					<th>{{ __("titles.devices") }}</th>
+					<th>{{ __("titles.customer") }}</th>
 					<th>Manage</th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($customers as $i => $customer)
+				@foreach($devices as $i => $device)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $customer->name }}</td>
+						<td>{{ $device->name }}</td>
+						<td>{{ $device->customer->name }}</td>
 						<td>
-							@foreach($customer->phones as $phone)
-								<p>{{ $phone->phone }}</p>
-							@endforeach
-						</td>
-						<td>
-							@foreach($customer->devices as $device)
-								<p>{{ $device->name }}</p>
-							@endforeach
-						</td>
-						<td>
-							<a href="{{ route("customer.edit", $customer->id) }}"
+							<a href="{{ route("device.edit", $device->id) }}"
 							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("customer.destroy", $customer->id)])
+							@include("layouts.delete", ["action" => route("device.destroy", $device->id)])
 						</td>
 					</tr>
 
