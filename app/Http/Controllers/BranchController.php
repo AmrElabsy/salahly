@@ -15,7 +15,8 @@ class BranchController extends Controller
      */
     public function index()
     {
-        //
+        $branches = Branch::all();
+        return view("branches.index", compact("branches"));
     }
 
     /**
@@ -25,7 +26,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        //
+        return view("branches.create");
     }
 
     /**
@@ -36,7 +37,11 @@ class BranchController extends Controller
      */
     public function store(StoreBranchRequest $request)
     {
-        //
+        $branch = new Branch();
+        $branch->name = $request->get("name");
+        $branch->save();
+        
+        return redirect()->route("branch.index")->withStatus(__("titles.branch_added"));
     }
 
     /**
@@ -58,7 +63,7 @@ class BranchController extends Controller
      */
     public function edit(Branch $branch)
     {
-        //
+        return view("branches.edit", compact("branch"));
     }
 
     /**
@@ -70,8 +75,10 @@ class BranchController extends Controller
      */
     public function update(UpdateBranchRequest $request, Branch $branch)
     {
-        //
-    }
+        $branch->name = $request->get("name");
+        $branch->save();
+        return redirect()->route("branch.index")->withStatus(__("titles.branch_updated"));
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +88,8 @@ class BranchController extends Controller
      */
     public function destroy(Branch $branch)
     {
-        //
+        $branch->delete();
+        return redirect()->route("branch.index")->withStatus(__("titles.branch_deleted"));
+    
     }
 }
