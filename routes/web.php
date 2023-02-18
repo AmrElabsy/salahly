@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +48,7 @@ Route::group([
         "device" => "DeviceController",
         "customer" => "CustomerController",
         "status" => "StatusController",
+        "branch"=>"BranchController",
         "problem" => "ProblemController",
     ]);
     

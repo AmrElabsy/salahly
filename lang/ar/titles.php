@@ -2,6 +2,8 @@
 return [
     "users" => "المستخدمين",
     
+    
+    //status
     "status" => "الحالة",
     "statuses" => "الحالات",
     "add_status" => "إضافة حالة جديدة",
@@ -10,6 +12,7 @@ return [
     "status_updated" => "تم تعديل الحالة بنجاح",
     "status_deleted" => "تم حذف الحالة بنجاح",
     
+    //customer
     "customer" => "العميل",
     "customers" => "العملاء",
     "add_customer" => "إضافة عميل جديدة",
@@ -19,9 +22,34 @@ return [
     "customer_deleted" => "تم حذف العميل بنجاح",
     "customer_restored" => "تم استعادة العميل بنجاح",
     "deleted_customers" => "العملاء المحذوفون",
+    "is_new_customer"=>"هل أنت عميل جديد؟",
+    
+
     
     
     
+    //device
+    "device" => "الجهاز",
+    "devices" => "الأجهزة",
+    "add_device" => "إضافة الجهاز",
+    "edit_device" => "تعديل الجهاز",
+    "device_added" => "تم إضافة الجهاز بنجاح",
+    "device_updated" => "تم تعديل الجهاز بنجاح",
+    "device_deleted" => "تم حذف الجهاز بنجاح",
+    "device_restored" => "تم إستعادة الجهاز بنجاح",
+    "deleted_devices" => "الأجهزة المحذوفة",
+
+
+    //branch
+    "branch" => "الفرع",
+    "branches" => "الفروع",
+    "add_branch" => "إضافة فرع جديد",
+    "edit_branch" => "تعديل فرع",
+    "branch_added" => "تم إضافة الفرع بنجاح",
+    "branch_updated" => "تم تعديل الفرع بنجاح",
+    "branch_deleted" => "تم حذف الفرع بنجاح",
+
+    //actions
     "add" => "إضافة",
     "edit" => "تعديل",
     "delete" => "حذف",
