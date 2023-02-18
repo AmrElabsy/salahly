@@ -23,7 +23,7 @@
 				<tr>
 					<th>#</th>
 					<th>{{ __("titles.branches") }}</th>
-					<th>Manage</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>

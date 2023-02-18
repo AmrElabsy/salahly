@@ -26,7 +26,7 @@
 					<th>#</th>
 					<th>{{ __("titles.devices") }}</th>
 					<th>{{ __("titles.customer") }}</th>
-					<th>Manage</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>

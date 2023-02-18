@@ -1,6 +1,8 @@
 <?php
 return [
     "users" => "Users",
+    "login" => "Login",
+    "logout" => "Logout",
     
     //status
     "status" => "Status",
@@ -21,9 +23,8 @@ return [
     "customer_deleted" => "Customer deleted Successfully",
     "customer_restored" => "Customer Restored Successfully",
     "deleted_customers" => "Deleted Customers",
-    "is_new_customer"=>"Is_New_Customer",
-    
-    
+    "is_new_customer" => "Is New Customer",
+    "phones" => "Phones",
     
     //device
     "device" => "Device",
@@ -35,6 +36,32 @@ return [
     "device_deleted" => "Device deleted Successfully",
     "device_restored" => "Device Restored Successfully",
     "deleted_devices" => "Deleted Devices",
+    
+    //problem
+    "problem" => "Problem",
+    "problems" => "Problems",
+    "add_problem" => "Add Problem",
+    "edit_problem" => "Edit Problem",
+    "problem_added" => "Problem added Successfully",
+    "problem_updated" => "Problem updated Successfully",
+    "problem_deleted" => "Problem deleted Successfully",
+    "problem_restored" => "Problem Restored Successfully",
+    "deleted_problems" => "Deleted Problems",
+    "description" => "Description",
+    "price" => "Price",
+    "paid" => "Paid",
+    "due_time" => "Due Time",
+    
+    //employee
+    "employee" => "Employee",
+    "employees" => "Employees",
+    "add_employee" => "Add Employee",
+    "edit_employee" => "Edit Employee",
+    "employee_added" => "Employee added Successfully",
+    "employee_updated" => "Employee updated Successfully",
+    "employee_deleted" => "Employee deleted Successfully",
+    "employee_restored" => "Employee Restored Successfully",
+    "deleted_employees" => "Deleted Employees",
     
     //branch
     "branch" => "Branch",
@@ -53,4 +80,5 @@ return [
     "submit" => "Submit",
     "restore" => "Restore",
     "force_delete" => "Force Delete",
+    "manage" => "Manage"
 ];

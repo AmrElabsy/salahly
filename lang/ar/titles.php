@@ -1,7 +1,8 @@
 <?php
 return [
     "users" => "المستخدمين",
-    
+    "login" => "تسجيل الدخول",
+    "logout" => "تسجيل الخروج",
     
     //status
     "status" => "الحالة",
@@ -22,10 +23,24 @@ return [
     "customer_deleted" => "تم حذف العميل بنجاح",
     "customer_restored" => "تم استعادة العميل بنجاح",
     "deleted_customers" => "العملاء المحذوفون",
-    "is_new_customer"=>"هل أنت عميل جديد؟",
+    "is_new_customer" => "هل أنت عميل جديد؟",
+    "phones" => "الهواتف",
     
-
     
+    //problem
+    "problem" => "المشكلة",
+    "problems" => "المشاكل",
+    "add_problem" => "إضافة مشكلة جديدة",
+    "edit_problem" => "تعديل مشكلة",
+    "problem_added" => "تم إضافة المشكلة بنجاح",
+    "problem_updated" => "تم تعديل المشكلة بنجاح",
+    "problem_deleted" => "تم حذف المشكلة بنجاح",
+    "problem_restored" => "تم استعادة المشكلة بنجاح",
+    "deleted_problems" => "المشاكل المحذوفة",
+    "description" => "الوصف",
+    "price" => "السعر",
+    "paid" => "المدفوع",
+    "due_time" => "ميعاد التسليم",
     
     
     //device
@@ -38,8 +53,19 @@ return [
     "device_deleted" => "تم حذف الجهاز بنجاح",
     "device_restored" => "تم إستعادة الجهاز بنجاح",
     "deleted_devices" => "الأجهزة المحذوفة",
-
-
+    
+    //employee
+    "employee" => "الموظف",
+    "employees" => "الموظفون",
+    "add_employee" => "إضافة موظف جديد",
+    "edit_employee" => "تعديل الموظف",
+    "employee_added" => "تم إضافة الموظف بنجاح",
+    "employee_updated" => "تم تعديل الموظف بنجاح",
+    "employee_deleted" => "تم حذف الموظف بنجاح",
+    "employee_restored" => "تم استعادة الموظف بنجاح",
+    "deleted_employees" => "الموظفون المحذوفون",
+    
+    
     //branch
     "branch" => "الفرع",
     "branches" => "الفروع",
@@ -56,5 +82,6 @@ return [
     "submit" => "تسجيل",
     "restore" => "استعادة",
     "force_delete" => "حذف تام",
+    "manage" => "تحكم"
 
 ];

@@ -26,7 +26,7 @@
 					<th>#</th>
 					<th>{{ __("titles.customers") }}</th>
 					<th>Phones</th>
-					<th>Manage</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>

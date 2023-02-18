@@ -39,7 +39,7 @@
 					<th>{{ __("titles.status") }}</th>
 					<th>{{ __("titles.due_time") }}</th>
 					<th>{{ __("titles.customer") }}</th>
-					<th>Manage</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
