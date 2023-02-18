@@ -46,6 +46,20 @@
 					@endforeach
 				</div>
 			</div>
+			<div>
+				@if(Auth::user())
+					<form action="{{ route("logout") }}" method="post">
+						@csrf
+						<input type="submit" class="btn header-item waves-effect" value="{{ __("titles.logout") }}">
+					</form>
+				@else
+					<a href="{{ route("login") }}" class="d-flex w-100 h-100 btn header-item waves-effect align-items-center">
+						<div>
+							{{ __("titles.login") }}
+						</div>
+					</a>
+				@endif
+			</div>
 		</div>
 	</div>
 </header>

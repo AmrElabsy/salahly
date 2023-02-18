@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view("layouts.app");
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -27,29 +26,34 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
+    Auth::routes();
     
-    Route::group(["prefix" => "customer", "as" => "customer."], function() {
-        Route::get("/deleted", "CustomerController@deleted")->name("deleted");
-        Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");
-        Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
+    Route::group(["middleware" => "auth"], function() {
+        Route::group(["prefix" => "customer", "as" => "customer."], function() {
+            Route::get("/deleted", "CustomerController@deleted")->name("deleted");
+            Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");
+            Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
+        });
+    
+        Route::group(["prefix" => "device", "as" => "device."], function() {
+            Route::get("/deleted", "DeviceController@deleted")->name("deleted");
+            Route::get("/restore/{device}", "DeviceController@restore")->name("restore");
+            Route::get("/forcedelete/{device}", "DeviceController@forceDelete")->name("forceDelete");
+        });
+    
+        Route::group(["prefix" => "employee", "as" => "employee."], function() {
+            Route::get("/deleted", "EmployeeController@deleted")->name("deleted");
+            Route::get("/restore/{employee}", "EmployeeController@restore")->name("restore");
+            Route::get("/forcedelete/{employee}", "EmployeeController@forceDelete")->name("forceDelete");
+        });
+    
+        Route::resources([
+            "device" => "DeviceController",
+            "customer" => "CustomerController",
+            "status" => "StatusController",
+            "branch"=>"BranchController",
+            "problem" => "ProblemController",
+            "employee" => "EmployeeController",
+        ]);
     });
-    
-    Route::group(["prefix" => "device", "as" => "device."], function() {
-        Route::get("/deleted", "DeviceController@deleted")->name("deleted");
-        Route::get("/restore/{device}", "DeviceController@restore")->name("restore");
-        Route::get("/forcedelete/{device}", "DeviceController@forceDelete")->name("forceDelete");
-    });
-    
-    Route::group(["prefix" => "problem", "as" => "problem."], function() {
-        Route::post("/status", "ProblemController@status")->name("status");
-    });
-    
-    Route::resources([
-        "device" => "DeviceController",
-        "customer" => "CustomerController",
-        "status" => "StatusController",
-        "branch"=>"BranchController",
-        "problem" => "ProblemController",
-    ]);
-    
 });

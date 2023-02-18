@@ -39,6 +39,13 @@
 				</li>
 
 				<li>
+					<a href="{{ route("employee.index") }}" class="waves-effect">
+						<i class="mdi mdi-account-group"></i>
+						<span> {{ __("titles.employees") }} </span>
+					</a>
+				</li>
+
+				<li>
 					<a href="{{ route("branch.index") }}" class="waves-effect">
 						<i class="mdi mdi-account-group"></i>
 						<span> {{ __("titles.branches") }} </span>

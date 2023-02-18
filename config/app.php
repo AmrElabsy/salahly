@@ -199,6 +199,7 @@ return [
         \App\Providers\CustomerServiceProvider::class,
         \App\Providers\DeviceServiceProvider::class,
         \App\Providers\ProblemServiceProvider::class,
+        \App\Providers\EmployeeServiceProvider::class,
 
     ],
 

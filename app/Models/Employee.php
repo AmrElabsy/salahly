@@ -11,4 +11,8 @@ class Employee extends Model
     use HasFactory;
     use SoftDeletes;
     
+    public function branches() {
+        return $this->belongsToMany(Branch::class);
+    }
+    
 }
