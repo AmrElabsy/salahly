@@ -13,7 +13,7 @@ class StoreProblemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreProblemRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "description" => "required|min:2",
+            "price" => "numeric",
+            "paid" => "numeric",
+            "due_time" => "",
+            "device_name" => "required_if:is_new_device,on"
         ];
     }
 }

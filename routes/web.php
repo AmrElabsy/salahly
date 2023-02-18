@@ -40,11 +40,16 @@ Route::group([
         Route::get("/forcedelete/{device}", "DeviceController@forceDelete")->name("forceDelete");
     });
     
+    Route::group(["prefix" => "problem", "as" => "problem."], function() {
+        Route::post("/status", "ProblemController@status")->name("status");
+    });
+    
     Route::resources([
         "device" => "DeviceController",
         "customer" => "CustomerController",
         "status" => "StatusController",
         "branch"=>"BranchController",
+        "problem" => "ProblemController",
     ]);
     
 });

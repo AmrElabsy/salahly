@@ -13,7 +13,7 @@ class UpdateProblemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class UpdateProblemRequest extends FormRequest
      */
     public function rules()
     {
+//        dd(request());
         return [
-            //
+            "description" => "required|min:2",
+            "price" => "numeric",
+            "paid" => "numeric",
+            "due_time" => "required",
+            "status" => "required|exists:statuses,id",
+            "device_id" => "required|exists:devices,id"
         ];
     }
 }
