@@ -2,85 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\Device;
 use App\Models\Problem;
 use App\Http\Requests\StoreProblemRequest;
 use App\Http\Requests\UpdateProblemRequest;
+use App\Models\Status;
+use App\Services\ProblemService;
 
 class ProblemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(
+        public ProblemService $service
+    )
+    {}
+    
     public function index()
     {
-        //
+        $problems = Problem::all();
+        $statuses = Status::all();
+        return view("problems.index", compact("problems", "statuses"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $devices = Device::all();
+        $statuses = Status::all();
+        $customers = Customer::all();
+        
+        return view("problems.create", compact("devices", "statuses", "customers"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreProblemRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreProblemRequest $request)
     {
-        //
+        $this->service->store($request->all());
+        return redirect()->route("problem.index")->withStatus(__("titles.problem_added"));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function show(Problem $problem)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Problem $problem)
     {
-        //
+        $devices = Device::all();
+        $statuses = Status::all();
+    
+        return view("problems.edit", compact("problem","devices", "statuses"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateProblemRequest  $request
-     * @param  \App\Models\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateProblemRequest $request, Problem $problem)
     {
-        //
+        $this->service->update($request->all(), $problem);
+        return redirect()->route("problem.index")->withStatus(__("titles.problem_updated"));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Problem  $problem
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Problem $problem)
     {
-        //
+        $problem->delete();
+        return redirect()->route("problem.index")->withStatus(__("titles.problem_deleted"));
     }
 }

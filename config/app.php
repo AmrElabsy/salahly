@@ -198,6 +198,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         \App\Providers\CustomerServiceProvider::class,
         \App\Providers\DeviceServiceProvider::class,
+        \App\Providers\ProblemServiceProvider::class,
 
     ],
 

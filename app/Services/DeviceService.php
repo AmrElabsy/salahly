@@ -2,7 +2,6 @@
     
     namespace App\Services;
     
-    use App\Models\Customer;
     use App\Models\Device;
     use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +18,7 @@
                 $device->customer_id = $data["customer_id"];
             }
             $device->save();
+            return $device;
         }
     
         public function update( $data, Model $resource ) {

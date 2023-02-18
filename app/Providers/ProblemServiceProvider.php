@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\DeviceService;
+use App\Services\ProblemService;
 use Illuminate\Support\ServiceProvider;
 
-class DeviceServiceProvider extends ServiceProvider
+class ProblemServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +14,8 @@ class DeviceServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(DeviceService::class, function($app) {
-            return new DeviceService();
+        $this->app->bind(ProblemService::class, function($app) {
+            return new ProblemService();
         });
     }
 
