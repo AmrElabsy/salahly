@@ -15,7 +15,7 @@
             $problem->paid = $data["paid"];
             $problem->due_time = $data["due_time"];
             $problem->status_id = $data["status"];
-            $problem->branch_id = 1;
+            $problem->branch_id = $data["branch"];
             
             if ( isset($data["is_new_device"]) && $data["is_new_device"] == "on" ) {
                 $deviceService = new DeviceService();
@@ -34,6 +34,7 @@
             $resource->paid = $data["paid"];
             $resource->due_time = $data["due_time"];
             $resource->status_id = $data["status"];
+            $resource->branch_id = $data["branch"];
             
             $resource->save();
         }

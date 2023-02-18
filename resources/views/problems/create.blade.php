@@ -52,6 +52,19 @@
 		</div>
 
 		<div class="form-group row">
+			<label for="branch" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
+			<div class="col-sm-6">
+				<select name="branch" id="branch" class="form-control">
+					@foreach($branches as $branch)
+						<option
+								@selected(old('branch') == $branch->id)
+								value="{{ $branch->id }}">{{ $branch->name }}</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
 			<label for="due_time" class="col-sm-2 col-form-label">{{ __("titles.due_time") }}</label>
 			<div class="col-sm-6">
 				<input class="form-control @error("due_time") is-invalid @enderror"
@@ -75,7 +88,6 @@
 				</select>
 			</div>
 		</div>
-
 
 		<div class="form-group row">
 			<label for="is_new_device" class="col-sm-2 col-form-label">{{ __("titles.is_new_device") }}</label>
@@ -179,6 +191,7 @@
 		$("#customer").select2();
 		$("#device").select2();
 		$("#status_id").select2();
+		$("#branch").select2();
 		$("#phones").select2({
 			tags: true
 		});

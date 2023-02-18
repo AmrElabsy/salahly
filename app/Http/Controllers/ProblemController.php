@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use App\Models\Customer;
 use App\Models\Device;
 use App\Models\Problem;
@@ -29,8 +30,9 @@ class ProblemController extends Controller
         $devices = Device::all();
         $statuses = Status::all();
         $customers = Customer::all();
+        $branches = Branch::all();
         
-        return view("problems.create", compact("devices", "statuses", "customers"));
+        return view("problems.create", compact("devices", "statuses", "customers", "branches"));
     }
 
     public function store(StoreProblemRequest $request)
@@ -48,8 +50,9 @@ class ProblemController extends Controller
     {
         $devices = Device::all();
         $statuses = Status::all();
+        $branches = Branch::all();
     
-        return view("problems.edit", compact("problem","devices", "statuses"));
+        return view("problems.edit", compact("problem","devices", "statuses", "branches"));
     }
 
     public function update(UpdateProblemRequest $request, Problem $problem)

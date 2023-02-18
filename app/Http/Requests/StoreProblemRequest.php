@@ -28,7 +28,8 @@ class StoreProblemRequest extends FormRequest
             "price" => "numeric",
             "paid" => "numeric",
             "due_time" => "",
-            "device_name" => "required_if:is_new_device,on"
+            "device_name" => "required_if:is_new_device,on",
+            "branch" => "exists:branches,id"
         ];
     }
 }
