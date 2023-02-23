@@ -17,6 +17,42 @@
 			</div>
 		</div>
 
+		<div class="">
+			<form>
+				<div class="form-group row">
+					<label for="branch" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
+					<div class="col-sm-3">
+						<select name="branch" id="branch" class="form-control">
+							<option value="">0</option>
+							@foreach($branches as $branch)
+								<option
+										@selected(old('branch') == $branch->id)
+										value="{{ $branch->id }}">{{ $branch->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+
+					<label for="status_id" class="col-sm-2 col-form-label">{{ __("titles.status") }}</label>
+					<div class="col-sm-3">
+						<select name="status" id="status_id" class="form-control">
+							<option value="">0</option>
+							@foreach($statuses as $status)
+								<option
+										@selected(old('status') == $status->id)
+										value="{{ $status->id }}">{{ $status->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+					<div class="col-sm-2">
+						<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
+					</div>
+
+				</div>
+			</form>
+		</div>
+
 		@if(session('status'))
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
 				{{ session('status') }}

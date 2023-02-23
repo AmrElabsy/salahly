@@ -20,9 +20,11 @@ class ProblemController extends Controller
     
     public function index()
     {
-        $problems = Problem::all();
+        $problems = Problem::query();
+        $problems = $this->filter($problems);
         $statuses = Status::all();
-        return view("problems.index", compact("problems", "statuses"));
+        $branches = Branch::all();
+        return view("problems.index", compact("problems", "statuses", "branches"));
     }
 
     public function create()
@@ -65,5 +67,20 @@ class ProblemController extends Controller
     {
         $problem->delete();
         return redirect()->route("problem.index")->withStatus(__("titles.problem_deleted"));
+    }
+    
+    private function filter( $problems ) {
+        $branch = request("branch");
+        $status = request("status");
+        
+        if ($branch) {
+            $problems = $problems->where("branch_id", $branch);
+        }
+        
+        if ($status) {
+            $problems = $problems->where("status_id", $status);
+        }
+        
+        return $problems->get();
     }
 }
