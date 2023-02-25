@@ -46,6 +46,11 @@ Route::group([
             Route::get("/restore/{employee}", "EmployeeController@restore")->name("restore");
             Route::get("/forcedelete/{employee}", "EmployeeController@forceDelete")->name("forceDelete");
         });
+        
+        Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
+            Route::get("/attend/{employee}", "AttendanceController@attend")->name("attend");
+            Route::get("/leave/{employee}", "AttendanceController@leave")->name("leave");
+        });
     
         Route::resources([
             "device" => "DeviceController",
@@ -54,6 +59,7 @@ Route::group([
             "branch"=>"BranchController",
             "problem" => "ProblemController",
             "employee" => "EmployeeController",
+            "attendance" => "AttendanceController",
         ]);
     });
 });

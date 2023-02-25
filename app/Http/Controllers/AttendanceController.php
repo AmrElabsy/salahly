@@ -5,82 +5,73 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use App\Http\Requests\StoreAttendanceRequest;
 use App\Http\Requests\UpdateAttendanceRequest;
+use App\Models\Employee;
+use Carbon\Carbon;
+use DateInterval;
+use DatePeriod;
+use DateTime;
 
 class AttendanceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $employees = Employee::all();
+        $day2 = Carbon::now()->format("d");
+        $month = Carbon::now()->format("M");
+    
+        $start = new DateTime(Carbon::now()->startOfMonth());
+        $interval = new DateInterval('P1D');
+        $end = new DateTime(Carbon::now());
+        $period = new DatePeriod($start, $interval, $end);
+        
+        return view("attendances.index", compact("employees", "day2", "month", "period"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAttendanceRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreAttendanceRequest $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
     public function show(Attendance $attendance)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Attendance $attendance)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAttendanceRequest  $request
-     * @param  \App\Models\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateAttendanceRequest $request, Attendance $attendance)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Attendance  $attendance
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Attendance $attendance)
     {
         //
+    }
+    
+    public function attend(Employee $employee) {
+        $attendance = new Attendance();
+        $attendance->employee_id = $employee->id;
+        $attendance->type = 0;
+        $attendance->save();
+        
+        return redirect()->back();
+    }
+
+    public function leave(Employee $employee) {
+        $attendance = new Attendance();
+        $attendance->employee_id = $employee->id;
+        $attendance->type = 1;
+        $attendance->save();
+        
+        return redirect()->back();
     }
 }

@@ -8,9 +8,9 @@
 			<div><a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
 		</div>
 
-		@if(session('branch'))
+		@if(session('status'))
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				{{ session('branch') }}
+				{{ session('status') }}
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
