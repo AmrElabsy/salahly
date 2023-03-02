@@ -174,7 +174,7 @@
 				<div class="col-sm-6">
 					<select name="device_id" id="device" class="form-control">
 						@foreach($devices as $device)
-							<option value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer->name }})</option>
+							<option value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer?->name }})</option>
 						@endforeach
 					</select>
 				</div>

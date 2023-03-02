@@ -34,7 +34,7 @@
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $device->name }}</td>
-						<td>{{ $device->customer->name }}</td>
+						<td>{{ $device->customer?->name }}</td>
 						<td>
 							<a href="{{ route("device.restore", $device->id) }}"
 							   class="btn btn-primary">{{ __("titles.restore") }}</a>

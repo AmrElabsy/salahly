@@ -100,7 +100,7 @@
 					@foreach($devices as $device)
 						<option
 								@selected(old('device_id', $problem->device->id) == $device->id)
-								value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer->name }})</option>
+								value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer?->name }})</option>
 					@endforeach
 				</select>
 			</div>

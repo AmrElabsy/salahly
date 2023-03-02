@@ -89,7 +89,7 @@
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
 						<td>{{ $problem->due_time }}</td>
-						<td>{{ $problem->device->customer->name }}</td>
+						<td>{{ $problem->device?->customer?->name }}</td>
 						<td class="d-flex ">
 							<div>
 								<a href="{{ route("problem.edit", $problem->id) }}"
