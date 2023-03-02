@@ -73,6 +73,21 @@ return [
     "branch_deleted" => "Branch deleted Successfully",
 
 
+    //material
+    "material" => "Material",
+    "materials" => "Materials",
+    "add_material" => "Add material",
+    "edit_material" => "Edit material",
+    "material_added" => "Material added Successfully",
+    "material_updated" => "Material updated Successfully",
+    "material_deleted" => "Material deleted Successfully",
+    "deleted_materials" => "Deleted Materials",
+    "name"=>"Name",
+    "price"=>"Price",
+
+
+
+
     //actions
     "add" => "Add",
     "edit" => "Edit",

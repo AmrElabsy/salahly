@@ -75,6 +75,23 @@ return [
     "branch_updated" => "تم تعديل الفرع بنجاح",
     "branch_deleted" => "تم حذف الفرع بنجاح",
 
+
+
+    //material
+    "material" => "الخامة",
+    "materials" => "الخامات",
+    "add_material" => "إضافة خامة جديد",
+    "edit_material" => "تعديل خامة",
+    "material_added" => "تم إضافة الخامة بنجاح",
+    "material_updated" => "تم تعديل الخامة بنجاح",
+    "material_deleted" => "تم حذف الخامة بنجاح",
+    "deleted_materials" => "الخامات المحذوفة",
+    "name"=>"الإسم",
+    "price"=>"السعر",
+
+
+
+
     //actions
     "add" => "إضافة",
     "edit" => "تعديل",

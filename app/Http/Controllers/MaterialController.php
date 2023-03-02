@@ -16,17 +16,26 @@ class MaterialController extends Controller
     public function index()
     {
         $materials = Material::all();
-        return view("");
+        return view("materials.index", compact("materials"));
+        
     }
 
     public function create()
     {
-        //
+        return view("materials.create");
+
     }
 
     public function store(StoreMaterialRequest $request)
     {
-        //
+        
+        $material = new Material();
+        $material->name = $request->get("name");
+        $material->price = $request->get("price");
+        
+        $material->save();
+        
+        return redirect()->route("material.index")->withStatus(__("titles.material_added"));
     }
 
     public function show(Material $material)
@@ -36,16 +45,37 @@ class MaterialController extends Controller
 
     public function edit(Material $material)
     {
-        //
+        return view("materials.edit", compact("material"));
+
     }
 
     public function update(UpdateMaterialRequest $request, Material $material)
     {
-        //
+        $material->name = $request->get("name");
+        $material->price = $request->get("price");
+
+        $material->save();
+        return redirect()->route("material.index")->withStatus(__("titles.material_updated"));
+    
     }
 
     public function destroy(Material $material)
     {
-        //
+        $material->delete();
+        return redirect()->route("material.index")->withStatus(__("titles.material_deleted"));
+    }
+    public function deleted() {
+        $materials = Material::onlyTrashed()->get();
+        return view("materials.deleted", compact("materials"));
+    }
+
+    public function restore($material) {
+        Material::withTrashed()->find($material)->restore();
+        return redirect()->back()->withStatus(__("titles.material_restored"));
+    }
+    
+    public function forceDelete($material) {
+        Material::withTrashed()->find($material)->forceDelete();
+        return redirect()->back()->withStatus(__("titles.material_deleted"));
     }
 }
