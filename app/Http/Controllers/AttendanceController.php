@@ -13,18 +13,25 @@ use DateTime;
 
 class AttendanceController extends Controller
 {
-    public function index()
+    public function index( $year = null, $month = null)
     {
-        $employees = Employee::all();
-        $day2 = Carbon::now()->format("d");
-        $month = Carbon::now()->format("M");
+        $year = $year ?? Carbon::now()->year;
+        $month = $month ?? Carbon::now()->month;
     
-        $start = new DateTime(Carbon::now()->startOfMonth());
+        $date = new Carbon($year . "-" . $month );
+        $start = new DateTime($date->startOfMonth());
         $interval = new DateInterval('P1D');
-        $end = new DateTime(Carbon::now());
-        $period = new DatePeriod($start, $interval, $end);
+        $end = $date->endOfMonth() < now() ? new DateTime($date->endOfMonth()) : Carbon::now();
+        $days = new DatePeriod($start, $interval, $end);
+    
+        $jan = new DateTime(Carbon::now()->firstOfYear());
+        $interval = new DateInterval("P1M");
+        $currentMonth = Carbon::now()->lastOfMonth();
         
-        return view("attendances.index", compact("employees", "day2", "month", "period"));
+        $months = new DatePeriod($jan, $interval, $currentMonth);
+        
+        $employees = Employee::all();
+        return view("attendances.index", compact("employees", "days", "months"));
     }
 
     public function create()

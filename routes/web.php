@@ -50,6 +50,9 @@ Route::group([
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
             Route::get("/attend/{employee}", "AttendanceController@attend")->name("attend");
             Route::get("/leave/{employee}", "AttendanceController@leave")->name("leave");
+            Route::get("/{year}", "AttendanceController@index")->name("year");
+            Route::get("/{year}/{month}", "AttendanceController@index")->name("month");
+    
         });
     
         Route::resources([

@@ -7,21 +7,26 @@
 			<h2>{{ __("titles.attendances") }}</h2>
 		</div>
 
-		@if(session('status'))
-			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				{{ session('status') }}
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+		<div class="d-flex">
+			<div class="btn-group">
+				@foreach($months as $month)
+					<a href="{{ route("attendance.month", ["2023", $month->format("m")]) }}"
+					   @if(true)
+					   @endif
+					   class="btn btn-success">
+						{{ $month->format("F") }}
+					</a>
+				@endforeach
+
 			</div>
-		@endif
+		</div>
 
 		<div class="table-responsive">
-			<table class="table table-striped mb-0 table-bordered">
+			<table class="table table-striped mb-0 mt-3 table-bordered">
 				<thead>
 				<tr class="text-center">
 					<td>{{ __("titles.employee") }}</td>
-					@foreach($period as $day)
+					@foreach($days as $day)
 						<td>{{ $day->format("d M Y") }}</td>
 						<td style="border-bottom: 1px solid #555">{{ $day->format("d M Y") }}</td>
 					@endforeach
@@ -31,7 +36,7 @@
 				@foreach($employees as $employee)
 					<tr>
 						<td>{{ $employee->name }}</td>
-						@foreach($period as $day)
+						@foreach($days as $day)
 							@if($employee->isHoliday($day))
 								<td class="table-primary">Holiday</td>
 								<td class="table-primary">Holiday</td>
@@ -54,7 +59,7 @@
 									</td>
 
 								@elseif(\Carbon\Carbon::parse($day)->isToday() && $employee->attended($day))
-									<td>
+									<td style="border-bottom: 1px solid #555">
 										<a href="{{ route("attendance.leave", $employee) }}" class="btn btn-primary">Leave</a>
 									</td>
 								@else
