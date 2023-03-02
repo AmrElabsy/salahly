@@ -10,17 +10,20 @@
     
         public function store( $data ) {
             $employee = new Employee();
-            $employee->name = $data["name"];
+            $data["type"] = "employee";
+            $userService = new UserService();
+            $user = $userService->store($data);
+            $employee->user_id = $user->id;
             $employee->save();
             
-            $employee->branches()->sync($data["branches"]);
+            $employee->branches()->sync($data["branches"] ?? null);
             
             return $employee;
         }
     
         public function update( $data, Model $resource ) {
             $resource->name = $data["name"];
-            $resource->branches()->sync($data["branches"]);
+            $resource->branches()->sync($data["branches"] ?? null);
     
             $resource->save();
         }

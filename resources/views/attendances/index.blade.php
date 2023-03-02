@@ -35,7 +35,7 @@
 				<tbody>
 				@foreach($employees as $employee)
 					<tr>
-						<td>{{ $employee->name }}</td>
+						<td>{{ $employee->user->name }}</td>
 						@foreach($days as $day)
 							@if($employee->isHoliday($day))
 								<td class="table-primary">Holiday</td>

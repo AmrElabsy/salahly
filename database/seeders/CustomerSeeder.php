@@ -19,7 +19,6 @@ class CustomerSeeder extends Seeder
             ["name" => "Amr Elabsy"],
             ["name" => "Belal Ahmed"],
             ["name" => "Muslem Ahmed"],
-            
         ]);
     }
 }

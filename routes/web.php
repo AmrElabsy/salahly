@@ -14,10 +14,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::get('/', function () {
-    return view("layouts.app");
-});
-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -27,6 +23,10 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
     Auth::routes();
+
+    Route::get('/', function () {
+        return view("layouts.app");
+    });
     
     Route::group(["middleware" => "auth"], function() {
         Route::group(["prefix" => "customer", "as" => "customer."], function() {
@@ -52,7 +52,13 @@ Route::group([
             Route::get("/restore/{material}", "MaterialController@restore")->name("restore");
             Route::get("/forcedelete/{material}", "MaterialController@forceDelete")->name("forceDelete");
         });
-        
+    
+        Route::group(["prefix" => "user", "as" => "user."], function() {
+            Route::get("/deleted", "UserController@deleted")->name("deleted");
+            Route::get("/restore/{user}", "UserController@restore")->name("restore");
+            Route::get("/forcedelete/{user}", "UserController@forceDelete")->name("forceDelete");
+        });
+    
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
             Route::get("/attend/{employee}", "AttendanceController@attend")->name("attend");
             Route::get("/leave/{employee}", "AttendanceController@leave")->name("leave");
@@ -70,6 +76,7 @@ Route::group([
             "employee" => "EmployeeController",
             "attendance" => "AttendanceController",
             "material" => "MaterialController",
+            "user" => "UserController"
         ]);
     });
 });

@@ -28,7 +28,7 @@
 			<div class="col-sm-6">
 				<select name="phones[]" id="phones" multiple class="form-control @error("phones.*") is-invalid @enderror">
 					@foreach(old("phones", $customer->phones) as $phone)
-						<option value="{{ $phone->phone }}" selected>{{ $phone->phone }}</option>
+						<option value="{{ $phone->phone ?? $phone }}" selected>{{ $phone->phone ?? $phone }}</option>
 					@endforeach
 				</select>
 				@error("phones.*")

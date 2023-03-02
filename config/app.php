@@ -200,6 +200,8 @@ return [
         \App\Providers\DeviceServiceProvider::class,
         \App\Providers\ProblemServiceProvider::class,
         \App\Providers\EmployeeServiceProvider::class,
+        \App\Providers\MaterialServiceProvider::class,
+        \App\Providers\UserServiceProvider::class,
 
     ],
 

@@ -7,7 +7,7 @@
     <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">{{ __("titles.material") }}</label>
         <div class="col-sm-6">
-            <input class="form-control @error(" name") is-invalid @enderror" type="text" id="name" name="name" required
+            <input class="form-control @error("name") is-invalid @enderror" type="text" id="name" name="name" required
                 minlength="2" value="{{ old("name") }}">
             @error("name")
             <div class="invalid-feedback">
@@ -20,7 +20,7 @@
     <div class="form-group row">
         <label for="price" class="col-sm-2 col-form-label">{{ __("titles.price") }}</label>
         <div class="col-sm-6">
-            <input class="form-control @error(" price") is-invalid @enderror" type="price" id="price" name="price"
+            <input class="form-control @error("price") is-invalid @enderror" type="number" id="price" name="price"
                 required minlength="2" value="{{ old("price") }}">
             @error("price")
             <div class="invalid-feedback">

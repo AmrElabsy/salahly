@@ -17,10 +17,10 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 10; $i++) {
-            DB::table("statuses")->insert([
-                "name" => Str::random(10)
-            ]);
-        }
+        DB::table("statuses")->insert(["name" => "تم الاستلام"]);
+        DB::table("statuses")->insert(["name" => "تم الفحص"]);
+        DB::table("statuses")->insert(["name" => "تم الرفض"]);
+        DB::table("statuses")->insert(["name" => "تم التصليح"]);
+        DB::table("statuses")->insert(["name" => "تم التسليم"]);
     }
 }
