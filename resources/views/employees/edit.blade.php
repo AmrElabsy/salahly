@@ -14,7 +14,7 @@
 			<div class="col-sm-6">
 				<input class="form-control @error("name") is-invalid @enderror"
 					   type="text" id="name" name="name"
-					   required minlength="2" value="{{ old("name", $employee->name) }}">
+					   required minlength="2" value="{{ old("name", $employee->user->name) }}">
 				@error("name")
 				<div class="invalid-feedback">
 					{{ $message }}
@@ -22,6 +22,21 @@
 				@enderror
 			</div>
 		</div>
+
+		<div class="form-group row">
+			<label for="email" class="col-sm-2 col-form-label">{{ __("titles.email") }}</label>
+			<div class="col-sm-6">
+				<input class="form-control @error("email") is-invalid @enderror"
+					   type="email" id="email" name="email"
+					   required minlength="2" value="{{ old("email", $employee->user->email) }}">
+				@error("email")
+				<div class="invalid-feedback">
+					{{ $message }}
+				</div>
+				@enderror
+			</div>
+		</div>
+
 
 		<div class="form-group row">
 			<label for="branches" class="col-sm-2 col-form-label">{{ __("titles.branches") }}</label>

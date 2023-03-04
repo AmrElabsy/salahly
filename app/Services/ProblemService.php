@@ -2,6 +2,7 @@
     
     namespace App\Services;
     
+    use App\Models\Material;
     use App\Models\Problem;
     use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,10 @@
                 $problem->device_id = $data["device_id"];
             }
             $problem->save();
+            
+            $materials = $this->getMaterialsData($data["materials"]);
+            
+            $problem->materials()->sync($materials);
             return $problem;
         }
     
@@ -35,7 +40,20 @@
             $resource->due_time = $data["due_time"];
             $resource->status_id = $data["status"];
             $resource->branch_id = $data["branch"];
+    
+            $materials = $this->getMaterialsData($data["materials"]);
+            $resource->materials()->sync($materials);
             
             $resource->save();
+        }
+        
+        private function getMaterialsData($materials = null) {
+            $result = [];
+            foreach ($materials as $material) {
+                $material = Material::find($material);
+                $result[$material->id] = ["price" => $material->price];
+            }
+            
+            return $result;
         }
     }

@@ -22,7 +22,7 @@
         }
     
         public function update( $data, Model $resource ) {
-            $resource->name = $data["name"];
+            $resource->user->name = $data["name"];
             $resource->branches()->sync($data["branches"] ?? null);
     
             $resource->save();

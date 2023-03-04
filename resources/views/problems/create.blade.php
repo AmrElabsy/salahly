@@ -90,6 +90,19 @@
 		</div>
 
 		<div class="form-group row">
+			<label for="materials" class="col-sm-2 col-form-label">{{ __("titles.materials") }}</label>
+			<div class="col-sm-6">
+				<select name="materials[]" id="materials" class="form-control" multiple>
+					@foreach($materials as $material)
+						<option
+								@selected(in_array($material->id, old('materials')))
+								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price }})</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
 			<label for="is_new_device" class="col-sm-2 col-form-label">{{ __("titles.is_new_device") }}</label>
 			<div class="col-sm-6">
 				<div class="form-check form-switch">
@@ -192,6 +205,7 @@
 		$("#device").select2();
 		$("#status_id").select2();
 		$("#branch").select2();
+		$("#materials").select2();
 		$("#phones").select2({
 			tags: true
 		});

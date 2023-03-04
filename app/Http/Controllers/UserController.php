@@ -27,7 +27,7 @@ class UserController extends Controller
     
     public function store(StoreUserRequest $request)
     {
-        $this->service->store($request->all());
+        $this->service->store($request->all(), true);
         
         return redirect()->route("user.index")->withStatus(__("titles.user_added"));
     }

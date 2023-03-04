@@ -70,6 +70,7 @@
 					<th>{{ __("titles.description") }}</th>
 					<th>{{ __("titles.branch") }}</th>
 					<th>{{ __("titles.device") }}</th>
+					<th>{{ __("titles.cost") }}</th>
 					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
@@ -85,6 +86,7 @@
 						<td>{{ $problem->description }}</td>
 						<td>{{ $problem->branch->name }}</td>
 						<td>{{ $problem->device->name }}</td>
+						<td>{{ $problem->cost }}</td>
 						<td>{{ $problem->price }}</td>
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>

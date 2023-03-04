@@ -94,6 +94,20 @@
 		</div>
 
 		<div class="form-group row">
+			<label for="materials" class="col-sm-2 col-form-label">{{ __("titles.materials") }}</label>
+			<div class="col-sm-6">
+				<select name="materials[]" id="materials" class="form-control" multiple>
+					@foreach($materials as $material)
+						<option
+								@selected($problem->materials->contains($material->id))
+								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price }})</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
+
+		<div class="form-group row">
 			<label for="device" class="col-sm-2 col-form-label">{{ __("titles.device") }}</label>
 			<div class="col-sm-6">
 				<select name="device_id" id="device" class="form-control disabled">
@@ -115,5 +129,7 @@
 	<script>
 		$("#device").select2();
 		$("#status_id").select2();
+		$("#materials").select2();
+
 	</script>
 @endsection
