@@ -24,7 +24,7 @@
                     <div class="mini-stat clearfix">
                         <span class="mini-stat-icon bg-blue-grey mr-0 float-right"><i class="mdi mdi-black-mesa"></i></span>
                         <div class="mini-stat-info">
-                            <span class="counter text-blue-grey">{{ $currentMonth }}</span>
+                            <span class="counter text-blue-grey">{{ $currentMonthProblems }}</span>
                             {{ __("titles.problems") }}
                         </div>
                         <div class="clearfix"></div>
@@ -37,13 +37,13 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mini-stat clearfix">
-                        <span class="mini-stat-icon bg-brown mr-0 float-right"><i class="mdi mdi-buffer"></i></span>
+                        <span class="mini-stat-icon bg-brown mr-0 float-right"><i class="mdi mdi-currency-usd"></i></span>
                         <div class="mini-stat-info">
-                            <span class="counter text-brown">85412</span>
-                            New Users
+                            <span class="counter text-brown">{{ $currentMonthProfit }}</span>
+                            {{ __("titles.total_profit") }}
                         </div>
                         <div class="clearfix"></div>
-                        <p class="text-muted mb-0 mt-4">Total income: $22506 <span class="float-right"><i class="fa fa-caret-up mr-1"></i>10.25%</span></p>
+                        <p class="text-muted mb-0 mt-4">{{ __("titles.total_profit") }}: {{ $profit }} <span class="float-right"><i class="{{ $profitIcon }}"></i>{{ $problemPercentage }}%</span></p>
                     </div>
                 </div>
             </div>
@@ -52,13 +52,13 @@
             <div class="card">
                 <div class="card-body">
                     <div class="mini-stat clearfix">
-                        <span class="mini-stat-icon bg-teal mr-0 float-right"><i class="mdi mdi-coffee"></i></span>
+                        <span class="mini-stat-icon bg-teal mr-0 float-right"><i class="mdi mdi-currency-usd"></i></span>
                         <div class="mini-stat-info">
-                            <span class="counter text-teal">20544</span>
-                            Unique Visitors
+                            <span class="counter text-teal">{{ $currentMonthNetProfit }}</span>
+                            {{ __("titles.net_profit") }}
                         </div>
                         <div class="clearfix"></div>
-                        <p class="text-muted mb-0 mt-4">Total income: $22506 <span class="float-right"><i class="fa fa-caret-up mr-1"></i>10.25%</span></p>
+                        <p class="text-muted mb-0 mt-4">{{ __("titles.net_profit") }}: {{ $netProfit }} <span class="float-right"><i class="{{ $netProfitIcon }}"></i>{{ $netProfitPercentage }}%</span></p>
                     </div>
                 </div>
             </div>
