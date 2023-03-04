@@ -65,6 +65,20 @@
 		</div>
 
 		<div class="form-group row">
+			<label for="employee" class="col-sm-2 col-form-label">{{ __("titles.employee") }}</label>
+			<div class="col-sm-6">
+				<select name="employee" id="employee" class="form-control">
+					<option value=""></option>
+				@foreach($employees as $employee)
+						<option
+								@selected(old('employee') == $employee->id)
+								value="{{ $employee->id }}">{{ $employee->user->name }}</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
 			<label for="due_time" class="col-sm-2 col-form-label">{{ __("titles.due_time") }}</label>
 			<div class="col-sm-6">
 				<input class="form-control @error("due_time") is-invalid @enderror"
@@ -95,7 +109,7 @@
 				<select name="materials[]" id="materials" class="form-control" multiple>
 					@foreach($materials as $material)
 						<option
-								@selected(in_array($material->id, old('materials')))
+								@selected(in_array($material->id, old('materials', [])))
 								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price }})</option>
 					@endforeach
 				</select>
@@ -205,6 +219,7 @@
 		$("#device").select2();
 		$("#status_id").select2();
 		$("#branch").select2();
+		$("#employee").select2();
 		$("#materials").select2();
 		$("#phones").select2({
 			tags: true

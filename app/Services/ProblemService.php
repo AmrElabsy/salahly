@@ -17,6 +17,7 @@
             $problem->due_time = $data["due_time"];
             $problem->status_id = $data["status"];
             $problem->branch_id = $data["branch"];
+            $problem->employee_id = $data["employee"] ?? null;
             
             if ( isset($data["is_new_device"]) && $data["is_new_device"] == "on" ) {
                 $deviceService = new DeviceService();
@@ -27,7 +28,7 @@
             }
             $problem->save();
             
-            $materials = $this->getMaterialsData($data["materials"]);
+            $materials = $this->getMaterialsData($data["materials"] ?? []);
             
             $problem->materials()->sync($materials);
             return $problem;
@@ -40,6 +41,7 @@
             $resource->due_time = $data["due_time"];
             $resource->status_id = $data["status"];
             $resource->branch_id = $data["branch"];
+            $resource->employee_id = $data["employee"] ?? null;
     
             $materials = $this->getMaterialsData($data["materials"]);
             $resource->materials()->sync($materials);
@@ -47,7 +49,7 @@
             $resource->save();
         }
         
-        private function getMaterialsData($materials = null) {
+        private function getMaterialsData($materials = []) {
             $result = [];
             foreach ($materials as $material) {
                 $material = Material::find($material);

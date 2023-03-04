@@ -15,20 +15,18 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group([
     "namespace" => "App\Http\Controllers",
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
-    Auth::routes();
-
-    Route::get('/', function () {
-        return view("layouts.app");
-    });
+    Auth::routes(["register" => false]);
     
     Route::group(["middleware" => "auth"], function() {
+        Route::get('/', "HomeController@index")->name("home");
+        Route::get('/home', "HomeController@index")->name('home');
+
         Route::group(["prefix" => "customer", "as" => "customer."], function() {
             Route::get("/deleted", "CustomerController@deleted")->name("deleted");
             Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");

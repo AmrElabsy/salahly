@@ -79,6 +79,20 @@
 			</div>
 		</div>
 
+		<div class="form-group row">
+			<label for="employee" class="col-sm-2 col-form-label">{{ __("titles.employee") }}</label>
+			<div class="col-sm-6">
+				<select name="employee" id="employee" class="form-control">
+					<option value=""></option>
+					@foreach($employees as $employee)
+						<option
+								@selected(old('employee', $problem->employee->id) == $employee->id)
+								value="{{ $employee->id }}">{{ $employee->user->name }}</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
 
 		<div class="form-group row">
 			<label for="status_id" class="col-sm-2 col-form-label">{{ __("titles.status") }}</label>
@@ -130,6 +144,7 @@
 		$("#device").select2();
 		$("#status_id").select2();
 		$("#materials").select2();
+		$("#employee").select2();
 
 	</script>
 @endsection

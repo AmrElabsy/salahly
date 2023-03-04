@@ -75,6 +75,7 @@
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
 					<th>{{ __("titles.due_time") }}</th>
+					<th>{{ __("titles.employee") }}</th>
 					<th>{{ __("titles.customer") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
@@ -91,6 +92,7 @@
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
 						<td>{{ $problem->due_time }}</td>
+						<td>{{ $problem->employee?->user?->name }}</td>
 						<td>{{ $problem->device?->customer?->name }}</td>
 						<td class="d-flex ">
 							<div>

@@ -9,10 +9,9 @@
 				<li class="menu-title">Main</li>
 
 				<li>
-					<a href="#" class="waves-effect">
-						<span class="badge badge-pill badge-primary float-right">20+</span>
+					<a href="{{ route("home") }}" class="waves-effect">
 						<i class="mdi mdi-view-dashboard"></i>
-						<span> Dashboard </span>
+						<span> {{ __("titles.dashboard") }} </span>
 					</a>
 				</li>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Branch;
 use App\Models\Customer;
 use App\Models\Device;
+use App\Models\Employee;
 use App\Models\Material;
 use App\Models\Problem;
 use App\Http\Requests\StoreProblemRequest;
@@ -34,8 +35,9 @@ class ProblemController extends Controller
         $customers = Customer::all();
         $branches = Branch::all();
         $materials = Material::all();
+        $employees = Employee::all();
         
-        return view("problems.create", compact("devices", "statuses", "customers", "branches", "materials"));
+        return view("problems.create", compact("devices", "statuses", "customers", "branches", "materials", "employees"));
     }
 
     public function store(StoreProblemRequest $request)
