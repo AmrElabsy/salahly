@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -36,5 +38,13 @@ class Problem extends Model
     
     public function getCostAttribute(): int {
         return $this->materials->sum("pivot.price");
+    }
+    
+    public function getDueTimeIsTodayAttribute(){
+        return Carbon::parse($this->due_time)->isToday();
+    }
+    
+    public function getDueTimeHasPassedAttribute() {
+        return Carbon::parse($this->due_time)->isPast();
     }
 }

@@ -1,12 +1,12 @@
 @extends("layouts.app")
-@section("title", __("titles.deleted_employees"))
+@section("title", __("titles.deleted_users"))
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.deleted_employees") }}</h2>
+			<h2>{{ __("titles.deleted_users") }}</h2>
 			<div>
-				<a href="{{ route("employee.index") }}" class="btn btn-success">{{ __("titles.employees") }}</a>
+				<a href="{{ route("user.index") }}" class="btn btn-success">{{ __("titles.users") }}</a>
 			</div>
 		</div>
 
@@ -24,25 +24,21 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.employees") }}</th>
-					<th>{{ __("titles.branches") }}</th>
+					<th>{{ __("titles.users") }}</th>
+					<th>{{ __("titles.email") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($employees as $i => $employee)
+				@foreach($users as $i => $user)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $employee->name }}</td>
+						<td>{{ $user->name }}</td>
+						<td>{{ $user->email }}</td>
 						<td>
-							@foreach($employee->branches as $branch)
-								<p>{{ $branch->name }}</p>
-							@endforeach
-						</td>
-						<td>
-							<a href="{{ route("employee.restore", $employee->id) }}"
+							<a href="{{ route("user.restore", $user->id) }}"
 							   class="btn btn-primary">{{ __("titles.restore") }}</a>
-							<a href="{{ route("employee.forceDelete", $employee->id) }}"
+							<a href="{{ route("user.forceDelete", $user->id) }}"
 							   class="btn btn-danger">{{ __("titles.delete") }}</a>
 						</td>
 					</tr>

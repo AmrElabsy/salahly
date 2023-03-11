@@ -86,7 +86,7 @@
 					<option value=""></option>
 					@foreach($employees as $employee)
 						<option
-								@selected(old('employee', $problem->employee->id) == $employee->id)
+								@selected(old('employee', $problem->employee?->id) == $employee->id)
 								value="{{ $employee->id }}">{{ $employee->user->name }}</option>
 					@endforeach
 				</select>
