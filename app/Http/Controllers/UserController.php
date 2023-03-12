@@ -70,5 +70,21 @@ class UserController extends Controller
         return redirect()->back()->withStatus(__("titles.user_deleted"));
     }
     
+    public function deleted() {
+        $users = User::onlyTrashed()->get();
+        return view("users.deleted", compact("users"));
+    }
+    
+    public function restore($user) {
+        User::withTrashed()->find($user)->restore();
+        return redirect()->back()->withStatus(__("titles.user_restored"));
+    }
+    
+    public function forceDelete($user) {
+        User::withTrashed()->find($user)->forceDelete();
+        return redirect()->back()->withStatus(__("titles.user_deleted"));
+    }
+    
+    
 }
 ?>

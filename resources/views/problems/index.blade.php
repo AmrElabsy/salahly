@@ -21,7 +21,7 @@
 			<form>
 				<div class="form-group row">
 					<label for="branch" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
-					<div class="col-sm-3">
+					<div class="col-sm-4">
 						<select name="branch" id="branch" class="form-control">
 							<option value="">0</option>
 							@foreach($branches as $branch)
@@ -34,7 +34,7 @@
 
 
 					<label for="status_id" class="col-sm-2 col-form-label">{{ __("titles.status") }}</label>
-					<div class="col-sm-3">
+					<div class="col-sm-4">
 						<select name="status" id="status_id" class="form-control">
 							<option value="">0</option>
 							@foreach($statuses as $status)
@@ -44,6 +44,33 @@
 							@endforeach
 						</select>
 					</div>
+
+					<label for="employee" class="col-sm-2 col-form-label">{{ __("titles.employee") }}</label>
+					<div class="col-sm-4">
+						<select name="employee" id="employee" class="form-control">
+							<option value="">0</option>
+							@foreach($employees as $employee)
+								<option
+										@selected(old('employee') == $employee->id)
+										value="{{ $employee->id }}">{{ $employee->user?->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+
+					<label for="customer" class="col-sm-2 col-form-label">{{ __("titles.customer") }}</label>
+					<div class="col-sm-4">
+						<select name="customer" id="customer" class="form-control">
+							<option value="">0</option>
+							@foreach($customers as $customer)
+								<option
+										@selected(old('customer') == $customer->id)
+										value="{{ $customer->id }}">{{ $customer->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+
 
 					<div class="col-sm-2">
 						<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
@@ -82,7 +109,13 @@
 				</thead>
 				<tbody>
 				@foreach($problems as $i => $problem)
-					<tr>
+					<tr
+						@if($problem->due_time_is_today)
+							class="table-warning"
+						@elseif($problem->due_time_has_passed)
+							class="table-danger"
+						@endif
+					>
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $problem->description }}</td>
 						<td>{{ $problem->branch->name }}</td>
@@ -127,6 +160,9 @@
 	<script>
 		$("#table").DataTable({lengthChange:!1,buttons:["copy","excel","colvis"]}).buttons().container().appendTo("#table_wrapper .col-md-6:eq(0)");
 		$("#status_id").select2();
+		$("#employee").select2();
+		$("#customer").select2();
+		$("#branch").select2();
 	</script>
 
 @endsection

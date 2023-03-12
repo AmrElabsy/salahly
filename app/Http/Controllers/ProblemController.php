@@ -25,7 +25,10 @@ class ProblemController extends Controller
         $problems = $this->filter();
         $statuses = Status::all();
         $branches = Branch::all();
-        return view("problems.index", compact("problems", "statuses", "branches"));
+        $employees = Employee::all();
+        $customers = Customer::all();
+        
+        return view("problems.index", compact("problems", "statuses", "branches", "employees","customers"));
     }
 
     public function create()
@@ -57,8 +60,9 @@ class ProblemController extends Controller
         $statuses = Status::all();
         $branches = Branch::all();
         $materials = Material::all();
+        $employees = Employee::all();
     
-        return view("problems.edit", compact("problem","devices", "statuses", "branches", "materials"));
+        return view("problems.edit", compact("problem","devices", "statuses", "branches", "materials", "employees"));
     }
 
     public function update(UpdateProblemRequest $request, Problem $problem)
@@ -77,7 +81,9 @@ class ProblemController extends Controller
         $problems = Problem::query();
         $branch = request("branch");
         $status = request("status");
-        
+        $employee = request("employee");
+        $customer = request("customer");
+    
         if ($branch) {
             $problems = $problems->where("branch_id", $branch);
         }
@@ -86,6 +92,19 @@ class ProblemController extends Controller
             $problems = $problems->where("status_id", $status);
         }
         
+        if ($employee) {
+            $problems = $problems->where("employee_id", $employee);
+        }
+        
+        if ($customer) {
+            $devices = Device::where("customer_id", $customer)->get();
+            $ids = [];
+            foreach ($devices as $device) {
+                $ids[] = $device->id;
+            }
+            $problems = $problems->whereIn("device_id", $ids);
+        }
+    
         return $problems->get();
     }
 }
