@@ -32,12 +32,15 @@ class HomeController extends Controller
          */
         $lastMonthProblems = $problems->where("created_at", ">=", $startLastMonth)->where("created_at", "<=", $endLastMonth)->count();
         $currentMonthProblems = $problems->where("created_at", ">=", $startCurrentMonth)->where("created_at", "<=", $endCurrentMonth)->count();
-        
         $difference = $currentMonthProblems - $lastMonthProblems;
+        $lastMonthProblems=1;
         
-        try {
-            $problemPercentage = $difference / $lastMonthProblems * 100;
-        } catch (\Exception $exception) {
+        try 
+        {
+                $problemPercentage = $difference / $lastMonthProblems * 100;    
+        } 
+        catch (\Exception $exception) 
+        {
             $problemPercentage = 0;
         }
         

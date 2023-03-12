@@ -88,7 +88,10 @@ return [
     "deleted_materials" => "الخامات المحذوفة",
     "name"=>"الإسم",
     "price"=>"السعر",
-
+    
+    
+    //problems
+    "cost"=>"التكلفة",
 
 
 

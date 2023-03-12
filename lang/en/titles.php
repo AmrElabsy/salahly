@@ -86,7 +86,8 @@ return [
     "price"=>"Price",
 
 
-
+    //problems
+    "cost"=>"Cost",
 
     //actions
     "add" => "Add",
