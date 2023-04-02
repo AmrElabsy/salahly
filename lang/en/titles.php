@@ -3,7 +3,7 @@ return [
     "users" => "Users",
     "login" => "Login",
     "logout" => "Logout",
-    
+
     //status
     "status" => "Status",
     "statuses" => "Statuses",
@@ -25,7 +25,7 @@ return [
     "deleted_customers" => "Deleted Customers",
     "is_new_customer" => "Is New Customer",
     "phones" => "Phones",
-    
+
     //device
     "device" => "Device",
     "devices" => "Devices",
@@ -36,7 +36,8 @@ return [
     "device_deleted" => "Device deleted Successfully",
     "device_restored" => "Device Restored Successfully",
     "deleted_devices" => "Deleted Devices",
-    
+    "is_new_device"=>"Is_New_Device",
+
     //problem
     "problem" => "Problem",
     "problems" => "Problems",
@@ -51,7 +52,9 @@ return [
     "price" => "Price",
     "paid" => "Paid",
     "due_time" => "Due Time",
-    
+    "comment"=>"Comment",
+
+
     //employee
     "employee" => "Employee",
     "employees" => "Employees",
@@ -62,7 +65,7 @@ return [
     "employee_deleted" => "Employee deleted Successfully",
     "employee_restored" => "Employee Restored Successfully",
     "deleted_employees" => "Deleted Employees",
-    
+
     //branch
     "branch" => "Branch",
     "branches" => "Branches",

@@ -104,7 +104,8 @@
 					<th>{{ __("titles.due_time") }}</th>
 					<th>{{ __("titles.employee") }}</th>
 					<th>{{ __("titles.customer") }}</th>
-					<th>{{ __("titles.manage") }}</th>
+                    <th>{{ __("titles.comment") }}</th>
+                    <th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -127,7 +128,9 @@
 						<td>{{ $problem->due_time }}</td>
 						<td>{{ $problem->employee?->user?->name }}</td>
 						<td>{{ $problem->device?->customer?->name }}</td>
-						<td class="d-flex ">
+                        <td>{{ $problem->Comment}}</td>
+
+                        <td class="d-flex ">
 							<div>
 								<a href="{{ route("problem.edit", $problem->id) }}"
 								   class="btn btn-primary">{{ __("titles.edit") }}</a>

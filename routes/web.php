@@ -22,7 +22,7 @@ Route::group([
     'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
     Auth::routes(["register" => false]);
-    
+
     Route::group(["middleware" => "auth"], function() {
         Route::get('/', "HomeController@index")->name("home");
         Route::get('/home', "HomeController@index")->name('home');
@@ -32,39 +32,39 @@ Route::group([
             Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");
             Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
         });
-    
+
         Route::group(["prefix" => "device", "as" => "device."], function() {
             Route::get("/deleted", "DeviceController@deleted")->name("deleted");
             Route::get("/restore/{device}", "DeviceController@restore")->name("restore");
             Route::get("/forcedelete/{device}", "DeviceController@forceDelete")->name("forceDelete");
         });
-    
+
         Route::group(["prefix" => "employee", "as" => "employee."], function() {
             Route::get("/deleted", "EmployeeController@deleted")->name("deleted");
             Route::get("/restore/{employee}", "EmployeeController@restore")->name("restore");
             Route::get("/forcedelete/{employee}", "EmployeeController@forceDelete")->name("forceDelete");
         });
-        
+
         Route::group(["prefix" => "material", "as" => "material."], function() {
             Route::get("/deleted", "MaterialController@deleted")->name("deleted");
             Route::get("/restore/{material}", "MaterialController@restore")->name("restore");
             Route::get("/forcedelete/{material}", "MaterialController@forceDelete")->name("forceDelete");
         });
-    
+
         Route::group(["prefix" => "user", "as" => "user."], function() {
             Route::get("/deleted", "UserController@deleted")->name("deleted");
             Route::get("/restore/{user}", "UserController@restore")->name("restore");
             Route::get("/forcedelete/{user}", "UserController@forceDelete")->name("forceDelete");
         });
-    
+
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
             Route::get("/attend/{employee}", "AttendanceController@attend")->name("attend");
             Route::get("/leave/{employee}", "AttendanceController@leave")->name("leave");
             Route::get("/{year}", "AttendanceController@index")->name("year");
             Route::get("/{year}/{month}", "AttendanceController@index")->name("month");
-    
+
         });
-    
+
         Route::resources([
             "device" => "DeviceController",
             "customer" => "CustomerController",

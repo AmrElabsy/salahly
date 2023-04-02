@@ -3,7 +3,7 @@ return [
     "users" => "المستخدمين",
     "login" => "تسجيل الدخول",
     "logout" => "تسجيل الخروج",
-    
+
     //status
     "status" => "الحالة",
     "statuses" => "الحالات",
@@ -12,7 +12,7 @@ return [
     "status_added" => "تم إضافة الحالة بنجاح",
     "status_updated" => "تم تعديل الحالة بنجاح",
     "status_deleted" => "تم حذف الحالة بنجاح",
-    
+
     //customer
     "customer" => "العميل",
     "customers" => "العملاء",
@@ -25,8 +25,8 @@ return [
     "deleted_customers" => "العملاء المحذوفون",
     "is_new_customer" => "هل أنت عميل جديد؟",
     "phones" => "الهواتف",
-    
-    
+
+
     //problem
     "problem" => "المشكلة",
     "problems" => "المشاكل",
@@ -41,8 +41,8 @@ return [
     "price" => "السعر",
     "paid" => "المدفوع",
     "due_time" => "ميعاد التسليم",
-    
-    
+
+
     //device
     "device" => "الجهاز",
     "devices" => "الأجهزة",
@@ -53,7 +53,9 @@ return [
     "device_deleted" => "تم حذف الجهاز بنجاح",
     "device_restored" => "تم إستعادة الجهاز بنجاح",
     "deleted_devices" => "الأجهزة المحذوفة",
-    
+    "is_new_device"=>"هل هذا جهاز جديد؟",
+
+
     //employee
     "employee" => "الموظف",
     "employees" => "الموظفون",
@@ -64,8 +66,8 @@ return [
     "employee_deleted" => "تم حذف الموظف بنجاح",
     "employee_restored" => "تم استعادة الموظف بنجاح",
     "deleted_employees" => "الموظفون المحذوفون",
-    
-    
+
+
     //branch
     "branch" => "الفرع",
     "branches" => "الفروع",
@@ -88,11 +90,11 @@ return [
     "deleted_materials" => "الخامات المحذوفة",
     "name"=>"الإسم",
     "price"=>"السعر",
-    
-    
+
+
     //problems
     "cost"=>"التكلفة",
-
+    "comment"=>"التعليق",
 
 
     //actions

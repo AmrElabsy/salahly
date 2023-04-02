@@ -10,19 +10,19 @@
 		@csrf
 		@method('PUT')
 
-		<div class="form-group row">
-			<label for="description" class="col-sm-2 col-form-label">{{ __("titles.description") }}</label>
-			<div class="col-sm-6">
-				<input class="form-control @error("description") is-invalid @enderror"
-					   type="text" id="description" name="description"
-					   required minlength="2" value="{{ old("description", $problem->description) }}">
-				@error("description")
-				<div class="invalid-feedback">
-					{{ $message }}
-				</div>
-				@enderror
-			</div>
-		</div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">{{ __("titles.description") }}</label>
+                <div class="col-sm-6">
+                    <input class="form-control @error("description") is-invalid @enderror"
+                           type="text" id="description" name="description"
+                           required minlength="2" value="{{ old("description", $problem->description) }}">
+                    @error("description")
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
 
 		<div class="form-group row">
 			<label for="price" class="col-sm-2 col-form-label">{{ __("titles.price") }}</label>
@@ -134,7 +134,21 @@
 			</div>
 		</div>
 
-		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
+        <div class="form-group row">
+            <label for="comment" class="col-sm-2 col-form-label">{{ __("titles.comment") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("comment") is-invalid @enderror"
+                       type="text" id="comment" name="comment"
+                       required minlength="2" value="{{ old("comment", $problem->comment) }}">
+                @error("comment")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>
 @endsection
 
