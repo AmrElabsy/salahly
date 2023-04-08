@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('problems', function (Blueprint $table) {
             $table->id();
             $table->string("description");
-            $table->string("comment");
             $table->integer("price");
             $table->integer("paid");
             $table->dateTime("due_time");
