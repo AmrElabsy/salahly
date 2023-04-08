@@ -74,6 +74,8 @@ Route::group([
             "employee" => "EmployeeController",
             "attendance" => "AttendanceController",
             "material" => "MaterialController",
+            "permission" => "",
+            "role" => "",
             "user" => "UserController"
         ]);
     });
