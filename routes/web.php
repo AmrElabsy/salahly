@@ -57,6 +57,12 @@ Route::group([
             Route::get("/forcedelete/{user}", "UserController@forceDelete")->name("forceDelete");
         });
 
+        Route::group(["prefix" => "supply", "as" => "supply."], function() {
+            Route::get("/deleted", "SupplyController@deleted")->name("deleted");
+            Route::get("/restore/{supply}", "SupplyController@restore")->name("restore");
+            Route::get("/forcedelete/{supply}", "SupplyController@forceDelete")->name("forceDelete");
+        });
+
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
             Route::get("/attend/{employee}", "AttendanceController@attend")->name("attend");
             Route::get("/leave/{employee}", "AttendanceController@leave")->name("leave");
@@ -74,7 +80,8 @@ Route::group([
             "employee" => "EmployeeController",
             "attendance" => "AttendanceController",
             "material" => "MaterialController",
-            "user" => "UserController"
+            "user" => "UserController",
+            "supply"=>"SupplyController",
         ]);
     });
 });

@@ -3,6 +3,9 @@ return [
     "users" => "Users",
     "login" => "Login",
     "logout" => "Logout",
+    "home"=>"Home",
+    "attendance"=>"Attendance",
+
 
     //status
     "status" => "Status",
@@ -85,12 +88,27 @@ return [
     "material_updated" => "Material updated Successfully",
     "material_deleted" => "Material deleted Successfully",
     "deleted_materials" => "Deleted Materials",
+    "material_restored"=>"Material restored Successfully",
+
     "name"=>"Name",
     "price"=>"Price",
 
 
     //problems
     "cost"=>"Cost",
+
+    //supply
+    "supply" => "Supply",
+    "supplies" => "Supplies",
+    "add_supply" => "Add supply",
+    "edit_supply" => "Edit supply",
+    "supply_added" => "Supply added Successfully",
+    "supply_updated" => "Supply updated Successfully",
+    "supply_deleted" => "Supply deleted Successfully",
+    "deleted_supplies" => "Deleted Supplies",
+    "supply_restored"=>"Supply restored Successfully",
+    "name"=>"Name",
+    "price"=>"Price",
 
     //actions
     "add" => "Add",

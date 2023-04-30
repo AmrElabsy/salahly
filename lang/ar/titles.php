@@ -3,6 +3,8 @@ return [
     "users" => "المستخدمين",
     "login" => "تسجيل الدخول",
     "logout" => "تسجيل الخروج",
+    "home"=>"الصفحة الرئيسية",
+    "attendance"=>"الغياب",
 
     //status
     "status" => "الحالة",
@@ -88,6 +90,8 @@ return [
     "material_updated" => "تم تعديل الخامة بنجاح",
     "material_deleted" => "تم حذف الخامة بنجاح",
     "deleted_materials" => "الخامات المحذوفة",
+    "material_restored"=>"تم إستعادة الخامة بنجاح",
+
     "name"=>"الإسم",
     "price"=>"السعر",
 
@@ -96,6 +100,20 @@ return [
     "cost"=>"التكلفة",
     "comment"=>"التعليق",
 
+
+    //supply
+    "supply" => "لازمة",
+    "supplies" => "لوازم",
+    "add_supply" => "إضافة لازمة",
+    "edit_supply" => "تعديل لازمة",
+    "supply_added" => "تم إضافة اللازمة بنجاح",
+    "supply_updated" => "تم تعديل اللازمة بنجاح",
+    "supply_deleted" => "تم حذف اللازمة بنجاح",
+    "deleted_supplies" => "اللوازم المحذوفة",
+    "supply_restored"=>"تم إستعادة اللازمة بنجاح",
+
+    "name"=>"الإسم",
+    "price"=>"السعر",
 
     //actions
     "add" => "إضافة",

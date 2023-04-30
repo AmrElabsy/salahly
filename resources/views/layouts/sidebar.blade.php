@@ -12,7 +12,7 @@
 					<li>
 						<a href="{{ route("home") }}" class="waves-effect">
 							<i class="mdi mdi-view-dashboard"></i>
-							<span> {{ __("titles.dashboard") }} </span>
+							<span> {{ __("titles.home") }} </span>
 						</a>
 					</li>
 
@@ -79,6 +79,13 @@
 							<span> {{ __("titles.materials") }} </span>
 						</a>
 					</li>
+
+                    <li>
+                        <a href="{{ route("supply.index") }}" class="waves-effect">
+                            <i class="mdi mdi-account-group"></i>
+                            <span> {{ __("titles.supplies") }} </span>
+                        </a>
+                    </li>
 				@endif
 			</ul>
 		</div>
