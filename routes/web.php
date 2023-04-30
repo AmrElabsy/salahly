@@ -71,17 +71,13 @@ Route::group([
 
         });
 
-        Route::resources([
+        Route::resources((array)[
             "device" => "DeviceController",
             "customer" => "CustomerController",
             "status" => "StatusController",
-            "branch"=>"BranchController",
+            "branch" => "BranchController",
             "problem" => "ProblemController",
             "employee" => "EmployeeController",
             "attendance" => "AttendanceController",
             "material" => "MaterialController",
-            "user" => "UserController",
             "supply"=>"SupplyController",
-        ]);
-    });
-});
