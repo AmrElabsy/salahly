@@ -29,11 +29,11 @@
         public function store(StorePermissionRequest $request)
         {
             try {
-                $this->service->store($request->validated());
+                $this->service->store($request->all());
             } catch (\Throwable $e) {
             
             }
-            return redirect()->route('permissions.index')->with('success', 'Permission created successfully.');
+            return redirect()->route('permission.index')->with('success', 'Permission created successfully.');
         }
         
         public function edit(Permission $permission)
@@ -44,7 +44,7 @@
         public function update(UpdatePermissionRequest $request, Permission $permission)
         {
             try {
-                $this->service->update($request->validated(), $permission);
+                $this->service->update($request->all(), $permission);
             } catch (\Throwable $exception) {
             
             }

@@ -1,11 +1,11 @@
 @extends("layouts.app")
-@section("title", __("titles.branches"))
+@section("title", __("titles.permissions"))
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.branches") }}</h2>
-			<div><a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
+			<h2>{{ __("titles.permissions") }}</h2>
+			<div><a href="{{ route("permission.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
 		</div>
 
 		@if(session('status'))
@@ -22,24 +22,22 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.branches") }}</th>
+					<th>{{ __("titles.permission") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($branches as $i => $branch)
+				@foreach($permissions as $i => $permission)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $branch->name }}</td>
+						<td>{{ $permission->name }}</td>
 						<td>
-							<a href="{{ route("branch.edit", $branch->id) }}"
+							<a href="{{ route("permission.edit", $permission->id) }}"
 							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("branch.destroy", $branch->id)])
+							@include("layouts.delete", ["action" => route("permission.destroy", $permission->id)])
 						</td>
 					</tr>
-
 				@endforeach
-
 				</tbody>
 			</table>
 		</div>
