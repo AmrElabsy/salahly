@@ -76,7 +76,6 @@
                 Route::get("/{year}/{month}", "AttendanceController@index")->name("month");
             });
     
-            Route::get("/word/add", "WordController@add");
             Route::resources(["device" => "DeviceController",
                 "customer" => "CustomerController",
                 "status" => "StatusController",
@@ -87,7 +86,9 @@
                 "material" => "MaterialController",
                 "supply" => "SupplyController",
                 "word" => "WordController",
-                "user" => "UserController"
+                "user" => "UserController",
+                "role" => "RoleController",
+                "permission" => "PermissionController"
             ]);
     
         });

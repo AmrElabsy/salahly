@@ -9,7 +9,7 @@
 			<label for="word" class="col-sm-2 col-form-label">{{ __("titles.word") }}</label>
 			<div class="col-sm-10">
 				<input class="form-control @error("word") is-invalid @enderror" type="text" id="word" name="word" required
-					   minlength="2" value="{{ old("word", $word->word) }}">
+					   minlength="2" value="{{ $word->word }}" disabled>
 				@error("word")
 				<div class="invalid-feedback">
 					{{ $message }}

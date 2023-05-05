@@ -93,6 +93,19 @@
                             <span> {{ __("titles.words") }} </span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{ route("role.index") }}" class="waves-effect">
+                            <i class="mdi mdi-account-group"></i>
+                            <span> {{ __("titles.roles") }} </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route("permission.index") }}" class="waves-effect">
+                            <i class="mdi mdi-account-group"></i>
+                            <span> {{ __("titles.permissions") }} </span>
+                        </a>
+                    </li>
 				@endif
 			</ul>
 		</div>
