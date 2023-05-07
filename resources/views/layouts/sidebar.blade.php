@@ -73,12 +73,7 @@
 								</a>
 							</li>
 
-							<li>
-								<a href="{{ route("status.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.statuses") }} </span>
-								</a>
-							</li>
+
 
 							<li>
 								<a href="{{ route("material.index") }}" class="waves-effect">
@@ -91,6 +86,20 @@
 								<a href="{{ route("supply.index") }}" class="waves-effect">
 									<i class="mdi mdi-account-group"></i>
 									<span> {{ __("titles.supplies") }} </span>
+								</a>
+							</li>
+
+							<li>
+								<a href="{{ route("category.index") }}" class="waves-effect">
+									<i class="mdi mdi-account-group"></i>
+									<span> {{ __("titles.categories") }} </span>
+								</a>
+							</li>
+
+							<li>
+								<a href="{{ route("status.index") }}" class="waves-effect">
+									<i class="mdi mdi-account-group"></i>
+									<span> {{ __("titles.statuses") }} </span>
 								</a>
 							</li>
 						</ul>

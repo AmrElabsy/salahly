@@ -36,6 +36,10 @@ class Problem extends Model
         return $this->belongsToMany(Material::class)->withPivot("price");
     }
     
+    public function categories(): BelongsToMany {
+        return $this->belongsToMany(Category::class);
+    }
+    
     public function getCostAttribute(): int {
         return $this->materials->sum("pivot.price");
     }

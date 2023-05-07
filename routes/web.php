@@ -88,7 +88,8 @@
                 "word" => "WordController",
                 "user" => "UserController",
                 "role" => "RoleController",
-                "permission" => "PermissionController"
+                "permission" => "PermissionController",
+                "category" => "CategoryController",
             ]);
     
         });

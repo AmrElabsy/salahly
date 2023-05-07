@@ -11,4 +11,8 @@ class Feedback extends Model
     use HasFactory;
     use SoftDeletes;
     
+    public function problem() {
+        return $this->belongsTo(Problem::class);
+    }
+    
 }

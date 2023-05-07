@@ -11,4 +11,8 @@ class Holiday extends Model
     use HasFactory;
     use SoftDeletes;
     
+    public function employees() {
+        return $this->belongsToMany(Employee::class);
+    }
+    
 }

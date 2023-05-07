@@ -2,11 +2,11 @@
 @section("title", __("titles.edit_branch"))
 
 @section("content")
-	<form action="{{ route("branch.update", $branch) }}" method="post">
+	<form action="{{ route("category.update", $branch) }}" method="post">
 		@csrf
 		@method('PUT')
 		<div class="form-group row">
-			<label for="name" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
+			<label for="name" class="col-sm-2 col-form-label">{{ __("titles.category") }}</label>
 			<div class="col-sm-6">
 				<input class="form-control @error("name") is-invalid @enderror"
 					   type="text" id="name" name="name"
