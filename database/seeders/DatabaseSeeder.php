@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class
         
         ]);
+        $this->call(WordsTableSeeder::class);
     }
 }

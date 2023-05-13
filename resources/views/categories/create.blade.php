@@ -2,10 +2,10 @@
 @section("title", __("titles.add_branch"))
 
 @section("content")
-<form action="{{ route("branch.store") }}" method="post">
+<form action="{{ route("category.store") }}" method="post">
     @csrf
     <div class="form-group row">
-        <label for="name" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
+        <label for="name" class="col-sm-2 col-form-label">{{ __("titles.category") }}</label>
         <div class="col-sm-6">
             <input class="form-control @error(" name") is-invalid @enderror" type="text" id="name" name="name" required
                 minlength="2" value="{{ old("name") }}">

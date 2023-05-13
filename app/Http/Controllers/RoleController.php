@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
     
     use App\Services\RoleService;
+    use Spatie\Permission\Models\Permission;
     use Spatie\Permission\Models\Role;
     use App\Http\Requests\StoreRoleRequest;
     use App\Http\Requests\UpdateRoleRequest;
@@ -23,17 +24,18 @@
         
         public function create()
         {
-            return view('roles.create');
+            $permissions = Permission::all();
+            return view('roles.create', compact("permissions"));
         }
         
         public function store(StoreRoleRequest $request)
         {
             try {
-                $this->service->store($request->validated());
+                $this->service->store($request->all());
             } catch (\Throwable $e) {
             
             }
-            return redirect()->route('roles.index')->with('success', 'Role created successfully.');
+            return redirect()->route('role.index')->withStatus(__("role_added"));
         }
         
         public function edit(Role $role)
@@ -44,20 +46,16 @@
         public function update(UpdateRoleRequest $request, Role $role)
         {
             try {
-                $this->service->update($request->validated(), $role);
+                $this->service->update($request->all(), $role);
             } catch (\Throwable $exception) {
             
             }
-            return redirect()->route('roles.index')->with('success', 'Role updated successfully.');
+            return redirect()->route('roles.index')->withStatus(__( 'role_updated'));
         }
         
         public function destroy(Role $role)
         {
-            try {
-                $this->service->delete($role);
-            } catch (\Throwable $exception) {
-            
-            }
-            return redirect()->route('roles.index')->with('success', 'Role deleted successfully.');
+            $role->delete();
+            return redirect()->route('roles.index')->withStatus(__('role_deleted'));
         }
     }

@@ -30,6 +30,10 @@ class Employee extends Model
         return $this->belongsTo(User::class);
     }
     
+    public function problems() {
+        return $this->hasMany(Problem::class);
+    }
+    
     public function attended($day){
         return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->exists();
     }

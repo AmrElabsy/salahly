@@ -27,7 +27,7 @@
 					<th>#</th>
 					<th>{{ __("titles.users") }}</th>
 					<th>{{ __("titles.email") }}</th>
-					<th>{{ __("titles.type") }}</th>
+					<th>{{ __("titles.roles") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
@@ -37,7 +37,7 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $user->name }}</td>
 						<td>{{ $user->email }}</td>
-						<td>{{ __("titles." . $user->type) }}</td>
+						<td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
 						<td>
 							<a href="{{ route("user.edit", $user->id) }}"
 							   class="btn btn-primary">{{ __("titles.edit") }}</a>

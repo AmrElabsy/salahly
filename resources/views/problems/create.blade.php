@@ -104,6 +104,19 @@
 		</div>
 
 		<div class="form-group row">
+			<label for="categories" class="col-sm-2 col-form-label">{{ __("titles.categories") }}</label>
+			<div class="col-sm-6">
+				<select name="categories[]" id="categories" class="form-control" multiple>
+					@foreach($categories as $category)
+						<option
+								@selected(in_array($category->id, old('$categories', [])))
+								value="{{ $category->id }}">{{ $category->name }}</option>
+					@endforeach
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
 			<label for="materials" class="col-sm-2 col-form-label">{{ __("titles.materials") }}</label>
 			<div class="col-sm-6">
 				<select name="materials[]" id="materials" class="form-control" multiple>
@@ -235,6 +248,7 @@
 		$("#branch").select2();
 		$("#employee").select2();
 		$("#materials").select2();
+		$("#categories").select2();
 		$("#phones").select2({
 			tags: true
 		});
