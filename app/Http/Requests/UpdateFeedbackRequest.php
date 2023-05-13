@@ -13,7 +13,7 @@ class UpdateFeedbackRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateFeedbackRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'content' => 'nullable|string|max:255',
+            'is_available' => 'nullable|boolean',
         ];
     }
 }

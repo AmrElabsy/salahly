@@ -10,5 +10,6 @@ class Feedback extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
+
+
 }

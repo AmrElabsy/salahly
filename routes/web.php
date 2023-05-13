@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 
 Route::group([
     "namespace" => "App\Http\Controllers",
@@ -71,7 +70,7 @@ Route::group([
 
         });
 
-        Route::resources((array)[
+        Route::resources([
             "device" => "DeviceController",
             "customer" => "CustomerController",
             "status" => "StatusController",
@@ -81,3 +80,10 @@ Route::group([
             "attendance" => "AttendanceController",
             "material" => "MaterialController",
             "supply"=>"SupplyController",
+            "user"=>"UserController",
+            "feedback"=>"FeedbackController",
+        ]);
+    });
+});
+
+?>

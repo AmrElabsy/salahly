@@ -100,6 +100,10 @@ return [
     "cost"=>"التكلفة",
     "comment"=>"التعليق",
 
+    //feedBack
+    "feedback"=>"الرأي",
+
+    "feedbacks"=>"الأراء",
 
     //supply
     "supply" => "لازمة",

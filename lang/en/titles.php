@@ -109,7 +109,9 @@ return [
     "supply_restored"=>"Supply restored Successfully",
     "name"=>"Name",
     "price"=>"Price",
-
+    //feedBack
+    "feedback"=>"FeedBack",
+    "feedbacks"=>"FeedBacks",
     //actions
     "add" => "Add",
     "edit" => "Edit",

@@ -86,6 +86,13 @@
                             <span> {{ __("titles.supplies") }} </span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{ route("feedback.index") }}" class="waves-effect">
+                            <i class="mdi mdi-account-group"></i>
+                            <span> {{ __("titles.feedbacks") }} </span>
+                        </a>
+                    </li>
 				@endif
 			</ul>
 		</div>
