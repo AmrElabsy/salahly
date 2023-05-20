@@ -12,7 +12,7 @@ class Holiday extends Model
     use SoftDeletes;
     
     public function employees() {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Employee::class)->withTimestamps()->withPivot("deleted_at");
     }
     
 }

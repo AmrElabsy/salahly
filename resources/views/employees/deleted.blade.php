@@ -33,7 +33,7 @@
 				@foreach($employees as $i => $employee)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $employee->name }}</td>
+						<td>{{ $employee->user->name }}</td>
 						<td>
 							@foreach($employee->branches as $branch)
 								<p>{{ $branch->name }}</p>

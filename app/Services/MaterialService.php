@@ -14,4 +14,8 @@
         public function update( $data, Model $resource ) {
             // TODO: Implement update() method.
         }
+    
+        public function delete( Model $resource ) {
+            // TODO: Implement delete() method.
+        }
     }

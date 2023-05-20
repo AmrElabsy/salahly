@@ -17,7 +17,13 @@ class EmployeeController extends Controller
     
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::whereHas('user', function($query) {
+                $query->withTrashed();
+            })
+            ->with(['user' => function ($query) {
+                $query->withTrashed(); // Load soft-deleted users
+            }])
+        ->get();
         return view("employees.index", compact("employees"));
     }
 
@@ -58,7 +64,14 @@ class EmployeeController extends Controller
     }
     
     public function deleted() {
-        $employees = Employee::onlyTrashed()->get();
+        $employees = Employee::onlyTrashed()
+            ->whereHas('user', function($query) {
+                $query->withTrashed();
+            })
+            ->with(['user' => function ($query) {
+                $query->withTrashed(); // Load soft-deleted users
+            }])
+            ->get();
         return view("employees.deleted", compact("employees"));
     }
     

@@ -11,6 +11,6 @@ class Material extends Model
     use HasFactory,SoftDeletes;
     
     public function problems() {
-        return $this->belongsToMany(Problem::class);
+        return $this->belongsToMany(Problem::class)->withTimestamps()->withPivot("deleted_at");
     }
 }

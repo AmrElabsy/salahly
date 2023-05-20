@@ -7,7 +7,6 @@
 
     class PermissionService implements IResourceService
     {
-    
         public function store( $data ) {
             foreach ($data["names"] as $name) {
                 if (str_word_count($name) == 1) {
@@ -44,5 +43,9 @@
             $resource->save();
             
             return $resource;
+        }
+    
+        public function delete( Model $resource ) {
+            // TODO: Implement delete() method.
         }
     }
