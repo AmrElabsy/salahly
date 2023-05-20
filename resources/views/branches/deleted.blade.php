@@ -1,13 +1,12 @@
 @extends("layouts.app")
-@section("title", __("titles.branches"))
+@section("title", __("titles.deleted_branches"))
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.branches") }}</h2>
+			<h2>{{ __("titles.deleted_branches") }}</h2>
 			<div>
-				<a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("branch.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_branches") }}</a>
+				<a href="{{ route("branch.index") }}" class="btn btn-success">{{ __("titles.branches") }}</a>
 			</div>
 		</div>
 
@@ -25,7 +24,7 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.branches") }}</th>
+					<th>{{ __("titles.branch") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
@@ -35,9 +34,10 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $branch->name }}</td>
 						<td>
-							<a href="{{ route("branch.edit", $branch->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("branch.destroy", $branch->id)])
+							<a href="{{ route("branch.restore", $branch->id) }}"
+							   class="btn btn-primary">{{ __("titles.restore") }}</a>
+							<a href="{{ route("branch.forceDelete", $branch->id) }}"
+							   class="btn btn-danger">{{ __("titles.delete") }}</a>
 						</td>
 					</tr>
 
