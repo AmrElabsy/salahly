@@ -26,7 +26,7 @@
                     @foreach($problems as $problem)
                         <option
                             @selected(old('problem') == $problem->id)
-                            value="{{ $problem->id }}">{{ $problem->name }}</option>
+                            value="{{ $problem->id }}">{{ $problem->description }}</option>
                     @endforeach
                 </select>
 
