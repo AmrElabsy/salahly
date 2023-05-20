@@ -54,7 +54,6 @@
             
             }
             return redirect()->route("category.index")->withStatus(__("titles.category_updated"));
-            
         }
         
         public function destroy(Category $category)

@@ -31,6 +31,12 @@ Route::group([
             Route::get("/restore/{customer}", "CustomerController@restore")->name("restore");
             Route::get("/forcedelete/{customer}", "CustomerController@forceDelete")->name("forceDelete");
         });
+    
+        Route::group(["prefix" => "category", "as" => "category."], function() {
+            Route::get("/deleted", "CategoryController@deleted")->name("deleted");
+            Route::get("/restore/{category}", "CategoryController@restore")->name("restore");
+            Route::get("/forcedelete/{category}", "CategoryController@forceDelete")->name("forceDelete");
+        });
 
         Route::group(["prefix" => "device", "as" => "device."], function() {
             Route::get("/deleted", "DeviceController@deleted")->name("deleted");

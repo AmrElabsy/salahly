@@ -101,6 +101,7 @@
 					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
+					<th>{{ __("titles.categories") }}</th>
 					<th>{{ __("titles.due_time") }}</th>
 					<th>{{ __("titles.employee") }}</th>
 					<th>{{ __("titles.customer") }}</th>
@@ -125,6 +126,7 @@
 						<td>{{ $problem->price }}</td>
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
+						<td>{{ $problem->categories->pluck('name')->implode(', ') }}</td>
 						<td>{{ $problem->due_time }}</td>
 						<td>{{ $problem->employee?->user?->name }}</td>
 						<td>{{ $problem->device?->customer?->name }}</td>
@@ -161,11 +163,23 @@
 	<script src="{{ asset("assets/libs/select2/js/select2.min.js")  }}"></script>
 
 	<script>
-		$("#table").DataTable({lengthChange:!1,buttons:["copy","excel","colvis"]}).buttons().container().appendTo("#table_wrapper .col-md-6:eq(0)");
-		$("#status_id").select2();
-		$("#employee").select2();
-		$("#customer").select2();
-		$("#branch").select2();
+		$(document).ready(function() {
+			let table = $("#table").DataTable({
+				lengthChange: false,
+				buttons: ["copy", "excel", "colvis"]
+			});
+
+			// Use the buttons() method to get access to the column() method
+			table.buttons().container().appendTo("#table_wrapper .col-md-6:eq(0)");
+			table.column(3).visible(false);
+			table.column(4).visible(false);
+			table.column(9).visible(false);
+			table.column(10).visible(false);
+			$("#status_id").select2();
+			$("#employee").select2();
+			$("#customer").select2();
+			$("#branch").select2();
+		});
 	</script>
 
 @endsection

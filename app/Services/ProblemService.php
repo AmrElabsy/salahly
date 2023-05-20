@@ -33,6 +33,7 @@
             $materials = $this->getMaterialsData($data["materials"] ?? []);
 
             $problem->materials()->sync($materials);
+            $problem->categories()->sync($data["categories"]);
             return $problem;
         }
 

@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", __("titles.add_branch"))
+@section("title", __("titles.add_category"))
 
 @section("content")
 <form action="{{ route("category.store") }}" method="post">

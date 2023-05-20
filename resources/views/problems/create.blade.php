@@ -226,7 +226,7 @@
             <div class="col-sm-6">
                 <input class="form-control @error("comment") is-invalid @enderror"
                        type="text" id="comment" name="comment"
-                       required minlength="2" value="{{ old("comment") }}">
+                       minlength="2" value="{{ old("comment") }}">
                 @error("comment")
                 <div class="invalid-feedback">
                     {{ $message }}

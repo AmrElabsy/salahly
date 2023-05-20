@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", __("titles.edit_branch"))
+@section("title", __("titles.edit_category"))
 
 @section("content")
 	<form action="{{ route("category.update", $branch) }}" method="post">
@@ -10,7 +10,7 @@
 			<div class="col-sm-6">
 				<input class="form-control @error("name") is-invalid @enderror"
 					   type="text" id="name" name="name"
-					   required minlength="2" value="{{ old("name", $branch->name) }}">
+					   required minlength="2" value="{{ old("name", $category->name) }}">
 				@error("name")
 					<div class="invalid-feedback">
 						{{ $message }}
