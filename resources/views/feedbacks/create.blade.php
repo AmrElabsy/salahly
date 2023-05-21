@@ -21,12 +21,16 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="problem">Problem</label>
-                <select name="problem" id="problem" class="form-control">
+                <label for="problem_id">Problem</label>
+
+                <select name="problem" id="problem_id" class="form-control">
                     @foreach($problems as $problem)
+                        @dump($problem)
                         <option
                             @selected(old('problem') == $problem->id)
-                            value="{{ $problem->id }}">{{ $problem->name }}</option>
+                            value="{{ $problem->id }}">
+                            {{ $problem->description }}
+                        </option>
                     @endforeach
                 </select>
 
