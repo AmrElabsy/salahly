@@ -18,6 +18,7 @@ class FeedbackController extends Controller
     public function create()
     {
         $problems = Problem::all();
+
         return view('feedbacks.create',compact('problems'));
     }
 
