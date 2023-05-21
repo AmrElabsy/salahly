@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Branch;
-use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Models\User;
 use App\Services\EmployeeService;
 
 class EmployeeController extends Controller
@@ -17,13 +17,7 @@ class EmployeeController extends Controller
     
     public function index()
     {
-        $employees = Employee::whereHas('user', function($query) {
-                $query->withTrashed();
-            })
-            ->with(['user' => function ($query) {
-                $query->withTrashed(); // Load soft-deleted users
-            }])
-        ->get();
+        $employees = User::role("employee")->get();
         return view("employees.index", compact("employees"));
     }
 
@@ -39,32 +33,32 @@ class EmployeeController extends Controller
         return redirect()->route("employee.index")->withStatus(__("titles.employee_added"));
     }
 
-    public function show(Employee $employee)
+    public function show(User $employee)
     {
         //
     }
 
-    public function edit(Employee $employee)
+    public function edit(User $employee)
     {
         $branches = Branch::all();
         return view("employees.edit", compact("employee", "branches"));
     }
 
-    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    public function update(UpdateEmployeeRequest $request, User $employee)
     {
         $this->service->update($request->all(), $employee);
         return redirect()->route("employee.index")->withStatus(__("titles.employee_updated"));
     
     }
 
-    public function destroy(Employee $employee)
+    public function destroy(User $employee)
     {
         $employee->delete();
         return redirect()->back()->withStatus(__("titles.employee_deleted"));
     }
     
     public function deleted() {
-        $employees = Employee::onlyTrashed()
+        $employees = User::role("employee")->onlyTrashed()
             ->whereHas('user', function($query) {
                 $query->withTrashed();
             })
@@ -76,12 +70,12 @@ class EmployeeController extends Controller
     }
     
     public function restore($employee) {
-        Employee::withTrashed()->find($employee)->restore();
+        User::withTrashed()->find($employee)->restore();
         return redirect()->back()->withStatus(__("titles.employee_restored"));
     }
     
     public function forceDelete($employee) {
-        Employee::withTrashed()->find($employee)->forceDelete();
+        User::withTrashed()->find($employee)->forceDelete();
         return redirect()->back()->withStatus(__("titles.employee_deleted"));
     }
     

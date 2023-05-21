@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use App\Http\Requests\StoreAttendanceRequest;
 use App\Http\Requests\UpdateAttendanceRequest;
-use App\Models\Employee;
+use App\Models\User;
 use Carbon\Carbon;
 use DateInterval;
 use DatePeriod;
@@ -30,7 +30,7 @@ class AttendanceController extends Controller
         
         $months = new DatePeriod($jan, $interval, $currentMonth);
         
-        $employees = Employee::all();
+        $employees = User::role("employee")->get();
         return view("attendances.index", compact("employees", "days", "months"));
     }
 
@@ -64,18 +64,18 @@ class AttendanceController extends Controller
         //
     }
     
-    public function attend(Employee $employee) {
+    public function attend(User $user) {
         $attendance = new Attendance();
-        $attendance->employee_id = $employee->id;
+        $attendance->user_id = $user->id;
         $attendance->type = 0;
         $attendance->save();
         
         return redirect()->back();
     }
 
-    public function leave(Employee $employee) {
+    public function leave(User $user) {
         $attendance = new Attendance();
-        $attendance->employee_id = $employee->id;
+        $attendance->user_id = $user->id;
         $attendance->type = 1;
         $attendance->save();
         

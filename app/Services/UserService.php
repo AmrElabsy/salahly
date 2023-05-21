@@ -2,10 +2,10 @@
     
     namespace App\Services;
     
-    use App\Models\Employee;
     use App\Models\User;
     use Illuminate\Database\Eloquent\Model;
     use Illuminate\Support\Facades\Hash;
+    use Spatie\Permission\Models\Role;
 
     class UserService implements IResourceService
     {
@@ -16,15 +16,15 @@
             $user->name = $data["name"];
             $user->email = $data["email"];
             $user->password = Hash::make( $data["password"] );
-            $user->type = $data["type"];
             
             $user->save();
-            
-            if ($addEmployee && $data["type"] == "employee") {
-                $employee = new Employee();
-                $employee->user_id = $user->id;
-                $employee->save();
+            if (isset($data["roles"])) {
+                $roles = Role::whereIn('name', $data["roles"])->get();
+                $user->syncRoles($roles);
             }
+    
+            $user->branches()->sync($data["branches"] ?? null);
+    
             return $user;
         }
     
@@ -34,9 +34,15 @@
             if (isset($data["password"]) && $data["password"] != "") {
                 $resource->password = Hash::make( $data["password"] );
             }
-            $resource->type = $data["type"];
-    
             $resource->save();
+    
+            if (isset($data["roles"])) {
+                $roles = Role::whereIn('name', $data["roles"])->get();
+                $resource->syncRoles($roles);
+            }
+    
+            $resource->branches()->sync($data["branches"] ?? null);
+    
             return $resource;
         }
     

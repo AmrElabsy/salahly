@@ -6,14 +6,14 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.employees") }}</h2>
 			<div>
-				<a href="{{ route("employee.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("employee.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_employees") }}</a>
+				<a href="{{ route("user.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				<a href="{{ route("user.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_employees") }}</a>
 			</div>
 		</div>
 
-		@if(session('employee'))
+		@if(session('status'))
 			<div class="alert alert-success alert-dismissible fade show" role="alert">
-				{{ session('employee') }}
+				{{ session('status') }}
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -35,17 +35,17 @@
 				@foreach($employees as $i => $employee)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $employee->user->name }}</td>
-						<td>{{ $employee->user->email }}</td>
+						<td>{{ $employee->name }}</td>
+						<td>{{ $employee->email }}</td>
 						<td>
 							@foreach($employee->branches as $branch)
 								<p>{{ $branch->name }}</p>
 							@endforeach
 						</td>
 						<td>
-							<a href="{{ route("employee.edit", $employee->id) }}"
+							<a href="{{ route("user.edit", $employee->id) }}"
 							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("employee.destroy", $employee->id)])
+							@include("layouts.delete", ["action" => route("user.destroy", $employee->id)])
 						</td>
 					</tr>
 				@endforeach

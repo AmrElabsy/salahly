@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Branch;
-use App\Models\Employee;
 use App\Models\Problem;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $employees = Employee::all();
+        $employees = User::role("employee")->get();
         $problems = Problem::all();
         $branches = Branch::all();
         $profit = Problem::sum("paid");

@@ -1,6 +1,11 @@
 @extends("layouts.app")
 @section("title", __("titles.add_user"))
 
+
+@section("style")
+	<link rel="stylesheet" href="{{ asset("assets/libs/select2/css/select2.min.css") }}">
+@endsection
+
 @section("content")
 	<form action="{{ route("user.store") }}" method="post">
 		@csrf
@@ -46,14 +51,33 @@
 			</div>
 		</div>
 
+		{{--		@can("assign roles")--}}
 		<div class="form-group row">
-			<label for="type" class="col-sm-2 col-form-label">{{ __("titles.type") }}</label>
+			<label for="roles" class="col-sm-2 col-form-label">{{ __("titles.role") }}</label>
 			<div class="col-sm-6">
-				<select name="type" id="type" class="form-control">
-					<option value="employee">Employee</option>
-					<option value="admin">Admin</option>
+				<select name="roles[]" id="roles" class="form-control @error("roles") is-invalid @enderror" multiple>
+					@foreach($roles as $role)
+						<option value="{{ $role->name }}">{{ $role->name }}</option>
+					@endforeach
 				</select>
-				@error("password")
+				@error("roles")
+				<div class="invalid-feedback">
+					{{ $message }}
+				</div>
+				@enderror
+			</div>
+		</div>
+		{{--		@endcan--}}
+
+		<div class="form-group row">
+			<label for="roles" class="col-sm-2 col-form-label">{{ __("titles.branch") }}</label>
+			<div class="col-sm-6">
+				<select name="branches[]" id="branches" class="form-control @error("branches") is-invalid @enderror" multiple>
+					@foreach($branches as $branch)
+						<option value="{{ $branch->id }}">{{ $branch->name }}</option>
+					@endforeach
+				</select>
+				@error("roles")
 				<div class="invalid-feedback">
 					{{ $message }}
 				</div>
@@ -61,6 +85,16 @@
 			</div>
 		</div>
 
+
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>
+@endsection
+
+
+@section("script")
+	<script src="{{ asset("assets/libs/select2/js/select2.min.js") }}"></script>
+	<script>
+		$("#roles").select2();
+		$("#branches").select2();
+	</script>
 @endsection

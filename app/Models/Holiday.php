@@ -11,8 +11,7 @@ class Holiday extends Model
     use HasFactory;
     use SoftDeletes;
     
-    public function employees() {
-        return $this->belongsToMany(Employee::class)->withTimestamps()->withPivot("deleted_at");
+    public function users() {
+        return $this->belongsToMany(User::class)->withTimestamps()->withPivot("deleted_at");
     }
-    
 }

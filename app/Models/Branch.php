@@ -15,7 +15,8 @@ class Branch extends Model
         return $this->hasMany(Problem::class);
     }
     
-    public function employees() {
-        return $this->belongsToMany(Employee::class)->withTimestamps()->withPivot("deleted_at");
+    
+    public function users() {
+        return $this->belongsToMany(User::class)->withTimestamps()->withPivot("deleted_at");
     }
 }

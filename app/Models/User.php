@@ -50,8 +50,32 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function employees(): HasMany {
-        return $this->hasMany(Employee::class)->withTrashed();
+    public function branches() {
+        return $this->belongsToMany(Branch::class)->withTimestamps()->withPivot("deleted_at");
+    }
+    
+    public function attendances(): HasMany {
+        return $this->hasMany(Attendance::class);
+    }
+    
+    public function attended($day){
+        return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->exists();
+    }
+    
+    public function attendanceTime($day) {
+        return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->first()->created_at->format("h:i:s A");
+    }
+    
+    public function left($day) {
+        return $this->attendances()->whereDate('created_at', $day)->where("type", 1)->exists();
+    }
+    
+    public function leavingTime($day) {
+        return $this->attendances()->whereDate('created_at', $day)->where("type", 1)->first()->created_at->format("h:i:s A");
+    }
+    
+    public function isHoliday($day) {
+        return false;
     }
     
     protected static function boot() {
