@@ -8,4 +8,6 @@
         public function store($data);
         
         public function update($data, Model $resource);
+        
+        public function delete(Model $resource);
     }

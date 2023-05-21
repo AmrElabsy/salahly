@@ -54,12 +54,11 @@
             
             }
             return redirect()->route("category.index")->withStatus(__("titles.category_updated"));
-            
         }
         
         public function destroy(Category $category)
         {
-            $category->delete();
+            $this->service->delete($category);
             return redirect()->route("category.index")->withStatus(__("titles.category_deleted"));
         }
         

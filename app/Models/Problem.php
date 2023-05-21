@@ -33,11 +33,11 @@ class Problem extends Model
     }
     
     public function materials(): BelongsToMany {
-        return $this->belongsToMany(Material::class)->withPivot("price");
+        return $this->belongsToMany(Material::class)->withTimestamps()->withPivot("deleted_at", "price");
     }
     
     public function categories(): BelongsToMany {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class)->withTimestamps()->withPivot("deleted_at");
     }
     
     public function getCostAttribute(): int {

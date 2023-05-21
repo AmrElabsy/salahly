@@ -51,7 +51,7 @@ class User extends Authenticatable
     ];
     
     public function employees(): HasMany {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(Employee::class)->withTrashed();
     }
     
     protected static function boot() {

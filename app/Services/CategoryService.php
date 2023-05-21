@@ -23,4 +23,9 @@
             
             return $resource;
         }
+    
+        public function delete( Model $resource ) {
+            $resource->problems()->sync([]);
+            $resource->delete();
+        }
     }

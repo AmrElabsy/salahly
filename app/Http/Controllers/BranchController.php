@@ -50,4 +50,19 @@ class BranchController extends Controller
         $branch->delete();
         return redirect()->route("branch.index")->withStatus(__("titles.branch_deleted"));
     }
+    
+    public function deleted() {
+        $branches = Branch::onlyTrashed()->get();
+        return view("branches.deleted", compact("branches"));
+    }
+    
+    public function restore($branch) {
+        Branch::withTrashed()->find($branch)->restore();
+        return redirect()->back()->withStatus(__("titles.category_restored"));
+    }
+    
+    public function forceDelete($branch) {
+        Branch::withTrashed()->find($branch)->forceDelete();
+        return redirect()->back()->withStatus(__("titles.category_deleted"));
+    }
 }

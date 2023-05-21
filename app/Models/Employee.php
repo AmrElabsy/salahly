@@ -15,7 +15,7 @@ class Employee extends Model
     use SoftDeletes;
     
     public function branches(): BelongsToMany {
-        return $this->belongsToMany(Branch::class);
+        return $this->belongsToMany(Branch::class)->withTimestamps()->withPivot("deleted_at");
     }
     
     public function attendances(): HasMany {

@@ -8,7 +8,6 @@
 
     class ProblemService implements IResourceService
     {
-
         public function store( $data ) {
             $problem = new Problem();
             $problem->description = $data["description"];
@@ -33,6 +32,7 @@
             $materials = $this->getMaterialsData($data["materials"] ?? []);
 
             $problem->materials()->sync($materials);
+            $problem->categories()->sync($data["categories"]);
             return $problem;
         }
 
@@ -61,5 +61,9 @@
             }
 
             return $result;
+        }
+    
+        public function delete( Model $resource ) {
+            // TODO: Implement delete() method.
         }
     }

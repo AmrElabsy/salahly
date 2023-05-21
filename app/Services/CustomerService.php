@@ -34,4 +34,9 @@
                 $phone->save();
             }
         }
+        
+        public function delete( Model $resource ) {
+            $resource->delete();
+
+        }
     }

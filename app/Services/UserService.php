@@ -39,4 +39,8 @@
             $resource->save();
             return $resource;
         }
+    
+        public function delete( Model $resource ) {
+            // TODO: Implement delete() method.
+        }
     }

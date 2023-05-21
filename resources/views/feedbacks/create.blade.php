@@ -25,12 +25,12 @@
 
                 <select name="problem" id="problem_id" class="form-control">
                     @foreach($problems as $problem)
-                        @dump($problem)
                         <option
                             @selected(old('problem') == $problem->id)
                             value="{{ $problem->id }}">
                             {{ $problem->description }}
                         </option>
+                            value="{{ $problem->id }}">{{ $problem->description }}</option>
                     @endforeach
                 </select>
 

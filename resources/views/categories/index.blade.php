@@ -5,7 +5,10 @@
 	<div class="container">
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.categories") }}</h2>
-			<div><a href="{{ route("category.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
+			<div>
+				<a href="{{ route("category.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				<a href="{{ route("category.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_categories") }}</a>
+			</div>
 		</div>
 
 		@if(session('status'))

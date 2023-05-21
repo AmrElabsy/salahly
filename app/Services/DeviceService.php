@@ -26,4 +26,8 @@
             $resource->customer_id = $data["customer_id"];
             $resource->save();
         }
+    
+        public function delete( Model $resource ) {
+            $resource->delete();
+        }
     }
