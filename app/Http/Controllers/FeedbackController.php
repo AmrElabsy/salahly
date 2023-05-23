@@ -6,12 +6,16 @@ use App\Models\Feedback;
 use App\Http\Requests\StoreFeedbackRequest;
 use App\Http\Requests\UpdateFeedbackRequest;
 use App\Models\Problem;
+use App\Services\FeedbackService;
 
 class FeedbackController extends Controller
 {
+    public function __construct(
+        public FeedbackService $service
+    ) {}
     public function index()
     {
-        $feedbacks=Feedback::all();
+        $feedbacks = Feedback::all();
         return view('feedbacks.index',compact('feedbacks'));
     }
 
@@ -24,13 +28,11 @@ class FeedbackController extends Controller
 
     public function store(StoreFeedbackRequest $request)
     {
-        $feedback = new Feedback;
-        $feedback->content = $request->input('content');
-        $feedback->is_available = $request->input('is_available', true);
-        $feedback->problem_id = $request->input('problem');
-        $feedback->save();
-
-
+        try {
+            $this->service->store($request->all());
+        } catch (\Exception $e) {
+        
+        }
         return redirect()->route('feedback.index')->withStatus(__("titles.feedback_added"));
     }
 
@@ -46,7 +48,12 @@ class FeedbackController extends Controller
 
     public function update(UpdateFeedbackRequest $request, Feedback $feedback)
     {
-        //
+        try {
+            $this->service->update($request->all(), $feedback);
+        } catch (\Exception $e) {
+        
+        }
+    
     }
 
     public function destroy(Feedback $feedback)

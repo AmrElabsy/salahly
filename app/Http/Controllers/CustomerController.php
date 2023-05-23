@@ -16,7 +16,7 @@ class CustomerController extends Controller
     
     public function index()
     {
-        $customers=Customer::all();
+        $customers = Customer::all();
         return view('customers.index',compact('customers'));
     }
     
@@ -43,7 +43,6 @@ class CustomerController extends Controller
     public function edit(Customer $customer)
     {
         return view("customers.edit", compact("customer"));
-
     }
 
     public function update(UpdateCustomerRequest $request, Customer $customer)

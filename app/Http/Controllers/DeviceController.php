@@ -61,7 +61,6 @@ class DeviceController extends Controller
     {
         $device->delete();
         return redirect()->route("device.index")->withStatus(__("titles.device_deleted"));
-    
     }
     
     public function deleted() {
@@ -78,5 +77,4 @@ class DeviceController extends Controller
         Device::withTrashed()->find($device)->forceDelete();
         return redirect()->back()->withStatus(__("titles.device_deleted"));
     }
-    
 }
