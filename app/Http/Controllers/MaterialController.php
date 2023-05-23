@@ -17,7 +17,6 @@ class MaterialController extends Controller
     {
         $materials = Material::all();
         return view("materials.index", compact("materials"));
-        
     }
 
     public function create()
@@ -28,7 +27,6 @@ class MaterialController extends Controller
 
     public function store(StoreMaterialRequest $request)
     {
-        
         $material = new Material();
         $material->name = $request->get("name");
         $material->price = $request->get("price");
@@ -46,7 +44,6 @@ class MaterialController extends Controller
     public function edit(Material $material)
     {
         return view("materials.edit", compact("material"));
-
     }
 
     public function update(UpdateMaterialRequest $request, Material $material)

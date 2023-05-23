@@ -2,25 +2,22 @@
     
     namespace App\Services;
     
-    use App\Models\Material;
+    use App\Models\Branch;
     use Illuminate\Database\Eloquent\Model;
 
-    class MaterialService implements IResourceService
+    class BranchService implements IResourceService
     {
     
         public function store( $data ) {
-            $material = new Material();
-            $material->name = $data["name"];
-            $material->price = $data["price"];
-    
-            $material->save();
+            $branch = new Branch();
+            $branch->name = $data["name"];
+            $branch->save();
             
-            return $material;
+            return $branch;
         }
     
         public function update( $data, Model $resource ) {
             $resource->name = $data["name"];
-            $resource->price = $data["price"];
             $resource->save();
             
             return $resource;

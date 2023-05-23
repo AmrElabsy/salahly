@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Branch;
 use App\Http\Requests\StoreBranchRequest;
 use App\Http\Requests\UpdateBranchRequest;
+use App\Services\BranchService;
 
 class BranchController extends Controller
 {
+    public function __construct(
+        public BranchService $service
+    ) {}
+    
     public function index()
     {
         $branches = Branch::all();
@@ -21,10 +26,12 @@ class BranchController extends Controller
 
     public function store(StoreBranchRequest $request)
     {
-        $branch = new Branch();
-        $branch->name = $request->get("name");
-        $branch->save();
+        try {
+            $this->service->store($request->all());
+        } catch ( \Throwable $e) {
         
+        }
+
         return redirect()->route("branch.index")->withStatus(__("titles.branch_added"));
     }
 
@@ -40,14 +47,18 @@ class BranchController extends Controller
 
     public function update(UpdateBranchRequest $request, Branch $branch)
     {
-        $branch->name = $request->get("name");
-        $branch->save();
-        return redirect()->route("branch.index")->withStatus(__("titles.branch_updated"));
+        try {
+            $this->service->update($request->all(), $branch);
+        } catch (\Throwable $exception) {
+        
         }
+        
+        return redirect()->route("branch.index")->withStatus(__("titles.branch_updated"));
+    }
 
     public function destroy(Branch $branch)
     {
-        $branch->delete();
+        $this->service->delete($branch);
         return redirect()->route("branch.index")->withStatus(__("titles.branch_deleted"));
     }
     

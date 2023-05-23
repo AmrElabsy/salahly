@@ -20,8 +20,8 @@ class Problem extends Model
         return $this->belongsTo(Device::class);
     }
     
-    public function employee(): BelongsTo {
-        return $this->belongsTo(Employee::class);
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
     
     public function branch(): BelongsTo {

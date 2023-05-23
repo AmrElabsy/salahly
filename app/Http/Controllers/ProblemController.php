@@ -6,12 +6,12 @@ use App\Models\Branch;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Device;
-use App\Models\Employee;
 use App\Models\Material;
 use App\Models\Problem;
 use App\Http\Requests\StoreProblemRequest;
 use App\Http\Requests\UpdateProblemRequest;
 use App\Models\Status;
+use App\Models\User;
 use App\Services\ProblemService;
 
 class ProblemController extends Controller
@@ -26,7 +26,7 @@ class ProblemController extends Controller
         $problems = $this->filter();
         $statuses = Status::all();
         $branches = Branch::all();
-        $employees = Employee::all();
+        $employees = User::role("employee")->get();
         $customers = Customer::all();
         
         return view("problems.index", compact("problems", "statuses", "branches", "employees","customers"));
@@ -40,7 +40,7 @@ class ProblemController extends Controller
         $branches = Branch::all();
         $materials = Material::all();
         $categories = Category::all();
-        $employees = Employee::all();
+        $employees = User::role("employee")->get();
         
         return view("problems.create", compact("devices", "statuses", "customers", "branches", "materials", "employees", "categories"));
     }
@@ -62,7 +62,7 @@ class ProblemController extends Controller
         $statuses = Status::all();
         $branches = Branch::all();
         $materials = Material::all();
-        $employees = Employee::all();
+        $employees = User::role("employee")->get();
     
         return view("problems.edit", compact("problem","devices", "statuses", "branches", "materials", "employees"));
     }
@@ -95,7 +95,7 @@ class ProblemController extends Controller
         }
         
         if ($employee) {
-            $problems = $problems->where("employee_id", $employee);
+            $problems = $problems->where("user_id", $employee);
         }
         
         if ($customer) {

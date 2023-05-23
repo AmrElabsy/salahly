@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
+    use App\Models\Branch;
+    use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Support\Facades\Hash;
-
-class UserController extends Controller
+    use Spatie\Permission\Models\Role;
+    
+    class UserController extends Controller
 {
     public function __construct(
         public UserService $service
@@ -22,7 +24,10 @@ class UserController extends Controller
 
     public function create()
     {
-        return view("users.create");
+        $roles = Role::all();
+        $branches = Branch::all();
+    
+        return view("users.create", compact("roles", "branches"));
     }
 
     public function store(StoreUserRequest $request)
@@ -39,7 +44,10 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view("users.edit", compact("user"));
+        $roles = Role::all();
+        $branches = Branch::all();
+    
+        return view("users.edit", compact("user", "roles", "branches"));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -69,7 +77,4 @@ class UserController extends Controller
         User::withTrashed()->find($user)->forceDelete();
         return redirect()->back()->withStatus(__("titles.user_deleted"));
     }
-
-
 }
-?>

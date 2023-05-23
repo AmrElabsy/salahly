@@ -42,7 +42,7 @@
 			<div class="col-sm-6">
 				<input class="form-control @error("password") is-invalid @enderror"
 					   type="password" id="password" name="password"
-					   required minlength="8">
+					   minlength="8">
 				@error("password")
 				<div class="invalid-feedback">
 					{{ $message }}
@@ -51,20 +51,42 @@
 			</div>
 		</div>
 
+		{{--		@can("assign roles")--}}
 		<div class="form-group row">
-			<label for="type" class="col-sm-2 col-form-label">{{ __("titles.type") }}</label>
+			<label for="roles" class="col-sm-2 col-form-label">{{ __("titles.role") }}</label>
 			<div class="col-sm-6">
-				<select name="type" id="type" class="form-control">
-					<option @selected(old('type', $user->type) == "employee") value="employee">Employee</option>
-					<option @selected(old('type', $user->type) == "admin") value="admin">Admin</option>
+				<select name="roles[]" id="roles" class="form-control @error("roles") is-invalid @enderror" multiple>
+					@foreach($roles as $role)
+						<option value="{{ $role->name }}" {{ in_array($role->name, $user->getRoleNames()->toArray()) ? "selected" : "" }}>{{ $role->name }}</option>
+					@endforeach
 				</select>
-				@error("password")
+				@error("roles")
 				<div class="invalid-feedback">
 					{{ $message }}
 				</div>
 				@enderror
 			</div>
 		</div>
+		{{--		@endcan--}}
+
+		<div class="form-group row">
+			<label for="branches" class="col-sm-2 col-form-label">{{ __("titles.branches") }}</label>
+			<div class="col-sm-6">
+				<select name="branches[]" id="branches" class="form-control" multiple>
+					@foreach($branches as $branch)
+						<option
+								@selected($user->branches->contains($branch->id))
+								value="{{ $branch->id }}">{{ $branch->name }}</option>
+					@endforeach
+				</select>
+				@error("name")
+				<div class="invalid-feedback">
+					{{ $message }}
+				</div>
+				@enderror
+			</div>
+		</div>
+
 
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
@@ -75,5 +97,6 @@
 	<script src="{{ asset("assets/libs/select2/js/select2.min.js")  }}"></script>
 	<script>
 		$("#branches").select2();
+		$("#roles").select2();
 	</script>
 @endsection

@@ -15,7 +15,6 @@
     
                 $table->foreign("employee_id")->on("employees")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
                 $table->foreign("holiday_id")->on("holidays")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
-    
             });
         }
         

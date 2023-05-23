@@ -9,7 +9,7 @@ class Attendance extends Model
 {
     use HasFactory;
     
-    public function employee() {
-        return $this->belongsTo(Employee::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

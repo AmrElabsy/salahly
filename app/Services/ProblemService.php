@@ -18,7 +18,7 @@
             $problem->due_time = $data["due_time"];
             $problem->status_id = $data["status"];
             $problem->branch_id = $data["branch"];
-            $problem->employee_id = $data["employee"] ?? null;
+            $problem->user_id = $data["user"] ?? null;
 
             if ( isset($data["is_new_device"]) && $data["is_new_device"] == "on" ) {
                 $deviceService = new DeviceService();
@@ -45,7 +45,7 @@
             $resource->due_time = $data["due_time"];
             $resource->status_id = $data["status"];
             $resource->branch_id = $data["branch"];
-            $resource->employee_id = $data["employee"] ?? null;
+            $resource->user_id = $data["user"] ?? null;
 
             $materials = $this->getMaterialsData($data["materials"]);
             $resource->materials()->sync($materials);
