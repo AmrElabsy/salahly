@@ -85,8 +85,8 @@
                             @foreach($employees as $i => $employee)
                                 <tr>
                                     <th scope="row">{{ $i + 1 }}</th>
-                                    <td>{{ $employee->user->name }}</td>
-                                    <td>{{ $employee->user->email }}</td>
+                                    <td>{{ $employee->name }}</td>
+                                    <td>{{ $employee->email }}</td>
                                     <td>
                                         @foreach($employee->branches as $branch)
                                             <p>{{ $branch->name }}</p>

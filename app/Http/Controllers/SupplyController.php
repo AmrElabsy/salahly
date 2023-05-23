@@ -51,7 +51,6 @@ class SupplyController extends Controller
 
     public function destroy(Supply $supply)
     {
-
         $supply->delete();
         return redirect()->route("supply.index")->withStatus(__("titles.supply_deleted"));
     }
