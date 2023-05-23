@@ -25,7 +25,6 @@
                 <tr>
                     <th>#</th>
                     <th>{{ __("titles.supplies") }}</th>
-					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.manage") }}</th>
                 </tr>
             </thead>
@@ -34,7 +33,6 @@
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
                     <td>{{ $supply->name }}</td>
-					<td>{{ $supply->price }}</td>
 
                     <td>
                         <a href="{{ route("supply.restore", $supply->id) }}"

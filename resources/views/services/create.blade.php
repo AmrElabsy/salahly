@@ -1,11 +1,11 @@
 @extends("layouts.app")
-@section("title", __("titles.add_supply"))
+@section("title", __("titles.add_service"))
 
 @section("content")
-<form action="{{ route("supply.store") }}" method="post">
+<form action="{{ route("service.store") }}" method="post">
     @csrf
     <div class="form-group row">
-        <label for="name" class="col-sm-1 col-form-label">{{ __("titles.supply") }}</label>
+        <label for="name" class="col-sm-2 col-form-label">{{ __("titles.service") }}</label>
         <div class="col-sm-6">
             <input class="form-control @error("name") is-invalid @enderror" type="text" id="name" name="name" required
                 minlength="2" value="{{ old("name") }}">

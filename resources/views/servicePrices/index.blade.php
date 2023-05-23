@@ -1,13 +1,13 @@
 @extends("layouts.app")
-@section("title", __("titles.supplies"))
+@section("title", __("titles.servicePrices"))
 
 @section("content")
 <div class="container">
     <div class="d-flex justify-content-between">
-        <h2>{{ __("titles.supplies") }}</h2>
+        <h2>{{ __("titles.servicePrice") }}</h2>
         <div>
-			<a href="{{ route("supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-			<a href="{{ route("supply.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
+			<a href="{{ route("servicePrice.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+			<a href="{{route('servicePrice.deleted')}}" class="btn btn-secondary">{{ __("titles.deleted_servicePrices") }}</a>
 
 		</div>
     </div>
@@ -26,19 +26,23 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ __("titles.supplies") }}</th>
+                    <th>{{ __("titles.services") }}</th>
+                    <th>{{ __("titles.price") }}</th>
+                    <th>{{ __("titles.start_date") }}</th>
                     <th>{{ __("titles.manage") }}</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($supplies as $i => $supply)
+                @foreach($servicePrices as $i => $servicePrice)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $supply->name }}</td>
+                    <td>{{$servicePrice->service->name}}</td>
+                    <td>{{$servicePrice->price}}</td>
+                    <td>{{$servicePrice->start_date}}</td>
                     <td>
-                        <a href="{{ route("supply.edit", $supply->id) }}"
+                        <a href="{{ route("servicePrice.edit", $servicePrice->id) }}"
                             class="btn btn-primary">{{ __("titles.edit") }}</a>
-                        @include("layouts.delete", ["action" => route("supply.destroy", $supply->id)])
+                        @include("layouts.delete", ["action" => route("servicePrice.destroy", $servicePrice->id)])
                     </td>
                 </tr>
 

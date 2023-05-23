@@ -1,13 +1,13 @@
 @extends("layouts.app")
-@section("title", __("titles.supplies"))
+@section("title", __("titles.services"))
 
 @section("content")
 <div class="container">
     <div class="d-flex justify-content-between">
-        <h2>{{ __("titles.supplies") }}</h2>
+        <h2>{{ __("titles.services") }}</h2>
         <div>
-			<a href="{{ route("supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-			<a href="{{ route("supply.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
+			<a href="{{ route("service.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+			<a href="{{ route("service.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_services") }}</a>
 
 		</div>
     </div>
@@ -26,19 +26,19 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>{{ __("titles.supplies") }}</th>
+                    <th>{{ __("titles.services") }}</th>
                     <th>{{ __("titles.manage") }}</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($supplies as $i => $supply)
+                @foreach($services as $i => $service)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $supply->name }}</td>
+                    <td>{{ $service->name }}</td>
                     <td>
-                        <a href="{{ route("supply.edit", $supply->id) }}"
+                        <a href="{{ route("service.edit", $service->id) }}"
                             class="btn btn-primary">{{ __("titles.edit") }}</a>
-                        @include("layouts.delete", ["action" => route("supply.destroy", $supply->id)])
+                        @include("layouts.delete", ["action" => route("service.destroy", $service->id)])
                     </td>
                 </tr>
 

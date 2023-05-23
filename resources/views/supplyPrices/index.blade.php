@@ -1,13 +1,13 @@
 @extends("layouts.app")
-@section("title", __("titles.supplies"))
+@section("title", __("titles.supplyPrices"))
 
 @section("content")
 <div class="container">
     <div class="d-flex justify-content-between">
-        <h2>{{ __("titles.supplies") }}</h2>
+        <h2>{{ __("titles.supplyPrice") }}</h2>
         <div>
-			<a href="{{ route("supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-			<a href="{{ route("supply.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
+			<a href="{{ route("supplyPrice.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+			<a href="{{route('supplyPrice.deleted')}}" class="btn btn-secondary">{{ __("titles.deleted_supplyPrices") }}</a>
 
 		</div>
     </div>
@@ -27,18 +27,22 @@
                 <tr>
                     <th>#</th>
                     <th>{{ __("titles.supplies") }}</th>
+                    <th>{{ __("titles.price") }}</th>
+                    <th>{{ __("titles.start_date") }}</th>
                     <th>{{ __("titles.manage") }}</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($supplies as $i => $supply)
+                @foreach($supplyPrices as $i => $supplyPrice)
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
-                    <td>{{ $supply->name }}</td>
+                    <td>{{$supplyPrice->supply->name}}</td>
+                    <td>{{$supplyPrice->price}}</td>
+                    <td>{{$supplyPrice->start_date}}</td>
                     <td>
-                        <a href="{{ route("supply.edit", $supply->id) }}"
+                        <a href="{{ route("supplyPrice.edit", $supplyPrice->id) }}"
                             class="btn btn-primary">{{ __("titles.edit") }}</a>
-                        @include("layouts.delete", ["action" => route("supply.destroy", $supply->id)])
+                        @include("layouts.delete", ["action" => route("supplyPrice.destroy", $supplyPrice->id)])
                     </td>
                 </tr>
 

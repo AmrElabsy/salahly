@@ -1,16 +1,16 @@
 @extends("layouts.app")
-@section("title", __("titles.edit_supply"))
+@section("title", __("titles.edit_service"))
 
 @section("content")
-	<form action="{{ route("supply.update", $supply) }}" method="post">
+	<form action="{{ route("service.update", $service) }}" method="post">
 		@csrf
 		@method('PUT')
 		<div class="form-group row">
-			<label for="name" class="col-sm-1 col-form-label">{{ __("titles.supply") }}</label>
+			<label for="name" class="col-sm-2 col-form-label">{{ __("titles.service") }}</label>
 			<div class="col-sm-6">
 				<input class="form-control @error("name") is-invalid @enderror"
 					   type="text" id="name" name="name"
-					   required minlength="2" value="{{ old("name", $supply->name) }}">
+					   required minlength="2" value="{{ old("name", $service->name) }}">
 				@error("name")
 					<div class="invalid-feedback">
 						{{ $message }}
@@ -18,8 +18,6 @@
 				@enderror
 			</div>
 		</div>
-
-
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>

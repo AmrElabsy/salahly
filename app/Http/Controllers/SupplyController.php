@@ -23,7 +23,6 @@ class SupplyController extends Controller
     {
         $supply = new Supply();
         $supply->name = $request->get("name");
-        $supply->price = $request->get("price");
 
         $supply->save();
 
@@ -43,8 +42,6 @@ class SupplyController extends Controller
     public function update(UpdateSupplyRequest $request, Supply $supply)
     {
         $supply->name = $request->get("name");
-        $supply->price = $request->get("price");
-
         $supply->save();
         return redirect()->route("supply.index")->withStatus(__("titles.supply_updated"));
     }
