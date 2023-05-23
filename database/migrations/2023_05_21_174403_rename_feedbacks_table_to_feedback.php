@@ -13,10 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('feedbacks', function (Blueprint $table) {
-            $table->string("known_from")->after("is_available");
-            $table->string("where_from")->after("known_from");
-        });
+        Schema::rename('feedbacks', 'feedback');
     }
 
     /**
@@ -26,9 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('feedbacks', function (Blueprint $table) {
-            $table->dropColumn("known_from");
-            $table->dropColumn("where_from");
-        });
+        Schema::rename('feedback', 'feedbacks');
     }
 };
