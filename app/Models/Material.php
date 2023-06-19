@@ -13,4 +13,13 @@ class Material extends Model
     public function problems() {
         return $this->belongsToMany(Problem::class)->withTimestamps()->withPivot("deleted_at");
     }
+    
+    public function prices() {
+        return $this->hasMany(MaterialPrice::class);
+    }
+    
+    public function price() {
+        return $this->hasOne(MaterialPrice::class)->latest();
+    
+    }
 }

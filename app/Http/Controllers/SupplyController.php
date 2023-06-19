@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supply;
 use App\Http\Requests\StoreSupplyRequest;
 use App\Http\Requests\UpdateSupplyRequest;
+use App\Models\SupplyPrice;
 
 class SupplyController extends Controller
 {
@@ -23,8 +24,19 @@ class SupplyController extends Controller
     {
         $supply = new Supply();
         $supply->name = $request->get("name");
-
         $supply->save();
+    
+        $prices = $request->input('prices');
+        $start_dates = $request->input('start_dates');
+    
+        foreach ($prices as $index => $price) {
+            $supplyPrice = new SupplyPrice();
+            $supplyPrice->price = $price;
+            $supplyPrice->start_date = $start_dates[$index];
+            $supplyPrice->supply_id = $supply->id;
+    
+            $supplyPrice->save();
+        }
 
         return redirect()->route("supply.index")->withStatus(__("titles.supply_added"));
     }
@@ -43,6 +55,7 @@ class SupplyController extends Controller
     {
         $supply->name = $request->get("name");
         $supply->save();
+        // @TODO: Sync the prices
         return redirect()->route("supply.index")->withStatus(__("titles.supply_updated"));
     }
 

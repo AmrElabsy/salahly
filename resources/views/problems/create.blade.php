@@ -123,7 +123,7 @@
 					@foreach($materials as $material)
 						<option
 								@selected(in_array($material->id, old('materials', [])))
-								value="{{ $material->id }}">{{ $material->name }}</option>
+								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price?->price }})</option>
 					@endforeach
 				</select>
 			</div>

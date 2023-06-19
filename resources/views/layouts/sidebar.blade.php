@@ -73,16 +73,6 @@
 								</a>
 							</li>
 
-
-							<li>
-								<a href="{{ route("material.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.materials") }} </span>
-								</a>
-							</li>
-
-
-
 							<li>
 								<a href="{{ route("category.index") }}" class="waves-effect">
 									<i class="mdi mdi-account-group"></i>
@@ -94,6 +84,29 @@
 								<a href="{{ route("status.index") }}" class="waves-effect">
 									<i class="mdi mdi-account-group"></i>
 									<span> {{ __("titles.statuses") }} </span>
+								</a>
+							</li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="javascript: void(0);" class="has-arrow waves-effect">
+							<i class="mdi mdi-buffer"></i>
+							<span>Stock Management</span>
+						</a>
+
+						<ul class="sub-menu" aria-expanded="false">
+							<li>
+								<a href="{{ route("stock.supply.index") }}" class="waves-effect">
+									<i class="mdi mdi-account-group"></i>
+									<span> {{ __("titles.supplies") }} </span>
+								</a>
+							</li>
+
+							<li>
+								<a href="{{ route("stock.material.index") }}" class="waves-effect">
+									<i class="mdi mdi-account-group"></i>
+									<span> {{ __("titles.materials") }} </span>
 								</a>
 							</li>
 						</ul>
@@ -114,18 +127,25 @@
 							</li>
 
 							<li>
+								<a href="{{ route("material.index") }}" class="waves-effect">
+									<i class="mdi mdi-account-group"></i>
+									<span> {{ __("titles.materials") }} </span>
+								</a>
+							</li>
+
+							<li>
 								<a href="{{ route("supply.index") }}" class="waves-effect">
 									<i class="mdi mdi-account-group"></i>
 									<span> {{ __("titles.supplies") }} </span>
 								</a>
 							</li>
 
-                            <li>
-                                <a href="{{ route("supplyPrice.index") }}" class="waves-effect">
-                                    <i class="mdi mdi-account-group"></i>
-                                    <span> {{ __("titles.supplyPrices") }} </span>
-                                </a>
-                            </li>
+{{--                            <li>--}}
+{{--                                <a href="{{ route("supplyPrice.index") }}" class="waves-effect">--}}
+{{--                                    <i class="mdi mdi-account-group"></i>--}}
+{{--                                    <span> {{ __("titles.supplyPrices") }} </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
                             <li>
                                 <a href="{{ route("service.index") }}" class="waves-effect">
@@ -134,14 +154,12 @@
                                 </a>
                             </li>
 
-
-                            <li>
-                                <a href="{{ route("servicePrice.index") }}" class="waves-effect">
-                                    <i class="mdi mdi-account-group"></i>
-                                    <span> {{ __("titles.servicePrices")}} </span>
-                                </a>
-                            </li>
-
+{{--                            <li>--}}
+{{--                                <a href="{{ route("servicePrice.index") }}" class="waves-effect">--}}
+{{--                                    <i class="mdi mdi-account-group"></i>--}}
+{{--                                    <span> {{ __("titles.servicePrices")}} </span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
 
 							<li>
 								<a href="{{ route("feedback.index") }}" class="waves-effect">

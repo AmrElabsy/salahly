@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use App\Models\ServicePrice;
+use App\Models\SupplyPrice;
 
 class ServiceController extends Controller
 {
@@ -24,7 +26,19 @@ class ServiceController extends Controller
         $service = new Service();
         $service->name = $request->get("name");
         $service->save();
-
+    
+        $prices = $request->input('prices');
+        $start_dates = $request->input('start_dates');
+    
+        foreach ($prices as $index => $price) {
+            $servicePrice = new ServicePrice();
+            $servicePrice->price = $price;
+            $servicePrice->start_date = $start_dates[$index];
+            $servicePrice->service_id = $service->id;
+    
+            $servicePrice->save();
+        }
+        
         return redirect()->route("service.index")->withStatus(__("titles.service_added"));
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Material;
 use App\Http\Requests\StoreMaterialRequest;
 use App\Http\Requests\UpdateMaterialRequest;
+use App\Models\MaterialPrice;
 use App\Services\MaterialService;
 
 class MaterialController extends Controller
@@ -29,9 +30,19 @@ class MaterialController extends Controller
     {
         $material = new Material();
         $material->name = $request->get("name");
-        $material->price = $request->get("price");
-        
         $material->save();
+    
+        $prices = $request->input('prices');
+        $start_dates = $request->input('start_dates');
+    
+        foreach ($prices as $index => $price) {
+            $materialPrice = new MaterialPrice();
+            $materialPrice->price = $price;
+            $materialPrice->start_date = $start_dates[$index];
+            $materialPrice->material_id = $material->id;
+    
+            $materialPrice->save();
+        }
         
         return redirect()->route("material.index")->withStatus(__("titles.material_added"));
     }

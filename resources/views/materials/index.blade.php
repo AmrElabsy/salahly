@@ -36,7 +36,7 @@
                 <tr>
                     <th scope="row">{{ $i + 1 }}</th>
                     <td>{{ $material->name }}</td>
-                    <td>{{ $material->price }}</td>
+                    <td>{{ $material->price?->price }}</td>
                     <td>
                         <a href="{{ route("material.edit", $material->id) }}"
                             class="btn btn-primary">{{ __("titles.edit") }}</a>

@@ -118,11 +118,27 @@ Route::group([
                 'supplyPrice'=>"SupplyPriceController",
                 'service'=>"ServiceController",
                 'servicePrice'=>"ServicePriceController",
-
             ]);
+            
+            Route::group(["prefix" => "stock", "as" => "stock."], function () {
+                Route::resources([
+                    "supply" => "StoredSupplyController",
+                    "material" => "StoredMaterialController",
+                ]);
 
+                Route::group(["prefix" => "supply", "as" => "supply."], function() {
+                    Route::get("/deleted", "StoredSupplyController@deleted")->name("deleted");
+                    Route::get("/restore/{supply}", "StoredSupplyController@restore")->name("restore");
+                    Route::get("/forcedelete/{supply}", "StoredSupplyController@forceDelete")->name("forceDelete");
+                });
+
+                Route::group(["prefix" => "material", "as" => "material."], function() {
+                    Route::get("/deleted", "StoredMaterialController@deleted")->name("deleted");
+                    Route::get("/restore/{material}", "StoredMaterialController@restore")->name("restore");
+                    Route::get("/forcedelete/{material}", "StoredMaterialController@forceDelete")->name("forceDelete");
+                });
+            });
         });
-
     });
 });
 
