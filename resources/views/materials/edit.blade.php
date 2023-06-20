@@ -48,6 +48,12 @@
 			</div>
 		@endforeach
 
+	<!-- Wrapper for all the form fields -->
+		<div id="input_fields_wrap"></div>
+
+		<!-- Add button -->
+		<a href="#" class="add_field_button btn btn-success"><i class="fa fa-plus"></i> Add More Fields</a>
+
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>
@@ -58,7 +64,7 @@
 		$(document).ready(function () {
 			let index = {{ count($material->prices) }};
 
-			$(".add-slot").click(function() {
+			$(".add_field_button").click(function() {
 				let html = `
 					<div class="form-group row">
 						<label for="price${index}" class="col-sm-1 col-form-label">{{ __("titles.price") }}</label>
@@ -79,7 +85,7 @@
 					</div>
 				`;
 
-				$("#new-slots-container").append(html);
+				$("#input_fields_wrap").append(html);
 				index++;
 			});
 

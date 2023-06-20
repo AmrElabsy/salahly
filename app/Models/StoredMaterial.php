@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class StoredMaterial extends Model
 {
     use HasFactory;
+    
+    public function material() {
+        return $this->belongsTo(Material::class);
+    }
 }

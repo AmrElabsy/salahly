@@ -20,6 +20,15 @@ class Material extends Model
     
     public function price() {
         return $this->hasOne(MaterialPrice::class)->latest();
+    }
     
+    public function storedMaterials()
+    {
+        return $this->hasMany(StoredMaterial::class);
+    }
+    
+    public function getAmountAttribute()
+    {
+        return $this->storedMaterials()->sum('amount');
     }
 }

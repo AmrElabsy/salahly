@@ -60,9 +60,22 @@ class MaterialController extends Controller
     public function update(UpdateMaterialRequest $request, Material $material)
     {
         $material->name = $request->get("name");
-        $material->price = $request->get("price");
 
         $material->save();
+        
+        $material->prices()->delete();
+    
+        $prices = $request->input('prices');
+        $start_dates = $request->input('start_dates');
+    
+        foreach ($prices as $index => $price) {
+            $materialPrice = new MaterialPrice();
+            $materialPrice->price = $price;
+            $materialPrice->start_date = $start_dates[$index];
+            $materialPrice->material_id = $material->id;
+        
+            $materialPrice->save();
+        }
         return redirect()->route("material.index")->withStatus(__("titles.material_updated"));
     
     }

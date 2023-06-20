@@ -27,6 +27,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Users',
                 'created_at' => '2023-05-01 11:28:04',
                 'updated_at' => '2023-05-01 11:28:04',
+                'deleted_at' => NULL,
             ),
             1 => 
             array (
@@ -36,6 +37,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Login',
                 'created_at' => '2023-05-01 11:28:04',
                 'updated_at' => '2023-05-01 11:28:04',
+                'deleted_at' => NULL,
             ),
             2 => 
             array (
@@ -45,6 +47,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Logout',
                 'created_at' => '2023-05-01 11:28:04',
                 'updated_at' => '2023-05-01 11:28:04',
+                'deleted_at' => NULL,
             ),
             3 => 
             array (
@@ -54,6 +57,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Home',
                 'created_at' => '2023-05-01 11:28:04',
                 'updated_at' => '2023-05-01 11:28:04',
+                'deleted_at' => NULL,
             ),
             4 => 
             array (
@@ -63,6 +67,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Attendance',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             5 => 
             array (
@@ -72,6 +77,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Status',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             6 => 
             array (
@@ -81,6 +87,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Statuses',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             7 => 
             array (
@@ -90,6 +97,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Status',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             8 => 
             array (
@@ -99,6 +107,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Status',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             9 => 
             array (
@@ -108,6 +117,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Status added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             10 => 
             array (
@@ -117,6 +127,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Status updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             11 => 
             array (
@@ -126,6 +137,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Status deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             12 => 
             array (
@@ -135,6 +147,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customer',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             13 => 
             array (
@@ -144,6 +157,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customers',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             14 => 
             array (
@@ -153,6 +167,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Customer',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             15 => 
             array (
@@ -162,6 +177,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Customer',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             16 => 
             array (
@@ -171,6 +187,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customer added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             17 => 
             array (
@@ -180,6 +197,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customer updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             18 => 
             array (
@@ -189,6 +207,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customer deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             19 => 
             array (
@@ -198,6 +217,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Customer Restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             20 => 
             array (
@@ -207,6 +227,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Customers',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             21 => 
             array (
@@ -216,6 +237,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Is New Customer',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             22 => 
             array (
@@ -225,6 +247,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Phones',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             23 => 
             array (
@@ -234,6 +257,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Device',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             24 => 
             array (
@@ -243,6 +267,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Devices',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             25 => 
             array (
@@ -252,6 +277,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Device',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             26 => 
             array (
@@ -261,6 +287,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Device',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             27 => 
             array (
@@ -270,6 +297,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Device added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             28 => 
             array (
@@ -279,6 +307,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Device updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             29 => 
             array (
@@ -288,6 +317,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Device deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             30 => 
             array (
@@ -297,6 +327,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Device Restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             31 => 
             array (
@@ -306,6 +337,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Devices',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             32 => 
             array (
@@ -315,6 +347,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Is_New_Device',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             33 => 
             array (
@@ -324,6 +357,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problem',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             34 => 
             array (
@@ -333,6 +367,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problems',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             35 => 
             array (
@@ -342,6 +377,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Problem',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             36 => 
             array (
@@ -351,6 +387,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Problem',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             37 => 
             array (
@@ -360,6 +397,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problem added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             38 => 
             array (
@@ -369,6 +407,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problem updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             39 => 
             array (
@@ -378,6 +417,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problem deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             40 => 
             array (
@@ -387,6 +427,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Problem Restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             41 => 
             array (
@@ -396,6 +437,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Problems',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             42 => 
             array (
@@ -405,6 +447,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Description',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             43 => 
             array (
@@ -414,6 +457,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Price',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             44 => 
             array (
@@ -423,6 +467,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Paid',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             45 => 
             array (
@@ -432,6 +477,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Due Time',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             46 => 
             array (
@@ -441,6 +487,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Comment',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             47 => 
             array (
@@ -450,6 +497,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employee',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             48 => 
             array (
@@ -459,6 +507,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employees',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             49 => 
             array (
@@ -468,6 +517,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Employee',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             50 => 
             array (
@@ -477,6 +527,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Employee',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             51 => 
             array (
@@ -486,6 +537,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employee added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             52 => 
             array (
@@ -495,6 +547,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employee updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             53 => 
             array (
@@ -504,6 +557,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employee deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             54 => 
             array (
@@ -513,6 +567,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Employee Restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             55 => 
             array (
@@ -522,6 +577,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Employees',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             56 => 
             array (
@@ -531,6 +587,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Branch',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             57 => 
             array (
@@ -540,6 +597,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Branches',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             58 => 
             array (
@@ -549,6 +607,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add Branch',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             59 => 
             array (
@@ -558,6 +617,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit Branch',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             60 => 
             array (
@@ -567,6 +627,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Branch added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             61 => 
             array (
@@ -576,6 +637,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Branch updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             62 => 
             array (
@@ -585,6 +647,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Branch deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             63 => 
             array (
@@ -594,6 +657,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Material',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             64 => 
             array (
@@ -603,6 +667,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Materials',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             65 => 
             array (
@@ -612,6 +677,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add material',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             66 => 
             array (
@@ -621,6 +687,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit material',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             67 => 
             array (
@@ -630,6 +697,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Material added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             68 => 
             array (
@@ -639,6 +707,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Material updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             69 => 
             array (
@@ -648,6 +717,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Material deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             70 => 
             array (
@@ -657,6 +727,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Materials',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             71 => 
             array (
@@ -666,6 +737,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Material restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             72 => 
             array (
@@ -675,6 +747,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Name',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             73 => 
             array (
@@ -684,6 +757,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Cost',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             74 => 
             array (
@@ -693,6 +767,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supply',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             75 => 
             array (
@@ -702,6 +777,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supplies',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             76 => 
             array (
@@ -711,6 +787,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add supply',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             77 => 
             array (
@@ -720,6 +797,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit supply',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             78 => 
             array (
@@ -729,6 +807,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supply added Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             79 => 
             array (
@@ -738,6 +817,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supply updated Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             80 => 
             array (
@@ -747,6 +827,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supply deleted Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             81 => 
             array (
@@ -756,6 +837,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Deleted Supplies',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             82 => 
             array (
@@ -765,6 +847,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Supply restored Successfully',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             83 => 
             array (
@@ -774,6 +857,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Add',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             84 => 
             array (
@@ -783,6 +867,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Edit',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             85 => 
             array (
@@ -792,6 +877,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Delete',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             86 => 
             array (
@@ -801,6 +887,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Submit',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             87 => 
             array (
@@ -810,6 +897,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Restore',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             88 => 
             array (
@@ -819,6 +907,7 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Force Delete',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
             ),
             89 => 
             array (
@@ -828,6 +917,87 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Manage',
                 'created_at' => '2023-05-01 11:28:05',
                 'updated_at' => '2023-05-01 11:28:05',
+                'deleted_at' => NULL,
+            ),
+            90 => 
+            array (
+                'id' => 181,
+                'word' => 'word',
+                'ar' => 'الكلمة',
+                'en' => 'Word',
+                'created_at' => '2023-05-05 19:12:58',
+                'updated_at' => '2023-05-05 19:12:58',
+                'deleted_at' => NULL,
+            ),
+            91 => 
+            array (
+                'id' => 182,
+                'word' => 'word_added',
+                'ar' => 'تم إضافة الكلمة بنجاح',
+                'en' => 'Word Added Successfully',
+                'created_at' => '2023-05-05 19:13:16',
+                'updated_at' => '2023-05-05 19:13:16',
+                'deleted_at' => NULL,
+            ),
+            92 => 
+            array (
+                'id' => 183,
+                'word' => 'words',
+                'ar' => 'الكلمات',
+                'en' => 'Words',
+                'created_at' => '2023-05-05 19:13:30',
+                'updated_at' => '2023-05-05 19:13:30',
+                'deleted_at' => NULL,
+            ),
+            93 => 
+            array (
+                'id' => 184,
+                'word' => 'roles',
+                'ar' => 'الأدوار',
+                'en' => 'Roles',
+                'created_at' => '2023-05-05 19:15:55',
+                'updated_at' => '2023-05-05 19:15:55',
+                'deleted_at' => NULL,
+            ),
+            94 => 
+            array (
+                'id' => 185,
+                'word' => 'permissions',
+                'ar' => 'الصلاحيات',
+                'en' => 'Permissions',
+                'created_at' => '2023-05-05 23:57:07',
+                'updated_at' => '2023-05-05 23:57:25',
+                'deleted_at' => NULL,
+            ),
+            95 => 
+            array (
+                'id' => 186,
+                'word' => 'word_updated',
+                'ar' => 'تم تحديث الكلمة بنجاح',
+                'en' => 'Word Updated Successfully',
+                'created_at' => '2023-05-06 00:04:43',
+                'updated_at' => '2023-05-06 00:04:43',
+                'deleted_at' => NULL,
+            ),
+            96 => 
+            array (
+                'id' => 187,
+                'word' => 'email',
+                'ar' => 'البريد الإلكتروني',
+                'en' => 'Email',
+                'created_at' => '2023-05-06 00:11:48',
+                'updated_at' => '2023-05-06 00:11:48',
+                'deleted_at' => NULL,
+            ),
+            97 => 
+            array (
+                'id' => 188,
+                'word' => 'type',
+                'ar' => 'النوع',
+                'en' => 'Type',
+                'created_at' => '2023-05-06 00:12:13',
+                'updated_at' => '2023-05-06 00:12:13',
+                'deleted_at' => NULL,
             ),
         ));
         

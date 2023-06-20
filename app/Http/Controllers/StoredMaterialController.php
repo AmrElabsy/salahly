@@ -2,85 +2,65 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
 use App\Models\StoredMaterial;
 use App\Http\Requests\StoreStoredMaterialRequest;
 use App\Http\Requests\UpdateStoredMaterialRequest;
 
 class StoredMaterialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $materials = Material::all();
+        return view("stock.materials.index", compact("materials"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $materials = Material::all();
+    
+        return view("stock.materials.create", compact("materials"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreStoredMaterialRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreStoredMaterialRequest $request)
     {
-        //
+        $storedMaterial = new StoredMaterial();
+        
+        $storedMaterial->material_id = $request->get("material_id");
+        $storedMaterial->amount = $request->get("amount");
+        $storedMaterial->buying_date = $request->get("buying_date");
+        
+        $storedMaterial->save();
+        
+        return redirect()->route("stock.material.index");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\StoredMaterial  $storedMaterial
-     * @return \Illuminate\Http\Response
-     */
-    public function show(StoredMaterial $storedMaterial)
+    public function show(Material $material)
     {
-        //
+        return view("stock.materials.show", compact("material"));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\StoredMaterial  $storedMaterial
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(StoredMaterial $storedMaterial)
+    public function edit(StoredMaterial $material)
     {
-        //
+        $materials = Material::all();
+        return view("stock.materials.edit", compact("material", "materials"));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateStoredMaterialRequest  $request
-     * @param  \App\Models\StoredMaterial  $storedMaterial
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateStoredMaterialRequest $request, StoredMaterial $storedMaterial)
+    public function update(UpdateStoredMaterialRequest $request, StoredMaterial $material)
     {
-        //
+        $material->material_id = $request->get("material_id");
+        $material->amount = $request->get("amount");
+        $material->buying_date = $request->get("buying_date");
+    
+        $material->save();
+    
+        return redirect()->route("stock.material.index");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\StoredMaterial  $storedMaterial
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(StoredMaterial $storedMaterial)
+    public function destroy(StoredMaterial $material)
     {
-        //
+        $material->delete();
+    
+        return redirect()->route("stock.material.index");
     }
 }
