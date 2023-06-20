@@ -1,46 +1,66 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Models\StoredSupply;
-use App\Http\Requests\StoreStoredSupplyRequest;
-use App\Http\Requests\UpdateStoredSupplyRequest;
-
-class StoredSupplyController extends Controller
-{
-    public function index()
+    
+    namespace App\Http\Controllers;
+    
+    use App\Models\Supply;
+    use App\Models\StoredSupply;
+    use App\Http\Requests\StoreStoredSupplyRequest;
+    use App\Http\Requests\UpdateStoredSupplyRequest;
+    
+    class StoredSupplyController extends Controller
     {
-        $storedSupplies = StoredSupply::all();
-        return view("stock.supplies.index", compact("storedSupplies"));
+        public function index()
+        {
+            $supplies = Supply::all();
+            return view("stock.supplies.index", compact("supplies"));
+        }
+        
+        public function create()
+        {
+            $supplies = Supply::all();
+            
+            return view("stock.supplies.create", compact("supplies"));
+        }
+        
+        public function store(StoreStoredSupplyRequest $request)
+        {
+            $storedSupply = new StoredSupply();
+            
+            $storedSupply->supply_id = $request->get("supply_id");
+            $storedSupply->amount = $request->get("amount");
+            $storedSupply->buying_date = $request->get("buying_date");
+            
+            $storedSupply->save();
+            
+            return redirect()->route("stock.supply.index");
+        }
+        
+        public function show(Supply $supply)
+        {
+            return view("stock.supplies.show", compact("supply"));
+        }
+        
+        public function edit(StoredSupply $supply)
+        {
+            $supplies = Supply::all();
+            return view("stock.supplies.edit", compact("supply", "supplies"));
+        }
+        
+        public function update(UpdateStoredSupplyRequest $request, StoredSupply $supply)
+        {
+            $supply->supply_id = $request->get("supply_id");
+            $supply->amount = $request->get("amount");
+            $supply->buying_date = $request->get("buying_date");
+            
+            $supply->save();
+            
+            return redirect()->route("stock.supply.index");
+        }
+        
+        public function destroy(StoredSupply $supply)
+        {
+            $supply->delete();
+            
+            return redirect()->route("stock.supply.index");
+        }
     }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(StoreStoredSupplyRequest $request)
-    {
-        //
-    }
-
-    public function show(StoredSupply $storedSupply)
-    {
-        //
-    }
-
-    public function edit(StoredSupply $storedSupply)
-    {
-        //
-    }
-
-    public function update(UpdateStoredSupplyRequest $request, StoredSupply $storedSupply)
-    {
-        //
-    }
-
-    public function destroy(StoredSupply $storedSupply)
-    {
-        //
-    }
-}

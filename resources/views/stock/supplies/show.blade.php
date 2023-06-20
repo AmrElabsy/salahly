@@ -1,14 +1,10 @@
 @extends("layouts.app")
-@section("title", __("titles.supplies"))
+@section("title", $supply->name)
 
 @section("content")
 	<div class="container">
 		<div class="d-flex justify-content-between">
-			<h2>{{ __("titles.supplies") }}</h2>
-			<div>
-				<a href="{{ route("stock.supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("stock.supply.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
-			</div>
+			<h2>{{ $supply->name }}</h2>
 		</div>
 
 		@if(session('status'))
@@ -25,22 +21,24 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.supply") }}</th>
+					<th>{{ __("titles.buying_date") }}</th>
 					<th>{{ __("titles.amount") }}</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($supplies as $i => $supply)
+				@foreach($supply->storedSupplies as $i => $supply)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>
-							<a href="{{ route("stock.supply.show", $supply->id) }}">{{ $supply->name }}</a>
-						</td>
+						<td>{{ $supply->buying_date }}</td>
 						<td>{{ $supply->amount }}</td>
+						<td>
+							<a href="{{ route("stock.supply.edit", $supply->id) }}"
+							   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@include("layouts.delete", ["action" => route("stock.supply.destroy", $supply->id)])
+						</td>
 					</tr>
-
 				@endforeach
-
 				</tbody>
 			</table>
 		</div>

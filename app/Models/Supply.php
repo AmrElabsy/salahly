@@ -13,4 +13,13 @@ class Supply extends Model
     public function prices() {
         return $this->hasMany(SupplyPrice::class);
     }
+    
+    public function storedSupplies() {
+        return $this->hasMany(StoredSupply::class);
+    }
+    
+    public function getAmountAttribute()
+    {
+        return $this->storedSupplies()->sum('amount');
+    }
 }
