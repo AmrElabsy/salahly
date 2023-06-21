@@ -114,7 +114,7 @@
 					@foreach($materials as $material)
 						<option
 								@selected($problem->materials->contains($material->id))
-								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price }})</option>
+								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price->price }})</option>
 					@endforeach
 				</select>
 			</div>
@@ -139,7 +139,7 @@
             <div class="col-sm-6">
                 <input class="form-control @error("comment") is-invalid @enderror"
                        type="text" id="comment" name="comment"
-                       required minlength="2" value="{{ old("comment", $problem->comment) }}">
+                       minlength="2" value="{{ old("comment", $problem->comment) }}">
                 @error("comment")
                 <div class="invalid-feedback">
                     {{ $message }}

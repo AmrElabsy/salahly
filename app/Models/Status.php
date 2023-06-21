@@ -10,6 +10,8 @@ class Status extends Model
 {
     use HasFactory;
     use SoftDeletes;
+	
+	public const DONE = "5";
     
     public function problems() {
         return $this->hasMany(Problem::class);

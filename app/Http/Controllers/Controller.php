@@ -10,4 +10,8 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+	
+	protected function employeeNotAdmin() {
+		return auth()->user()->hasRole("Employee") && !auth()->user()->hasRole("Admin");
+	}
 }

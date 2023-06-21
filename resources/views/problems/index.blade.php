@@ -96,17 +96,15 @@
 				<tr>
 					<th>#</th>
 					<th>{{ __("titles.description") }}</th>
+					@admin
 					<th>{{ __("titles.branch") }}</th>
+					@endadmin
 					<th>{{ __("titles.device") }}</th>
-					<th>{{ __("titles.cost") }}</th>
 					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
-					<th>{{ __("titles.categories") }}</th>
 					<th>{{ __("titles.due_time") }}</th>
-					<th>{{ __("titles.employee") }}</th>
 					<th>{{ __("titles.customer") }}</th>
-					<th>{{ __("titles.comment") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
@@ -120,18 +118,18 @@
 							@endif
 					>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $problem->description }}</td>
+						<td>
+							<a href="{{ route("problem.show", $problem->id) }}">{{ $problem->description }}</a>
+						</td>
+						@admin()
 						<td>{{ $problem->branch->name }}</td>
+						@endadmin
 						<td>{{ $problem->device->name }}</td>
-						<td>{{ $problem->cost }}</td>
 						<td>{{ $problem->price }}</td>
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
-						<td>{{ $problem->categories->pluck('name')->implode(', ') }}</td>
 						<td>{{ $problem->due_time }}</td>
-						<td>{{ $problem->employee?->user?->name }}</td>
 						<td>{{ $problem->device?->customer?->name }}</td>
-						<td>{{ $problem->Comment}}</td>
 
 						<td class="d-flex ">
 							<div>
@@ -176,11 +174,11 @@
 
 			// Use the buttons() method to get access to the column() method
 			table.buttons().container().appendTo("#table_wrapper .col-md-6:eq(0)");
-			table.column(3).visible(false);
-			table.column(4).visible(false);
-			table.column(9).visible(false);
-			table.column(10).visible(false);
-			table.column(12).visible(false);
+			// table.column(3).visible(false);
+			// table.column(4).visible(false);
+			// table.column(9).visible(false);
+			// table.column(10).visible(false);
+			// table.column(12).visible(false);
 			$("#status_id").select2();
 			$("#employee").select2();
 			$("#customer").select2();

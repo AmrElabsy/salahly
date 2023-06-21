@@ -73,20 +73,11 @@ Route::group([
             Route::get("/restore/{supply}", "SupplyController@restore")->name("restore");
             Route::get("/forcedelete/{supply}", "SupplyController@forceDelete")->name("forceDelete");
         });
+		
         Route::group(["prefix" => "service", "as" => "service."], function() {
             Route::get("/deleted", "ServiceController@deleted")->name("deleted");
             Route::get("/restore/{service}", "ServiceController@restore")->name("restore");
             Route::get("/forcedelete/{service}", "ServiceController@forceDelete")->name("forceDelete");
-        });
-        Route::group(["prefix" => "supplyPrice", "as" => "supplyPrice."], function() {
-            Route::get("/deleted", "SupplyPriceController@deleted")->name("deleted");
-            Route::get("/restore/{supplyPrice}", "SupplyPriceController@restore")->name("restore");
-            Route::get("/forcedelete/{supplyPrice}", "SupplyPriceController@forceDelete")->name("forceDelete");
-        });
-        Route::group(["prefix" => "servicePrice", "as" => "servicePrice."], function() {
-            Route::get("/deleted", "ServicePriceController@deleted")->name("deleted");
-            Route::get("/restore/{servicePrice}", "ServicePriceController@restore")->name("restore");
-            Route::get("/forcedelete/{servicePrice}", "ServicePriceController@forceDelete")->name("forceDelete");
         });
 
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
@@ -96,7 +87,6 @@ Route::group([
             Route::get("/{year}/{month}", "AttendanceController@index")->name("month");
 
         });
-
 
         Route::group(["middleware" => "auth"], function () {
 
@@ -115,9 +105,7 @@ Route::group([
                 "permission" => "PermissionController",
                 "category" => "CategoryController",
                 "feedback"=>"FeedbackController",
-                'supplyPrice'=>"SupplyPriceController",
                 'service'=>"ServiceController",
-                'servicePrice'=>"ServicePriceController",
             ]);
             
             Route::group(["prefix" => "stock", "as" => "stock."], function () {
