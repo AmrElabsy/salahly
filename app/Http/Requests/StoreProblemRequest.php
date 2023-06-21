@@ -13,7 +13,7 @@ class StoreProblemRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("add problem");
     }
 
     /**

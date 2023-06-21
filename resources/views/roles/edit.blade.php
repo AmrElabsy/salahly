@@ -1,7 +1,7 @@
 @extends("layouts.app")
 @section("title", __("titles.edit_role"))
 
-@section("styles")
+@section("style")
 	<link rel="stylesheet" href="{{ asset("assets/libs/select2/css/select2.min.css") }}">
 @endsection
 
@@ -49,7 +49,7 @@
 	</form>
 @endsection
 
-@section("scripts")
+@section("script")
 	<script src="{{ asset("assets/libs/select2/js/select2.min.js") }}"></script>
 	<script>
 		$("#permissions").select2();

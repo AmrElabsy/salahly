@@ -175,6 +175,7 @@
 			table.column(4).visible(false);
 			table.column(9).visible(false);
 			table.column(10).visible(false);
+			table.column(12).visible(false);
 			$("#status_id").select2();
 			$("#employee").select2();
 			$("#customer").select2();

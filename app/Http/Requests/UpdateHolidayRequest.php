@@ -13,7 +13,7 @@ class UpdateHolidayRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("edit holiday");
     }
 
     /**

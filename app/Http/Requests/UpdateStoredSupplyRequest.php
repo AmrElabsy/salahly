@@ -13,7 +13,7 @@ class UpdateStoredSupplyRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("edit stored_supply");
     }
 
     /**

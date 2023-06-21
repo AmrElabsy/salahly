@@ -58,6 +58,6 @@
             } catch (\Throwable $exception) {
             
             }
-            return redirect()->route('permissions.index')->with('success', 'Permission deleted successfully.');
+            return redirect()->route('permission.index')->with('success', 'Permission deleted successfully.');
         }
     }

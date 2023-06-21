@@ -13,7 +13,8 @@
                     $permissions = [
                         "add " . $name,
                         "edit " . $name,
-                        "delete " . $name
+                        "delete " . $name,
+                        "show " . $name
                     ];
             
                     foreach ($permissions as $n) {
@@ -46,6 +47,6 @@
         }
     
         public function delete( Model $resource ) {
-            // TODO: Implement delete() method.
+            $resource->delete();
         }
     }

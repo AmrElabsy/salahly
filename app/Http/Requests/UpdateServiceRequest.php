@@ -13,7 +13,7 @@ class UpdateServiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("edit service");
     }
 
     /**

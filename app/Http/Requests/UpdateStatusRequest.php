@@ -13,7 +13,7 @@ class UpdateStatusRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("edit status");
     }
 
     /**

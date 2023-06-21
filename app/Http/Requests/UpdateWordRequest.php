@@ -13,7 +13,7 @@ class UpdateWordRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("edit word");
     }
 
     /**

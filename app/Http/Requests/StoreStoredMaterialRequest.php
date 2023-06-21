@@ -13,7 +13,7 @@ class StoreStoredMaterialRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->user()->hasPermissionTo("add stored_material");
     }
 
     /**

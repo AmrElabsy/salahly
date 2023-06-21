@@ -40,7 +40,8 @@
         
         public function edit(Role $role)
         {
-            return view('roles.edit', compact('role'));
+            $permissions = Permission::all();
+            return view('roles.edit', compact('role', "permissions"));
         }
         
         public function update(UpdateRoleRequest $request, Role $role)
@@ -50,12 +51,12 @@
             } catch (\Throwable $exception) {
             
             }
-            return redirect()->route('roles.index')->withStatus(__( 'role_updated'));
+            return redirect()->route('role.index')->withStatus(__( 'role_updated'));
         }
         
         public function destroy(Role $role)
         {
             $role->delete();
-            return redirect()->route('roles.index')->withStatus(__('role_deleted'));
+            return redirect()->route('role.index')->withStatus(__('role_deleted'));
         }
     }
