@@ -6,7 +6,9 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.users") }}</h2>
 			<div>
-				<a href="{{ route("user.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@can("add user")
+					<a href="{{ route("user.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
 				<a href="{{ route("user.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_users") }}</a>
 			</div>
 		</div>
@@ -39,9 +41,14 @@
 						<td>{{ $user->email }}</td>
 						<td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
 						<td>
-							<a href="{{ route("user.edit", $user->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("user.destroy", $user->id)])
+							@can("edit user")
+								<a href="{{ route("user.edit", $user->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete user")
+								@include("layouts.delete", ["action" => route("user.destroy", $user->id)])
+							@endcan
 						</td>
 					</tr>
 				@endforeach

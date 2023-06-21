@@ -6,8 +6,11 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.customers") }}</h2>
 			<div>
-				<a href="{{ route("customer.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("customer.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_customers") }}</a>
+				@can("add customer")
+					<a href="{{ route("customer.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
+				<a href="{{ route("customer.deleted") }}"
+				   class="btn btn-secondary">{{ __("titles.deleted_customers") }}</a>
 			</div>
 		</div>
 
@@ -47,9 +50,14 @@
 							@endforeach
 						</td>
 						<td>
-							<a href="{{ route("customer.edit", $customer->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("customer.destroy", $customer->id)])
+							@can("edit customer")
+								<a href="{{ route("customer.edit", $customer->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete customer")
+								@include("layouts.delete", ["action" => route("customer.destroy", $customer->id)])
+							@endcan
 						</td>
 					</tr>
 

@@ -26,17 +26,16 @@ class FeedbackController extends Controller
         $this->authorize("add feedback");
         
         $problems = Problem::all();
+        
+        // @TODO: Add Inputs
 
         return view('feedbacks.create',compact('problems'));
     }
 
     public function store(StoreFeedbackRequest $request)
     {
-        try {
-            $this->service->store($request->all());
-        } catch (\Exception $e) {
-        
-        }
+        $this->service->store($request->all());
+
         return redirect()->route('feedback.index')->withStatus(__("titles.feedback_added"));
     }
 

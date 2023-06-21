@@ -13,7 +13,9 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.problems") }}</h2>
 			<div>
-				<a href="{{ route("problem.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@can("add problem")
+					<a href="{{ route("problem.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
 			</div>
 		</div>
 
@@ -71,7 +73,6 @@
 					</div>
 
 
-
 					<div class="col-sm-2">
 						<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 					</div>
@@ -105,18 +106,18 @@
 					<th>{{ __("titles.due_time") }}</th>
 					<th>{{ __("titles.employee") }}</th>
 					<th>{{ __("titles.customer") }}</th>
-                    <th>{{ __("titles.comment") }}</th>
-                    <th>{{ __("titles.manage") }}</th>
+					<th>{{ __("titles.comment") }}</th>
+					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
 				@foreach($problems as $i => $problem)
 					<tr
-						@if($problem->due_time_is_today)
+							@if($problem->due_time_is_today)
 							class="table-warning"
-						@elseif($problem->due_time_has_passed)
+							@elseif($problem->due_time_has_passed)
 							class="table-danger"
-						@endif
+							@endif
 					>
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $problem->description }}</td>
@@ -130,14 +131,18 @@
 						<td>{{ $problem->due_time }}</td>
 						<td>{{ $problem->employee?->user?->name }}</td>
 						<td>{{ $problem->device?->customer?->name }}</td>
-                        <td>{{ $problem->Comment}}</td>
+						<td>{{ $problem->Comment}}</td>
 
-                        <td class="d-flex ">
+						<td class="d-flex ">
 							<div>
-								<a href="{{ route("problem.edit", $problem->id) }}"
-								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+								@can("edit problem")
+									<a href="{{ route("problem.edit", $problem->id) }}"
+									   class="btn btn-primary">{{ __("titles.edit") }}</a>
+								@endcan
 							</div>
-							@include("layouts.delete", ["action" => route("problem.destroy", $problem->id)])
+							@can("delete problem")
+								@include("layouts.delete", ["action" => route("problem.destroy", $problem->id)])
+							@endcan
 						</td>
 					</tr>
 				@endforeach

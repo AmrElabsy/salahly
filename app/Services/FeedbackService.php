@@ -9,10 +9,12 @@
     {
     
         public function store( $data ) {
-            $feedback = new Feedback;
+            $feedback = new Feedback();
             $feedback->content = $data['content'];
-            $feedback->is_available = $data['is_available'];
+            $feedback->is_available = $data['is_available'] ?? false;
             $feedback->problem_id = $data['problem'];
+            $feedback->known_from = $data["known_from"] ?? "";
+            $feedback->where_from = $data["where_from"] ?? "";
             $feedback->save();
         }
     

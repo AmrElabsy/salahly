@@ -5,7 +5,11 @@
 	<div class="container">
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.statuses") }}</h2>
-			<div><a href="{{ route("status.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
+			<div>
+				@can("add status")
+					<a href="{{ route("status.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
+			</div>
 		</div>
 
 		@if(session('status'))
@@ -32,9 +36,14 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $status->name }}</td>
 						<td>
-							<a href="{{ route("status.edit", $status->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("status.destroy", $status->id)])
+							@can("edit status")
+								<a href="{{ route("status.edit", $status->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete status")
+								@include("layouts.delete", ["action" => route("status.destroy", $status->id)])
+							@endcan
 						</td>
 					</tr>
 

@@ -33,9 +33,13 @@
 						<td>{{ $supply->buying_date }}</td>
 						<td>{{ $supply->amount }}</td>
 						<td>
-							<a href="{{ route("stock.supply.edit", $supply->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("stock.supply.destroy", $supply->id)])
+							@can("edit stored_supply")
+								<a href="{{ route("stock.supply.edit", $supply->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+							@can("delete stored_supply")
+								@include("layouts.delete", ["action" => route("stock.supply.destroy", $supply->id)])
+							@endcan
 						</td>
 					</tr>
 				@endforeach

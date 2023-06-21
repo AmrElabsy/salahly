@@ -5,7 +5,9 @@
 	<div class="container">
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.permissions") }}</h2>
-			<div><a href="{{ route("permission.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
+			@can("add permission")
+				<div><a href="{{ route("permission.create") }}" class="btn btn-success">{{ __("titles.add") }}</a></div>
+			@endcan
 		</div>
 
 		@if(session('status'))
@@ -32,9 +34,13 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $permission->name }}</td>
 						<td>
-							<a href="{{ route("permission.edit", $permission->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("permission.destroy", $permission->id)])
+							@can("edit permission")
+								<a href="{{ route("permission.edit", $permission->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+							@can("delete permission")
+								@include("layouts.delete", ["action" => route("permission.destroy", $permission->id)])
+							@endcan
 						</td>
 					</tr>
 				@endforeach

@@ -6,7 +6,9 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.devices") }}</h2>
 			<div>
-				<a href="{{ route("device.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@can("add device")
+					<a href="{{ route("device.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
 				<a href="{{ route("device.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_devices") }}</a>
 			</div>
 		</div>
@@ -37,9 +39,14 @@
 						<td>{{ $device->name }}</td>
 						<td>{{ $device->customer?->name }}</td>
 						<td>
-							<a href="{{ route("device.edit", $device->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("device.destroy", $device->id)])
+							@can("edit device")
+								<a href="{{ route("device.edit", $device->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete device")
+								@include("layouts.delete", ["action" => route("device.destroy", $device->id)])
+							@endcan
 						</td>
 					</tr>
 

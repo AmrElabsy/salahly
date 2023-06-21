@@ -20,7 +20,7 @@ class ServiceController extends Controller
 
     public function create()
     {
-        $this->authorize("show edit");
+        $this->authorize("add service");
     
         return view('services.create');
     }

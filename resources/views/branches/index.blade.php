@@ -6,8 +6,11 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.branches") }}</h2>
 			<div>
-				<a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("branch.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_branches") }}</a>
+				@can("add branch")
+					<a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
+				<a href="{{ route("branch.deleted") }}"
+				   class="btn btn-secondary">{{ __("titles.deleted_branches") }}</a>
 			</div>
 		</div>
 
@@ -35,14 +38,17 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $branch->name }}</td>
 						<td>
-							<a href="{{ route("branch.edit", $branch->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("branch.destroy", $branch->id)])
+							@can("edit branch")
+								<a href="{{ route("branch.edit", $branch->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete branch")
+								@include("layouts.delete", ["action" => route("branch.destroy", $branch->id)])
+							@endcan
 						</td>
 					</tr>
-
 				@endforeach
-
 				</tbody>
 			</table>
 		</div>

@@ -6,7 +6,9 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.supplies") }}</h2>
 			<div>
+				@can("add stored_supply")
 				<a href="{{ route("stock.supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
 				<a href="{{ route("stock.supply.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
 			</div>
 		</div>

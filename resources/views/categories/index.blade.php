@@ -6,8 +6,12 @@
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.categories") }}</h2>
 			<div>
-				<a href="{{ route("category.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("category.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_categories") }}</a>
+				@can("add category")
+					<a href="{{ route("category.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
+				@endcan
+
+				<a href="{{ route("category.deleted") }}"
+				   class="btn btn-secondary">{{ __("titles.deleted_categories") }}</a>
 			</div>
 		</div>
 
@@ -35,9 +39,14 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $category->name }}</td>
 						<td>
-							<a href="{{ route("category.edit", $category->id) }}"
-							   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@include("layouts.delete", ["action" => route("category.destroy", $category->id)])
+							@can("edit category")
+								<a href="{{ route("category.edit", $category->id) }}"
+								   class="btn btn-primary">{{ __("titles.edit") }}</a>
+							@endcan
+
+							@can("delete category")
+								@include("layouts.delete", ["action" => route("category.destroy", $category->id)])
+							@endcan
 						</td>
 					</tr>
 
