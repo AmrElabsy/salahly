@@ -15,13 +15,14 @@
 							<span> {{ __("titles.home") }} </span>
 						</a>
 					</li>
-
-					<li>
-						<a href="{{ route("attendance.index") }}" class="waves-effect">
-							<i class="mdi mdi-account-group"></i>
-							<span> {{ __("titles.attendance") }} </span>
-						</a>
-					</li>
+					@can("show attendance")
+						<li>
+							<a href="{{ route("attendance.index") }}" class="waves-effect">
+								<i class="mdi mdi-account-group"></i>
+								<span> {{ __("titles.attendance") }} </span>
+							</a>
+						</li>
+					@endcan
 
 					<li>
 						<a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -30,26 +31,33 @@
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
-							<li>
-								<a href="{{ route("user.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.users") }} </span>
-								</a>
-							</li>
+							@can("show user")
+								<li>
+									<a href="{{ route("user.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.users") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("customer.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.customers") }} </span>
-								</a>
-							</li>
+							@can("show customer")
+								<li>
+									<a href="{{ route("customer.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.customers") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("employee.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.employees") }} </span>
-								</a>
-							</li>
+							@can("show user")
+								<li>
+									<a href="{{ route("employee.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.employees") }} </span>
+									</a>
+								</li>
+							@endcan
+
 						</ul>
 					</li>
 
@@ -59,33 +67,42 @@
 							<span>Problems</span>
 						</a>
 						<ul class="sub-menu" aria-expanded="false">
-							<li>
-								<a href="{{ route("problem.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.problems") }} </span>
-								</a>
-							</li>
+							@can("show problem")
+								<li>
+									<a href="{{ route("problem.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.problems") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("device.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.devices") }} </span>
-								</a>
-							</li>
+							@can("show device")
+								<li>
+									<a href="{{ route("device.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.devices") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("category.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.categories") }} </span>
-								</a>
-							</li>
+							@can("show category")
+								<li>
+									<a href="{{ route("category.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.categories") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("status.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.statuses") }} </span>
-								</a>
-							</li>
+							@can("show status")
+								<li>
+									<a href="{{ route("status.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.statuses") }} </span>
+									</a>
+								</li>
+							@endcan
+
 						</ul>
 					</li>
 
@@ -96,19 +113,23 @@
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
-							<li>
-								<a href="{{ route("stock.supply.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.supplies") }} </span>
-								</a>
-							</li>
+							@can("show stored_supply")
+								<li>
+									<a href="{{ route("stock.supply.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.supplies") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("stock.material.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.materials") }} </span>
-								</a>
-							</li>
+							@can("show stored_material")
+								<li>
+									<a href="{{ route("stock.material.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.materials") }} </span>
+									</a>
+								</li>
+							@endcan
 						</ul>
 					</li>
 
@@ -119,76 +140,77 @@
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
-							<li>
-								<a href="{{ route("branch.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.branches") }} </span>
-								</a>
-							</li>
+							@can("show branch")
+								<li>
+									<a href="{{ route("branch.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.branches") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("material.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.materials") }} </span>
-								</a>
-							</li>
+							@can("show material")
+								<li>
+									<a href="{{ route("material.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.materials") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("supply.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.supplies") }} </span>
-								</a>
-							</li>
+							@can("show supply")
+								<li>
+									<a href="{{ route("supply.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.supplies") }} </span>
+									</a>
+								</li>
+							@endcan
 
-{{--                            <li>--}}
-{{--                                <a href="{{ route("supplyPrice.index") }}" class="waves-effect">--}}
-{{--                                    <i class="mdi mdi-account-group"></i>--}}
-{{--                                    <span> {{ __("titles.supplyPrices") }} </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
+							@can("show service")
+								<li>
+									<a href="{{ route("service.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.services") }} </span>
+									</a>
+								</li>
+							@endcan
 
-                            <li>
-                                <a href="{{ route("service.index") }}" class="waves-effect">
-                                    <i class="mdi mdi-account-group"></i>
-                                    <span> {{ __("titles.services") }} </span>
-                                </a>
-                            </li>
+							@can("show feedback")
+								<li>
+									<a href="{{ route("feedback.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.feedbacks") }} </span>
+									</a>
+								</li>
+							@endcan
 
-{{--                            <li>--}}
-{{--                                <a href="{{ route("servicePrice.index") }}" class="waves-effect">--}}
-{{--                                    <i class="mdi mdi-account-group"></i>--}}
-{{--                                    <span> {{ __("titles.servicePrices")}} </span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
+							@can("show word")
+								<li>
+									<a href="{{ route("word.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.words") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("feedback.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.feedbacks") }} </span>
-								</a>
-							</li>
-							<li>
-								<a href="{{ route("word.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.words") }} </span>
-								</a>
-							</li>
+							@can("show role")
+								<li>
+									<a href="{{ route("role.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.roles") }} </span>
+									</a>
+								</li>
+							@endcan
 
-							<li>
-								<a href="{{ route("role.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.roles") }} </span>
-								</a>
-							</li>
-
-							<li>
-								<a href="{{ route("permission.index") }}" class="waves-effect">
-									<i class="mdi mdi-account-group"></i>
-									<span> {{ __("titles.permissions") }} </span>
-								</a>
-							</li>
-
-
+							@can("show permission")
+								<li>
+									<a href="{{ route("permission.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.permissions") }} </span>
+									</a>
+								</li>
+							@endcan
 						</ul>
 					</li>
 				@endif
