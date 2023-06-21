@@ -12,12 +12,16 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        $this->authorize("show service");
+    
         $services = Service::all();
         return view("services.index", compact("services"));
     }
 
     public function create()
     {
+        $this->authorize("show edit");
+    
         return view('services.create');
     }
 
@@ -49,6 +53,8 @@ class ServiceController extends Controller
 
     public function edit(Service $service)
     {
+        $this->authorize("edit service");
+    
         return view('services.edit',compact('service'));
     }
 
@@ -63,6 +69,8 @@ class ServiceController extends Controller
 
     public function destroy(Service $service)
     {
+        $this->authorize("delete service");
+    
         $service->delete();
 
         return redirect()->route("service.index")->withStatus(__("titles.service_deleted"));

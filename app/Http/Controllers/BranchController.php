@@ -15,12 +15,16 @@ class BranchController extends Controller
     
     public function index()
     {
+        $this->authorize("show branch");
+    
         $branches = Branch::all();
         return view("branches.index", compact("branches"));
     }
 
     public function create()
     {
+        $this->authorize("add branch");
+    
         return view("branches.create");
     }
 
@@ -42,6 +46,8 @@ class BranchController extends Controller
 
     public function edit(Branch $branch)
     {
+        $this->authorize("edit branch");
+    
         return view("branches.edit", compact("branch"));
     }
 
@@ -58,6 +64,8 @@ class BranchController extends Controller
 
     public function destroy(Branch $branch)
     {
+        $this->authorize("delete branch");
+    
         $this->service->delete($branch);
         return redirect()->route("branch.index")->withStatus(__("titles.branch_deleted"));
     }

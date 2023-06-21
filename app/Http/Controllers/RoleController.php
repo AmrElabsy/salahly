@@ -17,6 +17,8 @@
         
         public function index()
         {
+            $this->authorize("show role");
+    
             $roles = Role::all();
             
             return view('roles.index', compact('roles'));
@@ -24,6 +26,8 @@
         
         public function create()
         {
+            $this->authorize("add role");
+    
             $permissions = Permission::all();
             return view('roles.create', compact("permissions"));
         }
@@ -40,6 +44,8 @@
         
         public function edit(Role $role)
         {
+            $this->authorize("edit role");
+    
             $permissions = Permission::all();
             return view('roles.edit', compact('role', "permissions"));
         }
@@ -56,6 +62,8 @@
         
         public function destroy(Role $role)
         {
+            $this->authorize("delete role");
+    
             $role->delete();
             return redirect()->route('role.index')->withStatus(__('role_deleted'));
         }

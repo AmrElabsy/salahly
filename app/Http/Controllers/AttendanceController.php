@@ -15,6 +15,8 @@ class AttendanceController extends Controller
 {
     public function index( $year = null, $month = null)
     {
+        $this->authorize("show attendance");
+    
         $year = $year ?? Carbon::now()->year;
         $month = $month ?? Carbon::now()->month;
     
@@ -65,6 +67,8 @@ class AttendanceController extends Controller
     }
     
     public function attend(User $user) {
+        $this->authorize("add attendance");
+    
         $attendance = new Attendance();
         $attendance->user_id = $user->id;
         $attendance->type = 0;
@@ -74,6 +78,8 @@ class AttendanceController extends Controller
     }
 
     public function leave(User $user) {
+        $this->authorize("add attendance");
+    
         $attendance = new Attendance();
         $attendance->user_id = $user->id;
         $attendance->type = 1;

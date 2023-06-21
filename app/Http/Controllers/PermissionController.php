@@ -16,6 +16,8 @@
         
         public function index()
         {
+            $this->authorize("show permission");
+    
             $permissions = Permission::all();
             
             return view('permissions.index', compact('permissions'));
@@ -23,6 +25,8 @@
         
         public function create()
         {
+            $this->authorize("add permission");
+    
             return view('permissions.create');
         }
         
@@ -38,6 +42,8 @@
         
         public function edit(Permission $permission)
         {
+            $this->authorize("edit permission");
+    
             return view('permissions.edit', compact('permission'));
         }
         
@@ -53,6 +59,8 @@
         
         public function destroy(Permission $permission)
         {
+            $this->authorize("delete permission");
+    
             try {
                 $this->service->delete($permission);
             } catch (\Throwable $exception) {

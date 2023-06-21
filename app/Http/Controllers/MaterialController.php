@@ -16,14 +16,17 @@ class MaterialController extends Controller
     
     public function index()
     {
+        $this->authorize("show material");
+    
         $materials = Material::all();
         return view("materials.index", compact("materials"));
     }
 
     public function create()
     {
+        $this->authorize("add material");
+    
         return view("materials.create");
-
     }
 
     public function store(StoreMaterialRequest $request)
@@ -54,6 +57,8 @@ class MaterialController extends Controller
 
     public function edit(Material $material)
     {
+        $this->authorize("edit material");
+    
         return view("materials.edit", compact("material"));
     }
 
@@ -82,6 +87,8 @@ class MaterialController extends Controller
 
     public function destroy(Material $material)
     {
+        $this->authorize("delete material");
+    
         $material->delete();
         return redirect()->route("material.index")->withStatus(__("titles.material_deleted"));
     }

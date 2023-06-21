@@ -11,6 +11,8 @@ class WordController extends Controller
 {
     public function index(Request $request)
     {
+        $this->authorize("show word");
+    
         $words = Word::query();
         
         if ($request->has('word')) {
@@ -26,6 +28,8 @@ class WordController extends Controller
     
     public function create()
     {
+        $this->authorize("add word");
+    
         return view('words.create');
     }
     
@@ -42,6 +46,8 @@ class WordController extends Controller
     
     public function edit(Word $word)
     {
+        $this->authorize("edit word");
+    
         return view('words.edit', compact('word'));
     }
     
@@ -56,6 +62,8 @@ class WordController extends Controller
     
     public function destroy(Word $word)
     {
+        $this->authorize("delete word");
+    
         $word->delete();
         
         return redirect()->route('word.index')->withStatus(__('titles.word_deleted'));

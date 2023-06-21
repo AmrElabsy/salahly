@@ -11,12 +11,16 @@
     {
         public function index()
         {
+            $this->authorize("show stored_supply");
+    
             $supplies = Supply::all();
             return view("stock.supplies.index", compact("supplies"));
         }
         
         public function create()
         {
+            $this->authorize("add stored_supply");
+    
             $supplies = Supply::all();
             
             return view("stock.supplies.create", compact("supplies"));
@@ -42,6 +46,8 @@
         
         public function edit(StoredSupply $supply)
         {
+            $this->authorize("edit stored_supply");
+    
             $supplies = Supply::all();
             return view("stock.supplies.edit", compact("supply", "supplies"));
         }
@@ -59,6 +65,8 @@
         
         public function destroy(StoredSupply $supply)
         {
+            $this->authorize("delete stored_supply");
+    
             $supply->delete();
             
             return redirect()->route("stock.supply.index");

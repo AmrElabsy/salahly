@@ -16,12 +16,16 @@
         
         public function index()
         {
+            $this->authorize("show category");
+    
             $categories = Category::all();
             return view('categories.index', compact('categories'));
         }
         
         public function create()
         {
+            $this->authorize("add category");
+    
             return view("categories.create");
         }
         
@@ -42,8 +46,9 @@
         
         public function edit(Category $category)
         {
+            $this->authorize("edit category");
+    
             return view("categories.edit", compact("category"));
-            
         }
         
         public function update(UpdateCategoryRequest $request, Category $category)
@@ -58,6 +63,8 @@
         
         public function destroy(Category $category)
         {
+            $this->authorize("delete category");
+    
             $this->service->delete($category);
             return redirect()->route("category.index")->withStatus(__("titles.category_deleted"));
         }

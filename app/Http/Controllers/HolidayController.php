@@ -10,12 +10,14 @@ class HolidayController extends Controller
 {
     public function index()
     {
-        //
+        $this->authorize("show holiday");
+    
     }
 
     public function create()
     {
-        //
+        $this->authorize("add holiday");
+    
     }
 
     public function store(StoreHolidayRequest $request)
@@ -30,7 +32,8 @@ class HolidayController extends Controller
 
     public function edit(Holiday $holiday)
     {
-        //
+        $this->authorize("edit holiday");
+    
     }
 
     public function update(UpdateHolidayRequest $request, Holiday $holiday)
@@ -40,6 +43,7 @@ class HolidayController extends Controller
 
     public function destroy(Holiday $holiday)
     {
-        //
+        $this->authorize("delete holiday");
+    
     }
 }

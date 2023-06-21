@@ -15,12 +15,16 @@ class FeedbackController extends Controller
     ) {}
     public function index()
     {
+        $this->authorize("show feedback");
+    
         $feedbacks = Feedback::all();
         return view('feedbacks.index',compact('feedbacks'));
     }
 
     public function create()
     {
+        $this->authorize("add feedback");
+        
         $problems = Problem::all();
 
         return view('feedbacks.create',compact('problems'));
@@ -43,7 +47,9 @@ class FeedbackController extends Controller
 
     public function edit(Feedback $feedback)
     {
-        //
+        $this->authorize("edit feedback");
+    
+        // @TODO: Implement Edit Feedback
     }
 
     public function update(UpdateFeedbackRequest $request, Feedback $feedback)
@@ -58,6 +64,8 @@ class FeedbackController extends Controller
 
     public function destroy(Feedback $feedback)
     {
-        //
+        $this->authorize("delete feedback");
+    
+        // @TODO: Implement Delete Feedback
     }
 }

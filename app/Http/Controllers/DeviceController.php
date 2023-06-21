@@ -16,12 +16,16 @@ class DeviceController extends Controller
     
     public function index()
     {
+        $this->authorize("show device");
+    
         $devices = Device::all();
         return view("devices.index", compact("devices"));
     }
 
     public function create()
     {
+        $this->authorize("add device");
+    
         $customers = Customer::all();
         return view("devices.create", compact("customers"));
     }
@@ -43,6 +47,8 @@ class DeviceController extends Controller
 
     public function edit(Device $device)
     {
+        $this->authorize("edit device");
+    
         $customers = Customer::all();
         return view("devices.edit", compact("device", "customers"));
     }
@@ -59,6 +65,8 @@ class DeviceController extends Controller
 
     public function destroy(Device $device)
     {
+        $this->authorize("delete device");
+    
         $device->delete();
         return redirect()->route("device.index")->withStatus(__("titles.device_deleted"));
     }

@@ -23,6 +23,8 @@ class ProblemController extends Controller
     
     public function index()
     {
+        $this->authorize("show problem");
+    
         $problems = $this->filter();
         $statuses = Status::all();
         $branches = Branch::all();
@@ -34,6 +36,8 @@ class ProblemController extends Controller
 
     public function create()
     {
+        $this->authorize("add problem");
+        
         $devices = Device::all();
         $statuses = Status::all();
         $customers = Customer::all();
@@ -58,6 +62,8 @@ class ProblemController extends Controller
 
     public function edit(Problem $problem)
     {
+        $this->authorize("edit problem");
+    
         $devices = Device::all();
         $statuses = Status::all();
         $branches = Branch::all();
@@ -75,6 +81,8 @@ class ProblemController extends Controller
 
     public function destroy(Problem $problem)
     {
+        $this->authorize("delete problem");
+    
         $problem->delete();
         return redirect()->route("problem.index")->withStatus(__("titles.problem_deleted"));
     }

@@ -18,12 +18,16 @@ use Illuminate\Support\Facades\Hash;
 
     public function index()
     {
+        $this->authorize("show user");
+    
         $users = User::all();
         return view("users.index", compact("users"));
     }
 
     public function create()
     {
+        $this->authorize("add user");
+    
         $roles = Role::all();
         $branches = Branch::all();
     
@@ -44,6 +48,8 @@ use Illuminate\Support\Facades\Hash;
 
     public function edit(User $user)
     {
+        $this->authorize("edit user");
+    
         $roles = Role::all();
         $branches = Branch::all();
     
@@ -55,11 +61,12 @@ use Illuminate\Support\Facades\Hash;
         $this->service->update($request->all(), $user);
 
         return redirect()->route("user.index")->withStatus(__("titles.user_updated"));
-
     }
 
     public function destroy(User $user)
     {
+        $this->authorize("delete user");
+    
         $user->delete();
         return redirect()->route("user.index")->withStatus(__("titles.user_deleted"));
     }

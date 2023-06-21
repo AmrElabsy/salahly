@@ -11,12 +11,16 @@ class SupplyController extends Controller
 {
     public function index()
     {
+        $this->authorize("show supply");
+    
         $supplies=Supply::all();
         return view("supplies.index", compact("supplies"));
     }
 
     public function create()
     {
+        $this->authorize("add supply");
+    
         return view('supplies.create');
     }
 
@@ -48,6 +52,8 @@ class SupplyController extends Controller
 
     public function edit(Supply $supply)
     {
+        $this->authorize("edit supply");
+    
         return view('supplies.edit',compact('supply'));
     }
 
@@ -61,6 +67,8 @@ class SupplyController extends Controller
 
     public function destroy(Supply $supply)
     {
+        $this->authorize("delete supply");
+    
         $supply->delete();
         return redirect()->route("supply.index")->withStatus(__("titles.supply_deleted"));
     }

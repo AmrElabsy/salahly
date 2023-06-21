@@ -11,12 +11,16 @@ class StoredMaterialController extends Controller
 {
     public function index()
     {
+        $this->authorize("show stored_material");
+    
         $materials = Material::all();
         return view("stock.materials.index", compact("materials"));
     }
 
     public function create()
     {
+        $this->authorize("add stored_material");
+    
         $materials = Material::all();
     
         return view("stock.materials.create", compact("materials"));
@@ -42,6 +46,8 @@ class StoredMaterialController extends Controller
 
     public function edit(StoredMaterial $material)
     {
+        $this->authorize("edit stored_material");
+    
         $materials = Material::all();
         return view("stock.materials.edit", compact("material", "materials"));
     }
@@ -59,6 +65,8 @@ class StoredMaterialController extends Controller
 
     public function destroy(StoredMaterial $material)
     {
+        $this->authorize("delete stored_material");
+    
         $material->delete();
     
         return redirect()->route("stock.material.index");

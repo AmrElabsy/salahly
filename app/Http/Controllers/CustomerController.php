@@ -16,12 +16,16 @@ class CustomerController extends Controller
     
     public function index()
     {
+        $this->authorize("show customer");
+    
         $customers = Customer::all();
         return view('customers.index',compact('customers'));
     }
     
     public function create()
     {
+        $this->authorize("add customer");
+    
         return view("customers.create");
     }
 
@@ -42,6 +46,8 @@ class CustomerController extends Controller
 
     public function edit(Customer $customer)
     {
+        $this->authorize("edit customer");
+    
         return view("customers.edit", compact("customer"));
     }
 
@@ -58,6 +64,8 @@ class CustomerController extends Controller
 
     public function destroy(Customer $customer)
     {
+        $this->authorize("delete customer");
+    
         $customer->delete();
         return redirect()->route("customer.index")->withStatus(__("titles.customer_deleted"));
     }

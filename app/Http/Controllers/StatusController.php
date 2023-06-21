@@ -10,12 +10,16 @@ class StatusController extends Controller
 {
     public function index()
     {
+        $this->authorize("show status");
+    
         $statuses = Status::all();
         return view("statuses.index", compact("statuses"));
     }
 
     public function create()
     {
+        $this->authorize("add status");
+    
         return view("statuses.create");
     }
 
@@ -35,6 +39,8 @@ class StatusController extends Controller
 
     public function edit(Status $status)
     {
+        $this->authorize("edit status");
+    
         return view("statuses.edit", compact("status"));
     }
 
@@ -48,8 +54,9 @@ class StatusController extends Controller
 
     public function destroy(Status $status)
     {
+        $this->authorize("delete status");
+    
         $status->delete();
         return redirect()->route("status.index")->withStatus(__("titles.status_deleted"));
-    
     }
 }
