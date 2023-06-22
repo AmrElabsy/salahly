@@ -26,9 +26,19 @@ class Material extends Model
     {
         return $this->hasMany(StoredMaterial::class);
     }
+	
+	public function materialReturns() {
+		return $this->hasMany(MaterialReturn::class);
+	}
+	
+	public function materialWastes() {
+		return $this->hasMany(MaterialWaste::class);
+	}
     
     public function getAmountAttribute()
     {
-        return $this->storedMaterials()->sum('amount');
+        return $this->storedMaterials()->sum('amount')
+			- $this->materialReturns()->sum('amount')
+			- $this->materialWastes()->sum('amount');
     }
 }

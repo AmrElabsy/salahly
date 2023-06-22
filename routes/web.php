@@ -112,6 +112,9 @@ Route::group([
                 Route::resources([
                     "supply" => "StoredSupplyController",
                     "material" => "StoredMaterialController",
+                    "materialreturn" => "MaterialReturnController",
+                    "materialwaste" => "MaterialWasteController",
+                    "supplyreturn" => "SupplyReturnController",
                 ]);
 
                 Route::group(["prefix" => "supply", "as" => "supply."], function() {

@@ -130,6 +130,35 @@
 									</a>
 								</li>
 							@endcan
+
+							@can("show supply_return")
+								<li>
+									<a href="{{ route("stock.supplyreturn.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.supply_returns") }} </span>
+									</a>
+								</li>
+							@endcan
+
+								@can("show material_return")
+									<li>
+										<a href="{{ route("stock.materialreturn.index") }}" class="waves-effect">
+											<i class="mdi mdi-account-group"></i>
+											<span> {{ __("titles.material_returns") }} </span>
+										</a>
+									</li>
+								@endcan
+
+								@can("show material_waste")
+									<li>
+										<a href="{{ route("stock.materialwaste.index") }}" class="waves-effect">
+											<i class="mdi mdi-account-group"></i>
+											<span> {{ __("titles.material_wastes") }} </span>
+										</a>
+									</li>
+								@endcan
+
+
 						</ul>
 					</li>
 

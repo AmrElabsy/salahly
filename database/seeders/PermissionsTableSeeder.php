@@ -595,6 +595,102 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2023-06-21 17:57:18',
                 'updated_at' => '2023-06-21 17:57:18',
             ),
+            72 => 
+            array (
+                'id' => 75,
+                'name' => 'add material_waste',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            73 => 
+            array (
+                'id' => 76,
+                'name' => 'edit material_waste',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            74 => 
+            array (
+                'id' => 77,
+                'name' => 'show material_waste',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            75 => 
+            array (
+                'id' => 78,
+                'name' => 'delete material_waste',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            76 => 
+            array (
+                'id' => 79,
+                'name' => 'add material_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            77 => 
+            array (
+                'id' => 80,
+                'name' => 'edit material_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            78 => 
+            array (
+                'id' => 81,
+                'name' => 'delete material_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            79 => 
+            array (
+                'id' => 82,
+                'name' => 'show material_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            80 => 
+            array (
+                'id' => 83,
+                'name' => 'add supply_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            81 => 
+            array (
+                'id' => 84,
+                'name' => 'edit supply_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            82 => 
+            array (
+                'id' => 85,
+                'name' => 'show supply_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
+            83 => 
+            array (
+                'id' => 86,
+                'name' => 'delete supply_return',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-22 12:47:18',
+                'updated_at' => '2023-06-22 12:47:18',
+            ),
         ));
         
         

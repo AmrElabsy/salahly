@@ -6,7 +6,7 @@
 @endsection
 
 @section("content")
-	<form action="{{ route("stock.material.store") }}" method="post">
+	<form action="{{ route("stock.materialwaste.store") }}" method="post">
 		@csrf
 
 		<div class="form-group row">
@@ -27,20 +27,6 @@
 					   type="number" id="amount" name="amount"
 					   required value="{{ old("amount") }}">
 				@error("amount")
-				<div class="invalid-feedback">
-					{{ $message }}
-				</div>
-				@enderror
-			</div>
-		</div>
-
-		<div class="form-group row">
-			<label for="buying_date" class="col-sm-2 col-form-label">{{ __("titles.buying_date") }}</label>
-			<div class="col-sm-6">
-				<input class="form-control @error("buying_date") is-invalid @enderror"
-					   type="date" id="buying_date" name="buying_date"
-					   required value="{{ old("buying_date", date('Y-m-d')) }}">
-				@error("buying_date")
 				<div class="invalid-feedback">
 					{{ $message }}
 				</div>
