@@ -10,9 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Customer extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-    
-    
+	
     public function phones(): HasMany {
         return $this->hasMany(Phone::class);
     }

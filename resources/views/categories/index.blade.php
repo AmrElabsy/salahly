@@ -10,8 +10,8 @@
 					<a href="{{ route("category.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
 
-				<a href="{{ route("category.deleted") }}"
-				   class="btn btn-secondary">{{ __("titles.deleted_categories") }}</a>
+{{--				<a href="{{ route("category.deleted") }}"--}}
+{{--				   class="btn btn-secondary">{{ __("titles.deleted_categories") }}</a>--}}
 			</div>
 		</div>
 

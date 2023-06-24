@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Holiday extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     
     public function users() {
         return $this->belongsToMany(User::class)->withTimestamps()->withPivot("deleted_at");

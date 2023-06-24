@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Material extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
     
     public function problems() {
         return $this->belongsToMany(Problem::class)->withTimestamps()->withPivot("deleted_at");
@@ -39,6 +39,7 @@ class Material extends Model
     {
         return $this->storedMaterials()->sum('amount')
 			- $this->materialReturns()->sum('amount')
-			- $this->materialWastes()->sum('amount');
+			- $this->materialWastes()->sum('amount')
+			- $this->problems()->count();
     }
 }

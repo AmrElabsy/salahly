@@ -47,7 +47,7 @@
             $resource->branch_id = $data["branch"];
             $resource->user_id = $data["user"] ?? null;
 
-            $materials = $this->getMaterialsData($data["materials"]);
+            $materials = $this->getMaterialsData($data["materials"] ?? []);
             $resource->materials()->sync($materials);
 
             $resource->save();

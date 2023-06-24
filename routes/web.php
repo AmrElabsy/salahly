@@ -26,6 +26,7 @@ Route::group([
         Route::get('/', "HomeController@index")->name("home");
         Route::get('/home', "HomeController@index")->name('home');
 
+		/**
         Route::group(["prefix" => "branch", "as" => "branch."], function() {
             Route::get("/deleted", "BranchController@deleted")->name("deleted");
             Route::get("/restore/{branch}", "BranchController@restore")->name("restore");
@@ -79,6 +80,7 @@ Route::group([
             Route::get("/restore/{service}", "ServiceController@restore")->name("restore");
             Route::get("/forcedelete/{service}", "ServiceController@forceDelete")->name("forceDelete");
         });
+		 * */
 
         Route::group(["prefix" => "attendance", "as" => "attendance."], function () {
             Route::get("/attend/{user}", "AttendanceController@attend")->name("attend");

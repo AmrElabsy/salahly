@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Status extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 	
 	public const DONE = "5";
     

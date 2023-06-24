@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Problem extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     
     public function device(): BelongsTo {
         return $this->belongsTo(Device::class);

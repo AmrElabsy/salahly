@@ -10,7 +10,6 @@ class Phone extends Model
 {
     use HasFactory;
     
-    
     protected $fillable = ["phone", "customer_id"];
     
     public function customer(): BelongsTo {

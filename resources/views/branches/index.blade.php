@@ -9,8 +9,8 @@
 				@can("add branch")
 					<a href="{{ route("branch.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
-				<a href="{{ route("branch.deleted") }}"
-				   class="btn btn-secondary">{{ __("titles.deleted_branches") }}</a>
+{{--				<a href="{{ route("branch.deleted") }}"--}}
+{{--				   class="btn btn-secondary">{{ __("titles.deleted_branches") }}</a>--}}
 			</div>
 		</div>
 

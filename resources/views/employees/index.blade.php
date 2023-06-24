@@ -7,7 +7,7 @@
 			<h2>{{ __("titles.employees") }}</h2>
 			<div>
 				<a href="{{ route("user.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				<a href="{{ route("user.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_employees") }}</a>
+{{--				<a href="{{ route("user.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_employees") }}</a>--}}
 			</div>
 		</div>
 

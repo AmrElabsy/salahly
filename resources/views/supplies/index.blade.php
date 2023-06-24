@@ -9,8 +9,8 @@
 				@can("add supply")
 					<a href="{{ route("supply.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
-				<a href="{{ route("supply.deleted") }}"
-				   class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>
+{{--				<a href="{{ route("supply.deleted") }}"--}}
+{{--				   class="btn btn-secondary">{{ __("titles.deleted_supplies") }}</a>--}}
 
 			</div>
 		</div>

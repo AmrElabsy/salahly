@@ -16,8 +16,6 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
-    use SoftDeletes;
-    
     
     /**
      * The attributes that are mass assignable.
@@ -76,14 +74,5 @@ class User extends Authenticatable
     
     public function isHoliday($day) {
         return false;
-    }
-    
-    protected static function boot() {
-        parent::boot();
-        self::deleting(function (User $user) {
-            foreach ($user->employees as $employee) {
-                $employee->delete();
-            }
-        });
     }
 }

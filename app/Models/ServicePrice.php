@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ServicePrice extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
     public function service()
     {
         return $this->belongsTo(Service::class);

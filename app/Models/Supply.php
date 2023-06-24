@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Supply extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory;
     
     public function prices() {
         return $this->hasMany(SupplyPrice::class);

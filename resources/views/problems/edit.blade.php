@@ -114,7 +114,7 @@
 					@foreach($materials as $material)
 						<option
 								@selected($problem->materials->contains($material->id))
-								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price->price }})</option>
+								value="{{ $material->id }}">{{ $material->name }} ({{ $material->price?->price }})</option>
 					@endforeach
 				</select>
 			</div>

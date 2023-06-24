@@ -9,7 +9,7 @@
 				@can("add device")
 					<a href="{{ route("device.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
-				<a href="{{ route("device.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_devices") }}</a>
+{{--				<a href="{{ route("device.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_devices") }}</a>--}}
 			</div>
 		</div>
 

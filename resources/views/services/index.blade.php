@@ -9,8 +9,8 @@
 				@can("add service")
 					<a href="{{ route("service.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
-				<a href="{{ route("service.deleted") }}"
-				   class="btn btn-secondary">{{ __("titles.deleted_services") }}</a>
+{{--				<a href="{{ route("service.deleted") }}"--}}
+{{--				   class="btn btn-secondary">{{ __("titles.deleted_services") }}</a>--}}
 
 			</div>
 		</div>
