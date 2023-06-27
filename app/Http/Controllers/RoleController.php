@@ -39,7 +39,7 @@
             } catch (\Throwable $e) {
             
             }
-            return redirect()->route('role.index')->withStatus(__("role_added"));
+            return redirect()->route('role.index')->withStatus(__("titles.role_added"));
         }
         
         public function edit(Role $role)
@@ -57,7 +57,7 @@
             } catch (\Throwable $exception) {
             
             }
-            return redirect()->route('role.index')->withStatus(__( 'role_updated'));
+            return redirect()->route('role.index')->withStatus(__( 'titles.role_updated'));
         }
         
         public function destroy(Role $role)
@@ -65,6 +65,6 @@
             $this->authorize("delete role");
     
             $role->delete();
-            return redirect()->route('role.index')->withStatus(__('role_deleted'));
+            return redirect()->route('role.index')->withStatus(__('titles.role_deleted'));
         }
     }

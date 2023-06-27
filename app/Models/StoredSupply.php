@@ -13,8 +13,8 @@ class StoredSupply extends Model
         return $this->belongsTo(Supply::class);
     }
     
-    public function getPrice() {
-        $supply = $this->supply();
+    public function getPriceAttribute() {
+        $supply = $this->supply;
         $buyingDate = $this->buying_date;
     
         $price = SupplyPrice::where('supply_id', $supply->id)
@@ -22,6 +22,6 @@ class StoredSupply extends Model
             ->orderBy('start_date', 'desc')
             ->first();
         
-        return $price->price;
+        return $price?->price;
     }
 }

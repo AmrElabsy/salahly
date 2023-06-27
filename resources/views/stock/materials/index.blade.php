@@ -9,7 +9,7 @@
 				@can("add stored_material")
 				<a href="{{ route("stock.material.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
 				@endcan
-				<a href="{{ route("stock.material.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_materials") }}</a>
+{{--				<a href="{{ route("stock.material.deleted") }}" class="btn btn-secondary">{{ __("titles.deleted_materials") }}</a>--}}
 			</div>
 		</div>
 

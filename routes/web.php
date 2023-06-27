@@ -25,6 +25,14 @@ Route::group([
     Route::group(["middleware" => "auth"], function() {
         Route::get('/', "HomeController@index")->name("home");
         Route::get('/home', "HomeController@index")->name('home');
+	
+		Route::group([
+			"prefix" => "money",
+			"as" => "money."
+		], function () {
+			Route::get('/', "MoneyController@index")->name('index');
+			
+		});
 
 		/**
         Route::group(["prefix" => "branch", "as" => "branch."], function() {
@@ -119,6 +127,7 @@ Route::group([
                     "supplyreturn" => "SupplyReturnController",
                 ]);
 
+				/**
                 Route::group(["prefix" => "supply", "as" => "supply."], function() {
                     Route::get("/deleted", "StoredSupplyController@deleted")->name("deleted");
                     Route::get("/restore/{supply}", "StoredSupplyController@restore")->name("restore");
@@ -130,6 +139,7 @@ Route::group([
                     Route::get("/restore/{material}", "StoredMaterialController@restore")->name("restore");
                     Route::get("/forcedelete/{material}", "StoredMaterialController@forceDelete")->name("forceDelete");
                 });
+				 * */
             });
         });
     });

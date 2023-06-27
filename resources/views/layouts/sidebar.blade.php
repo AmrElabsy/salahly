@@ -95,7 +95,7 @@
 							@endcan
 
 							@can("show status")
-								<li>
+								<li>h
 									<a href="{{ route("status.index") }}" class="waves-effect">
 										<i class="mdi mdi-account-group"></i>
 										<span> {{ __("titles.statuses") }} </span>
@@ -174,6 +174,15 @@
 									<a href="{{ route("branch.index") }}" class="waves-effect">
 										<i class="mdi mdi-account-group"></i>
 										<span> {{ __("titles.branches") }} </span>
+									</a>
+								</li>
+							@endcan
+
+							@can("manage money")
+								<li>
+									<a href="{{ route("money.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.manage_money") }} </span>
 									</a>
 								</li>
 							@endcan
