@@ -691,6 +691,46 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2023-06-22 12:47:18',
                 'updated_at' => '2023-06-22 12:47:18',
             ),
+            84 => 
+            array (
+                'id' => 87,
+                'name' => 'manage money',
+                'guard_name' => 'web',
+                'created_at' => '2023-06-26 23:53:31',
+                'updated_at' => '2023-06-26 23:53:31',
+            ),
+            85 => 
+            array (
+                'id' => 88,
+                'name' => 'add weekend',
+                'guard_name' => 'web',
+                'created_at' => '2023-07-01 00:46:40',
+                'updated_at' => '2023-07-01 00:46:40',
+            ),
+            86 => 
+            array (
+                'id' => 89,
+                'name' => 'edit weekend',
+                'guard_name' => 'web',
+                'created_at' => '2023-07-01 00:46:40',
+                'updated_at' => '2023-07-01 00:46:40',
+            ),
+            87 => 
+            array (
+                'id' => 90,
+                'name' => 'delete weekend',
+                'guard_name' => 'web',
+                'created_at' => '2023-07-01 00:46:40',
+                'updated_at' => '2023-07-01 00:46:40',
+            ),
+            88 => 
+            array (
+                'id' => 91,
+                'name' => 'show weekend',
+                'guard_name' => 'web',
+                'created_at' => '2023-07-01 00:46:40',
+                'updated_at' => '2023-07-01 00:46:40',
+            ),
         ));
         
         

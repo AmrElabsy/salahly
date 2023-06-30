@@ -27,8 +27,8 @@
 				<tr class="text-center">
 					<td>{{ __("titles.employee") }}</td>
 					@foreach($days as $day)
-						<td>{{ $day->format("d M Y") }}</td>
-						<td style="border-bottom: 1px solid #555">{{ $day->format("d M Y") }}</td>
+						<td>{{ $day->format("d M Y") }} {{ $day->format('l') }}</td>
+						<td style="border-bottom: 1px solid #555">{{ $day->format("d M Y") }} {{ $day->format('l') }}</td>
 					@endforeach
 				</tr>
 				</thead>

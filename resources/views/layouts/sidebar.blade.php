@@ -223,6 +223,15 @@
 								</li>
 							@endcan
 
+								@can("show weekend")
+									<li>
+										<a href="{{ route("weekend.index") }}" class="waves-effect">
+											<i class="mdi mdi-account-group"></i>
+											<span> {{ __("titles.weekends") }} </span>
+										</a>
+									</li>
+								@endcan
+
 							@can("show feedback")
 								<li>
 									<a href="{{ route("feedback.index") }}" class="waves-effect">

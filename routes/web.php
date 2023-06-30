@@ -118,6 +118,7 @@ Route::group([
                 "feedback" => "FeedbackController",
                 'service' => "ServiceController",
                 'holiday' => "HolidayController",
+                'weekend' => "WeekendController",
             ]);
             
             Route::group(["prefix" => "stock", "as" => "stock."], function () {

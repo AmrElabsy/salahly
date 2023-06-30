@@ -77,7 +77,8 @@ class User extends Authenticatable
 	}
     
     public function isHoliday($day) {
-        return $this->holidays()->whereDate('end', '>=', $day)
+        return Weekend::where('day', $day->format('l'))->exists()
+			|| $this->holidays()->whereDate('end', '>=', $day)
 			->whereDate('start', '<=', $day)->exists();
     }
 	
