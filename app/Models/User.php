@@ -71,8 +71,17 @@ class User extends Authenticatable
     public function leavingTime($day) {
         return $this->attendances()->whereDate('created_at', $day)->where("type", 1)->first()->created_at->format("h:i:s A");
     }
+	
+	public function holidays() {
+		return $this->belongsToMany(Holiday::class);
+	}
     
     public function isHoliday($day) {
-        return false;
+        return $this->holidays()->whereDate('end', '>=', $day)
+			->whereDate('start', '<=', $day)->exists();
     }
+	
+	public static function employees() {
+		return self::role("employee");
+	}
 }

@@ -140,23 +140,23 @@
 								</li>
 							@endcan
 
-								@can("show material_return")
-									<li>
-										<a href="{{ route("stock.materialreturn.index") }}" class="waves-effect">
-											<i class="mdi mdi-account-group"></i>
-											<span> {{ __("titles.material_returns") }} </span>
-										</a>
-									</li>
-								@endcan
+							@can("show material_return")
+								<li>
+									<a href="{{ route("stock.materialreturn.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.material_returns") }} </span>
+									</a>
+								</li>
+							@endcan
 
-								@can("show material_waste")
-									<li>
-										<a href="{{ route("stock.materialwaste.index") }}" class="waves-effect">
-											<i class="mdi mdi-account-group"></i>
-											<span> {{ __("titles.material_wastes") }} </span>
-										</a>
-									</li>
-								@endcan
+							@can("show material_waste")
+								<li>
+									<a href="{{ route("stock.materialwaste.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.material_wastes") }} </span>
+									</a>
+								</li>
+							@endcan
 
 
 						</ul>
@@ -210,6 +210,15 @@
 									<a href="{{ route("service.index") }}" class="waves-effect">
 										<i class="mdi mdi-account-group"></i>
 										<span> {{ __("titles.services") }} </span>
+									</a>
+								</li>
+							@endcan
+
+							@can("show holiday")
+								<li>
+									<a href="{{ route("holiday.index") }}" class="waves-effect">
+										<i class="mdi mdi-account-group"></i>
+										<span> {{ __("titles.holidays") }} </span>
 									</a>
 								</li>
 							@endcan

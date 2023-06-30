@@ -115,8 +115,9 @@ Route::group([
                 "role" => "RoleController",
                 "permission" => "PermissionController",
                 "category" => "CategoryController",
-                "feedback"=>"FeedbackController",
-                'service'=>"ServiceController",
+                "feedback" => "FeedbackController",
+                'service' => "ServiceController",
+                'holiday' => "HolidayController",
             ]);
             
             Route::group(["prefix" => "stock", "as" => "stock."], function () {

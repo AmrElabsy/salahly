@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class MoneyController extends Controller
 {
     public function index() {
+		// @TODO: this function gets the months of the current year only, it should get all month of all years
 		$months = [];
 		$current_month = Carbon::now()->format('m');
 		for($i = 1; $i <= $current_month; $i++) {

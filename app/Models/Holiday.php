@@ -11,6 +11,6 @@ class Holiday extends Model
     use HasFactory;
     
     public function users() {
-        return $this->belongsToMany(User::class)->withTimestamps()->withPivot("deleted_at");
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 }
