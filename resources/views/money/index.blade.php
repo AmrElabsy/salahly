@@ -22,8 +22,8 @@
 				<tr>
 					<th rowspan="2">#</th>
 					<th rowspan="2">Months</th>
-					<th colspan="2">{{ __("titles.paying") }}</th>
-					<th colspan="3">{{ __("titles.income") }}</th>
+					<th colspan="2" class="table-danger">{{ __("titles.paying") }}</th>
+					<th colspan="3" class="table-success">{{ __("titles.income") }}</th>
 					<th rowspan="2">{{ __("titles.total") }}</th>
 				</tr>
 				<tr>
@@ -38,14 +38,15 @@
 				@foreach($months as $i => $month)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $month["name"] }}</td>
-						<td>{{ $month["paying"]["materials"] }}</td>
-						<td>{{ $month["paying"]["supplies"] }}</td>
-						<td>{{ $month["income"]["problems"] }}</td>
-						<td>{{ $month["income"]["material_returns"] }}</td>
-						<td>{{ $month["income"]["supply_returns"] }}</td>
+						<td>
+							<a href="{{ route("money.month", $i + 1) }}">{{ $month["name"] }}</a>
+						</td>
+						<td class="table-danger">{{ $month["paying"]["materials"] }}</td>
+						<td class="table-danger">{{ $month["paying"]["supplies"] }}</td>
+						<td class="table-success">{{ $month["income"]["problems"] }}</td>
+						<td class="table-success">{{ $month["income"]["material_returns"] }}</td>
+						<td class="table-success">{{ $month["income"]["supply_returns"] }}</td>
 						<td>{{ $month["total"] }}</td>
-
 					</tr>
 				@endforeach
 

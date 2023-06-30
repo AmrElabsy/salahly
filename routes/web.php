@@ -31,6 +31,7 @@ Route::group([
 			"as" => "money."
 		], function () {
 			Route::get('/', "MoneyController@index")->name('index');
+			Route::get('/{month}', "MoneyController@month")->name('month');
 			
 		});
 
