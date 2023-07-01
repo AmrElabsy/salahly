@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Weekend;
 use App\Http\Requests\StoreWeekendRequest;
-use App\Http\Requests\UpdateWeekendRequest;
 
 class WeekendController extends Controller
 {

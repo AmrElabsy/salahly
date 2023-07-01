@@ -57,7 +57,7 @@
             $result = [];
             foreach ($materials as $material) {
                 $material = Material::find($material);
-                $result[$material->id] = ["price" => $material->price->price];
+                $result[$material->id] = ["price" => $material->price?->price ?? 0];
             }
 
             return $result;

@@ -85,6 +85,35 @@
 			</div>
 		</div>
 
+		<div class="form-group row">
+			<label for="salary" class="col-sm-2 col-form-label">{{ __("titles.salary") }}</label>
+			<div class="col-sm-6">
+				<input class="form-control @error("salary") is-invalid @enderror"
+					   type="number" id="salary" name="salary"
+					   value="{{ old("salary") }}">
+				@error("salary")
+				<div class="invalid-feedback">
+					{{ $message }}
+				</div>
+				@enderror
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label for="percentage" class="col-sm-2 col-form-label">{{ __("titles.percentage") }}</label>
+			<div class="col-sm-6">
+				<input class="form-control @error("percentage") is-invalid @enderror"
+					   type="number" id="percentage" name="percentage"
+					   value="{{ old("percentage") }}">
+				@error("percentage")
+				<div class="invalid-feedback">
+					{{ $message }}
+				</div>
+				@enderror
+			</div>
+		</div>
+
+
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>

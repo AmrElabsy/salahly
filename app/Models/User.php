@@ -55,6 +55,10 @@ class User extends Authenticatable
     public function attendances(): HasMany {
         return $this->hasMany(Attendance::class);
     }
+	
+	public function problems() {
+		return $this->hasMany(Problem::class);
+	}
     
     public function attended($day){
         return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->exists();

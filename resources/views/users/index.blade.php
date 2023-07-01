@@ -30,6 +30,8 @@
 					<th>{{ __("titles.users") }}</th>
 					<th>{{ __("titles.email") }}</th>
 					<th>{{ __("titles.roles") }}</th>
+					<th>{{ __("titles.salary") }}</th>
+					<th>{{ __("titles.percentage") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
@@ -37,9 +39,13 @@
 				@foreach($users as $i => $user)
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $user->name }}</td>
+						<td>
+							<a href="{{ route("user.show", $user->id) }}">{{ $user->name }}</a>
+						</td>
 						<td>{{ $user->email }}</td>
 						<td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
+						<td>{{ $user->salary }}</td>
+						<td>{{ $user->percentage }}%</td>
 						<td>
 							@can("edit user")
 								<a href="{{ route("user.edit", $user->id) }}"

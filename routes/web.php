@@ -120,6 +120,7 @@ Route::group([
                 'holiday' => "HolidayController",
                 'weekend' => "WeekendController",
             ]);
+			Route::get("user/{user}/{year?}/{month?}", "UserController@show")->name("user.show");
             
             Route::group(["prefix" => "stock", "as" => "stock."], function () {
                 Route::resources([

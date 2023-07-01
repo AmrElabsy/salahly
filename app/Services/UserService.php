@@ -15,9 +15,11 @@
     
             $user->name = $data["name"];
             $user->email = $data["email"];
-            $user->password = Hash::make( $data["password"] );
-            
-            $user->save();
+			$user->password = Hash::make( $data["password"] );
+			$user->salary = $data["salary"] ?? null;
+			$user->percentage = $data["percentage"] ?? null;
+	
+			$user->save();
             if (isset($data["roles"])) {
                 $roles = Role::whereIn('name', $data["roles"])->get();
                 $user->syncRoles($roles);
@@ -34,6 +36,8 @@
             if (isset($data["password"]) && $data["password"] != "") {
                 $resource->password = Hash::make( $data["password"] );
             }
+			$resource->salary = $data["salary"] ?? null;
+			$resource->percentage = $data["percentage"] ?? null;
             $resource->save();
     
             if (isset($data["roles"])) {
