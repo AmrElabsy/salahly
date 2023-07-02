@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,6 +13,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
+use DateTime;
+use DateInterval;
+use DatePeriod;
+
+
 
 class User extends Authenticatable
 {
@@ -63,6 +69,35 @@ class User extends Authenticatable
     public function attended($day){
         return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->exists();
     }
+	
+	public function isAbsent($day) {
+		if ( $this->isHoliday($day) ) {
+			return false;
+		}
+		return !$this->attended($day);
+	}
+	
+	public function absentDays($month) {
+		$year = Carbon::now()->year;
+		$month = $month;
+		
+		$date = new Carbon($year . "-" . $month );
+		
+		$start = new DateTime($date->startOfMonth());
+		$interval = new DateInterval('P1D');
+		$end = $date->endOfMonth() < now() ? new DateTime($date->endOfMonth()) : Carbon::now();
+		$days = new DatePeriod($start, $interval, $end);
+		
+		$count = 0;
+		foreach ($days as $day) {
+			if ( $this->isAbsent( $day ) ) {
+				$count++;
+			}
+		}
+		
+		return $count;
+	
+	}
     
     public function attendanceTime($day) {
         return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->first()->created_at->format("h:i:s A");

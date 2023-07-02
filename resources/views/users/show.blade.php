@@ -145,6 +145,12 @@
 				<td>{{ $problems->sum("price") * $user->percentage / 100}}</td>
 			</tr>
 
+			<tr>
+				<td>Total Absent Days</td>
+
+				<td>{{ $user->absentDays($_month) }}</td>
+			</tr>
+
 
 			<tr class="table-success">
 				<td>Net Salary</td>

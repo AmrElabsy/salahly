@@ -65,8 +65,9 @@ class UserController extends Controller
 			$currentMonth = Carbon::now()->lastOfMonth();
 			
 			$months = new DatePeriod($jan, $interval, $currentMonth);
+			$_month = $month;
 			
-			return view("users.show", compact('user', "problems", "days", "months"));
+			return view("users.show", compact('user', "problems", "days", "months", "_month"));
 		} else {
 			//
 		}
