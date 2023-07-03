@@ -32,6 +32,7 @@
 				<tr>
 					<th>{{ __("titles.day") }}</th>
 					<th>{{ __("titles.entrance") }}</th>
+					<th>{{ __("titles.minutes_late") }}</th>
 					<th>{{ __("titles.leaving") }}</th>
 				</tr>
 				</thead>
@@ -40,6 +41,7 @@
 					<tr>
 						<th scope="row">{{ $day->format("d M Y") }} {{ $day->format('l') }}</th>
 						@if($user->isHoliday($day))
+							<td class="table-primary">Holiday</td>
 							<td class="table-primary">Holiday</td>
 							<td class="table-primary">Holiday</td>
 						@else
@@ -55,6 +57,8 @@
 								<td class="table-danger">Absent</td>
 							@endif
 
+						<td>{{ $user->minutesLate($day) }}</td>
+
 							@if($user->left($day))
 								<td class="table-success" style="border-bottom: 1px solid #555">
 									{{ $user->leavingTime($day) }}
@@ -65,7 +69,7 @@
 									<a href="{{ route("attendance.leave", $user) }}" class="btn btn-primary">Leave</a>
 								</td>
 							@else
-								<td style="border-bottom: 1px solid #555">didn't leave</td>
+								<td>didn't leave</td>
 							@endif
 						@endif
 					</tr>
@@ -151,14 +155,17 @@
 				<td>{{ $user->absentDays($_month) }}</td>
 			</tr>
 
+			<tr>
+				<td>Total Late Minutes</td>
+
+				<td>{{ $user->minutesLateByMonth($_month) }}</td>
+			</tr>
+
 
 			<tr class="table-success">
 				<td>Net Salary</td>
 				<td>{{ $problems->sum("price") * $user->percentage / 100 + $user->salary}}</td>
 			</tr>
-
-
-
 
 			</tbody>
 		</table>
