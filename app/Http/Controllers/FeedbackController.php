@@ -16,7 +16,7 @@ class FeedbackController extends Controller
     public function index()
     {
         $this->authorize("show feedback");
-    
+
         $feedbacks = Feedback::all();
         return view('feedbacks.index',compact('feedbacks'));
     }
@@ -24,9 +24,9 @@ class FeedbackController extends Controller
     public function create()
     {
         $this->authorize("add feedback");
-        
+
         $problems = Problem::all();
-        
+
         // @TODO: Add Inputs
 
         return view('feedbacks.create',compact('problems'));
@@ -47,7 +47,11 @@ class FeedbackController extends Controller
     public function edit(Feedback $feedback)
     {
         $this->authorize("edit feedback");
-    
+        $problems = Problem::all();
+
+        // @TODO: Add Inputs
+
+        return view('feedbacks.edit',compact('problems'));
         // @TODO: Implement Edit Feedback
     }
 
@@ -56,15 +60,15 @@ class FeedbackController extends Controller
         try {
             $this->service->update($request->all(), $feedback);
         } catch (\Exception $e) {
-        
+
         }
-    
+
     }
 
     public function destroy(Feedback $feedback)
     {
         $this->authorize("delete feedback");
-    
+
         // @TODO: Implement Delete Feedback
     }
 }

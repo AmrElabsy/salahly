@@ -24,7 +24,8 @@ class StoreWeekendRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'days' => ['required', 'array', 'min:1'],
+            'days.*' => ['in:Saturday,Sunday,Monday,Tuesday,Wednesday,Thursday,Friday'],
         ];
     }
 }

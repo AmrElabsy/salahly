@@ -24,7 +24,10 @@ class UpdateHolidayRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'start' => ['required', 'date'],
+            'end' => ['required', 'date', 'after:start'],
+            'employees' => ['required', 'array', 'min:1'],
+            'employees.*' => ['exists:employees,id'],
         ];
     }
 }

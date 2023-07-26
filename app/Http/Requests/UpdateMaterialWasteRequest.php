@@ -24,7 +24,8 @@ class UpdateMaterialWasteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'material_id' => ['required', 'exists:materials,id'],
+            'amount' => ['required', 'numeric', 'min:1'],
         ];
     }
 }

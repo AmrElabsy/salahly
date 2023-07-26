@@ -24,7 +24,10 @@ class StoreMaterialReturnRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'material_id' => ['required', 'exists:materials,id'],
+            'amount' => ['required', 'numeric', 'min:1'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'return_date' => ['required', 'date'],
         ];
     }
 }

@@ -23,8 +23,12 @@ class StoreMaterialRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        return  [
+            'name' => ['required', 'string', 'min:2'],
+            'prices' => ['required', 'array', 'min:1'],
+            'prices.*' => ['required', 'numeric', 'min:0'],
+            'start_dates' => ['array', 'min:1'],
+            'start_dates.*' => ['nullable', 'date'],
         ];
     }
 }

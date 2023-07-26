@@ -24,7 +24,10 @@ class UpdateSupplyReturnRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'supply_id' => ['required', 'exists:supplies,id'],
+            'amount' => ['required', 'numeric', 'min:0'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'return_date' => ['required', 'date'],
         ];
     }
 }

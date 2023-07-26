@@ -21,6 +21,24 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="known_from">Known From</label>
+                <input class="form-control @error(" known_from") is-invalid @enderror" type="text" id="known_from" name="known_from" required
+                       minlength="2" value="{{ old("known_from") }}">
+                @error('known_from')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="where_from">Where From</label>
+                <input class="form-control @error(" where_from") is-invalid @enderror" type="text" id="where_from" name="where_from" required
+                       minlength="2" value="{{ old("where_from") }}">
+                @error('where_from')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+
+            <div class="form-group">
                 <label for="problem_id">Problem</label>
 
                 <select name="problem" id="problem_id" class="form-control">

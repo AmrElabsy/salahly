@@ -24,7 +24,8 @@ class StorePermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'names' => ['required', 'array'],
+            'names.*' => ['required', 'string', 'max:255'],
         ];
     }
 }

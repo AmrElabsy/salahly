@@ -95,7 +95,7 @@
 							@endcan
 
 							@can("show status")
-								<li>h
+								<li>
 									<a href="{{ route("status.index") }}" class="waves-effect">
 										<i class="mdi mdi-account-group"></i>
 										<span> {{ __("titles.statuses") }} </span>

@@ -24,7 +24,9 @@ class StoreSupplyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'min:2'],
+            'prices.*' => ['required', 'numeric', 'min:0'],
+            'start_dates.*' => ['required', 'date'],
         ];
     }
 }

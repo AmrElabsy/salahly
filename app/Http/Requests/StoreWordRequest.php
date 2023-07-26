@@ -24,7 +24,9 @@ class StoreWordRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'word' => ['required', 'min:2'],
+            'en' => ['required', 'min:2'],
+            'ar' => ['required', 'min:2'],
         ];
     }
 }
