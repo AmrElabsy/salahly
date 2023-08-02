@@ -27,7 +27,7 @@
 					<li>
 						<a href="javascript: void(0);" class="has-arrow waves-effect">
 							<i class="mdi mdi-buffer"></i>
-							<span>Users</span>
+							<span>{{ __('titles.users') }}</span>
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
@@ -64,7 +64,7 @@
 					<li>
 						<a href="javascript: void(0);" class="has-arrow waves-effect">
 							<i class="mdi mdi-buffer"></i>
-							<span>Problems</span>
+							<span>{{ __('titles.problems') }}</span>
 						</a>
 						<ul class="sub-menu" aria-expanded="false">
 							@can("show problem")
@@ -109,7 +109,7 @@
 					<li>
 						<a href="javascript: void(0);" class="has-arrow waves-effect">
 							<i class="mdi mdi-buffer"></i>
-							<span>Stock Management</span>
+							<span>{{ __('titles.stock_management') }}</span>
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
@@ -165,7 +165,7 @@
 					<li>
 						<a href="javascript: void(0);" class="has-arrow waves-effect">
 							<i class="mdi mdi-buffer"></i>
-							<span>Manage</span>
+							<span>{{ __('titles.manage') }}</span>
 						</a>
 
 						<ul class="sub-menu" aria-expanded="false">
