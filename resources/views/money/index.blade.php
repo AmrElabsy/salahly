@@ -21,7 +21,7 @@
 				<thead>
 				<tr>
 					<th rowspan="2">#</th>
-					<th rowspan="2">Months</th>
+					<th rowspan="2">{{__('titles.months')}}</th>
 					<th colspan="2" class="table-danger">{{ __("titles.paying") }}</th>
 					<th colspan="3" class="table-success">{{ __("titles.income") }}</th>
 					<th rowspan="2">{{ __("titles.total") }}</th>

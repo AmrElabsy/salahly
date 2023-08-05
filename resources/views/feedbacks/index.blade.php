@@ -16,12 +16,11 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>Content</th>
-            <th>Is Available?</th>
-            <th>Known From</th>
-            <th>Where From</th>
-            <th>Problem ID</th>
-            <th>Actions</th>
+            <th>{{__('titles.feedback')}}</th>
+            <th>{{__('titles.known_from')}}</th>
+            <th>{{__('titles.where_from')}}</th>
+            <th>{{__('titles.problem')}}</th>
+            <th>{{__('titles.manage')}}</th>
         </tr>
         </thead>
         <tbody>
@@ -29,7 +28,6 @@
             <tr>
                 <td>{{ $feedback->id }}</td>
                 <td>{{ $feedback->content }}</td>
-                <td>{{ $feedback->is_available ? 'Yes' : 'No' }}</td>
                 <td>{{ $feedback->known_from }}</td>
                 <td>{{ $feedback->where_from }}</td>
                 <td>{{ $feedback->problem_id }}</td>
