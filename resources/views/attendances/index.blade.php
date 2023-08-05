@@ -38,8 +38,8 @@
 						<td>{{ $employee->name }}</td>
 						@foreach($days as $day)
 							@if($employee->isHoliday($day))
-								<td class="table-primary">Holiday</td>
-								<td class="table-primary">Holiday</td>
+								<td class="table-primary">{{ __("titles.holiday") }}</td>
+								<td class="table-primary">{{ __("titles.holiday") }}</td>
 							@else
 								@if($employee->attended($day))
 									<td class="table-success">
@@ -47,10 +47,10 @@
 									</td>
 								@elseif(\Carbon\Carbon::parse($day)->isToday())
 									<td>
-										<a href="{{ route("attendance.attend", $employee) }}" class="btn btn-primary">Attend</a>
+										<a href="{{ route("attendance.attend", $employee) }}" class="btn btn-primary">{{ __('titles.attend') }}</a>
 									</td>
 								@else
-									<td class="table-danger">Absent</td>
+									<td class="table-danger">{{ __("titles.absent") }}</td>
 								@endif
 
 								@if($employee->left($day))
@@ -60,10 +60,10 @@
 
 								@elseif(\Carbon\Carbon::parse($day)->isToday() && $employee->attended($day))
 									<td style="border-bottom: 1px solid #555">
-										<a href="{{ route("attendance.leave", $employee) }}" class="btn btn-primary">Leave</a>
+										<a href="{{ route("attendance.leave", $employee) }}" class="btn btn-primary">{{ __('titles.leave') }}</a>
 									</td>
 								@else
-									<td style="border-bottom: 1px solid #555">didn't leave</td>
+									<td style="border-bottom: 1px solid #555">{{ __("titles.didnt_leave") }}</td>
 								@endif
 							@endif
 						@endforeach

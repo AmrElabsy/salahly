@@ -32,11 +32,10 @@ class BranchController extends Controller
     {
         try {
             $this->service->store($request->all());
+            return redirect()->route("branch.index")->withStatus(__("titles.branch_added"));
         } catch ( \Throwable $e) {
-        
+            return redirect()->back();
         }
-
-        return redirect()->route("branch.index")->withStatus(__("titles.branch_added"));
     }
 
     public function show(Branch $branch)
@@ -55,11 +54,10 @@ class BranchController extends Controller
     {
         try {
             $this->service->update($request->all(), $branch);
+            return redirect()->route("branch.index")->withStatus(__("titles.branch_updated"));
         } catch (\Throwable $exception) {
-        
+            return redirect()->back();
         }
-        
-        return redirect()->route("branch.index")->withStatus(__("titles.branch_updated"));
     }
 
     public function destroy(Branch $branch)

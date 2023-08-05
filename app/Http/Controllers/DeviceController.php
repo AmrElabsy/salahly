@@ -34,10 +34,10 @@ class DeviceController extends Controller
     {
         try {
             $this->service->store($request->all());
+            return redirect()->route("device.index")->withStatus("titles.device_added");
         } catch (\Exception $e) {
-        
+            return redirect()->back();
         }
-        return redirect()->route("device.index")->withStatus("titles.device_added");
     }
 
     public function show(Device $device)
@@ -57,10 +57,10 @@ class DeviceController extends Controller
     {
         try {
             $this->service->update($request->all(), $device);
+            return redirect()->route("device.index")->withStatus("titles.device_updated");
         } catch (\Exception $e) {
-        
+            return redirect()->back();
         }
-        return redirect()->route("device.index")->withStatus("titles.device_updated");
     }
 
     public function destroy(Device $device)

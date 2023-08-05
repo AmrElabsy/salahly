@@ -36,10 +36,10 @@
         {
             try {
                 $this->service->store($request->all());
+                return redirect()->route('role.index')->withStatus(__("titles.role_added"));
             } catch (\Throwable $e) {
-            
+                return redirect()->back();
             }
-            return redirect()->route('role.index')->withStatus(__("titles.role_added"));
         }
         
         public function edit(Role $role)
@@ -54,10 +54,10 @@
         {
             try {
                 $this->service->update($request->all(), $role);
+                return redirect()->route('role.index')->withStatus(__( 'titles.role_updated'));
             } catch (\Throwable $exception) {
-            
+                return redirect()->back();
             }
-            return redirect()->route('role.index')->withStatus(__( 'titles.role_updated'));
         }
         
         public function destroy(Role $role)

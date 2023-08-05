@@ -9,7 +9,7 @@
         <h2>{{ __("titles.feedbacks") }}</h2>
         <div>
             <a href="{{ route("feedback.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-            <a href="#" class="btn btn-secondary">{{ __("titles.deleted_feedbacks") }}</a>
+{{--            <a href="#" class="btn btn-secondary">{{ __("titles.deleted_feedbacks") }}</a>--}}
         </div>
     </div>
     <table class="table">

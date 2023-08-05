@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", __("titles.month"))
+@section("title", $user->name)
 
 @section("style")
 	<link rel="stylesheet" href="{{ asset("assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}">
@@ -41,9 +41,9 @@
 					<tr>
 						<th scope="row">{{ $day->format("d M Y") }} {{ $day->format('l') }}</th>
 						@if($user->isHoliday($day))
-							<td class="table-primary">Holiday</td>
-							<td class="table-primary">Holiday</td>
-							<td class="table-primary">Holiday</td>
+							<td class="table-primary">{{ __('titles.holiday') }}</td>
+							<td class="table-primary">{{ __('titles.holiday') }}</td>
+							<td class="table-primary">{{ __('titles.holiday') }}</td>
 						@else
 							@if($user->attended($day))
 								<td class="table-success">
@@ -51,7 +51,7 @@
 								</td>
 							@elseif(\Carbon\Carbon::parse($day)->isToday())
 								<td>
-									<a href="{{ route("attendance.attend", $user) }}" class="btn btn-primary">Attend</a>
+									<a href="{{ route("attendance.attend", $user) }}" class="btn btn-primary">{{ __('titles.attend') }}</a>
 								</td>
 							@else
 								<td class="table-danger">Absent</td>
@@ -66,10 +66,10 @@
 
 							@elseif(\Carbon\Carbon::parse($day)->isToday() && $user->attended($day))
 								<td style="border-bottom: 1px solid #555">
-									<a href="{{ route("attendance.leave", $user) }}" class="btn btn-primary">Leave</a>
+									<a href="{{ route("attendance.leave", $user) }}" class="btn btn-primary">{{ __('titles.leave') }}</a>
 								</td>
 							@else
-								<td>didn't leave</td>
+								<td>{{ __('titles.didnt_leave') }}</td>
 							@endif
 						@endif
 					</tr>
