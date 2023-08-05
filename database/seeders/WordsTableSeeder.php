@@ -156,7 +156,7 @@ class WordsTableSeeder extends Seeder
                 'ar' => 'العملاء',
                 'en' => 'Customers',
                 'created_at' => '2023-05-01 11:28:05',
-                'updated_at' => '2023-05-01 11:28:05',
+                'updated_at' => '2023-06-22 13:01:27',
                 'deleted_at' => NULL,
             ),
             14 => 
@@ -997,6 +997,356 @@ class WordsTableSeeder extends Seeder
                 'en' => 'Type',
                 'created_at' => '2023-05-06 00:12:13',
                 'updated_at' => '2023-05-06 00:12:13',
+                'deleted_at' => NULL,
+            ),
+            98 => 
+            array (
+                'id' => 189,
+                'word' => 'total_profit',
+                'ar' => 'إجمالي الربح',
+                'en' => 'Total Profit',
+                'created_at' => '2023-06-21 16:49:53',
+                'updated_at' => '2023-06-21 16:49:53',
+                'deleted_at' => NULL,
+            ),
+            99 => 
+            array (
+                'id' => 190,
+                'word' => 'net_profit',
+                'ar' => 'صافي الربح',
+                'en' => 'Net Profit',
+                'created_at' => '2023-06-21 16:50:11',
+                'updated_at' => '2023-06-21 16:50:11',
+                'deleted_at' => NULL,
+            ),
+            100 => 
+            array (
+                'id' => 191,
+                'word' => 'categories',
+                'ar' => 'الفئات',
+                'en' => 'Categories',
+                'created_at' => '2023-06-21 16:50:45',
+                'updated_at' => '2023-06-21 16:50:45',
+                'deleted_at' => NULL,
+            ),
+            101 => 
+            array (
+                'id' => 192,
+                'word' => 'services',
+                'ar' => 'الخدمات',
+                'en' => 'Services',
+                'created_at' => '2023-06-21 16:51:00',
+                'updated_at' => '2023-06-21 16:51:00',
+                'deleted_at' => NULL,
+            ),
+            102 => 
+            array (
+                'id' => 193,
+                'word' => 'feedback',
+                'ar' => 'فيدباك',
+                'en' => 'Feedback',
+                'created_at' => '2023-06-21 16:51:19',
+                'updated_at' => '2023-06-21 16:51:19',
+                'deleted_at' => NULL,
+            ),
+            103 => 
+            array (
+                'id' => 194,
+                'word' => 'user_added',
+                'ar' => 'تم إضافة المستخدم بنجاح',
+                'en' => 'User Added Successfully',
+                'created_at' => '2023-06-21 16:56:17',
+                'updated_at' => '2023-06-21 16:56:17',
+                'deleted_at' => NULL,
+            ),
+            104 => 
+            array (
+                'id' => 195,
+                'word' => 'role_updated',
+                'ar' => 'تم تعديل الدور بنجاح',
+                'en' => 'Role Updated Successfully',
+                'created_at' => '2023-06-21 17:59:20',
+                'updated_at' => '2023-06-21 17:59:20',
+                'deleted_at' => NULL,
+            ),
+            105 => 
+            array (
+                'id' => 196,
+                'word' => 'le',
+                'ar' => 'جنيه',
+                'en' => 'L.E',
+                'created_at' => '2023-06-26 23:26:55',
+                'updated_at' => '2023-06-26 23:26:55',
+                'deleted_at' => NULL,
+            ),
+            106 => 
+            array (
+                'id' => 197,
+                'word' => 'piece',
+                'ar' => 'قطعة',
+                'en' => 'Piece',
+                'created_at' => '2023-06-26 23:30:17',
+                'updated_at' => '2023-06-26 23:30:17',
+                'deleted_at' => NULL,
+            ),
+            107 => 
+            array (
+                'id' => 198,
+                'word' => 'supply_returns',
+                'ar' => 'مرتجعات اللوازم',
+                'en' => 'Supplies Returns',
+                'created_at' => '2023-06-26 23:41:49',
+                'updated_at' => '2023-06-26 23:41:49',
+                'deleted_at' => NULL,
+            ),
+            108 => 
+            array (
+                'id' => 199,
+                'word' => 'material_returns',
+                'ar' => 'مرتجعات الخامات',
+                'en' => 'Materials Returns',
+                'created_at' => '2023-06-26 23:42:49',
+                'updated_at' => '2023-06-26 23:42:49',
+                'deleted_at' => NULL,
+            ),
+            109 => 
+            array (
+                'id' => 200,
+                'word' => 'material_wastes',
+                'ar' => 'الهوالك',
+                'en' => 'Wastes',
+                'created_at' => '2023-06-26 23:43:05',
+                'updated_at' => '2023-06-26 23:43:05',
+                'deleted_at' => NULL,
+            ),
+            110 => 
+            array (
+                'id' => 201,
+                'word' => 'manage_money',
+                'ar' => 'الخزنة',
+                'en' => 'Treasury',
+                'created_at' => '2023-08-02 21:01:24',
+                'updated_at' => '2023-08-02 21:01:24',
+                'deleted_at' => NULL,
+            ),
+            111 => 
+            array (
+                'id' => 202,
+                'word' => 'stock_management',
+                'ar' => 'إدارة المخازن',
+                'en' => 'Stock Management',
+                'created_at' => '2023-08-02 21:02:31',
+                'updated_at' => '2023-08-02 21:02:31',
+                'deleted_at' => NULL,
+            ),
+            112 => 
+            array (
+                'id' => 203,
+                'word' => 'amount',
+                'ar' => 'الكمية',
+                'en' => 'Amount',
+                'created_at' => '2023-08-02 21:02:52',
+                'updated_at' => '2023-08-02 21:02:52',
+                'deleted_at' => NULL,
+            ),
+            113 => 
+            array (
+                'id' => 204,
+                'word' => 'minutes_late',
+                'ar' => 'دقائق التأخير',
+                'en' => 'Minutes Late',
+                'created_at' => '2023-08-05 03:24:22',
+                'updated_at' => '2023-08-05 03:24:22',
+                'deleted_at' => NULL,
+            ),
+            114 => 
+            array (
+                'id' => 205,
+                'word' => 'day',
+                'ar' => 'اليوم',
+                'en' => 'Day',
+                'created_at' => '2023-08-05 03:24:44',
+                'updated_at' => '2023-08-05 03:24:44',
+                'deleted_at' => NULL,
+            ),
+            115 => 
+            array (
+                'id' => 206,
+                'word' => 'entrance',
+                'ar' => 'الحضور',
+                'en' => 'Entrance',
+                'created_at' => '2023-08-05 03:25:03',
+                'updated_at' => '2023-08-05 03:25:03',
+                'deleted_at' => NULL,
+            ),
+            116 => 
+            array (
+                'id' => 207,
+                'word' => 'leaving',
+                'ar' => 'الانصراف',
+                'en' => 'Leaving',
+                'created_at' => '2023-08-05 03:25:19',
+                'updated_at' => '2023-08-05 03:25:19',
+                'deleted_at' => NULL,
+            ),
+            117 => 
+            array (
+                'id' => 208,
+                'word' => 'absent',
+                'ar' => 'غياب',
+                'en' => 'Absent',
+                'created_at' => '2023-08-05 03:44:00',
+                'updated_at' => '2023-08-05 03:44:00',
+                'deleted_at' => NULL,
+            ),
+            118 => 
+            array (
+                'id' => 209,
+                'word' => 'didnt_leave',
+                'ar' => 'لم يتم تسجيل المغادرة',
+                'en' => 'Didn\'t Leave',
+                'created_at' => '2023-08-05 03:44:30',
+                'updated_at' => '2023-08-05 03:44:30',
+                'deleted_at' => NULL,
+            ),
+            119 => 
+            array (
+                'id' => 210,
+                'word' => 'holiday',
+                'ar' => 'إجازة',
+                'en' => 'Holiday',
+                'created_at' => '2023-08-05 03:44:45',
+                'updated_at' => '2023-08-05 03:44:45',
+                'deleted_at' => NULL,
+            ),
+            120 => 
+            array (
+                'id' => 211,
+                'word' => 'attendances',
+                'ar' => 'الحضور والغياب',
+                'en' => 'Attendacnes',
+                'created_at' => '2023-08-05 03:45:34',
+                'updated_at' => '2023-08-05 03:45:34',
+                'deleted_at' => NULL,
+            ),
+            121 => 
+            array (
+                'id' => 212,
+                'word' => 'english',
+                'ar' => 'الإنجليزية',
+                'en' => 'English',
+                'created_at' => '2023-08-05 03:45:47',
+                'updated_at' => '2023-08-05 03:45:47',
+                'deleted_at' => NULL,
+            ),
+            122 => 
+            array (
+                'id' => 213,
+                'word' => 'arabic',
+                'ar' => 'العربية',
+                'en' => 'Arabic',
+                'created_at' => '2023-08-05 03:46:02',
+                'updated_at' => '2023-08-05 03:46:02',
+                'deleted_at' => NULL,
+            ),
+            123 => 
+            array (
+                'id' => 214,
+                'word' => 'holidays',
+                'ar' => 'الإجازات',
+                'en' => 'Holidays',
+                'created_at' => '2023-08-05 03:47:05',
+                'updated_at' => '2023-08-05 03:47:05',
+                'deleted_at' => NULL,
+            ),
+            124 => 
+            array (
+                'id' => 215,
+                'word' => 'weekends',
+                'ar' => 'إجازات نهاية الأسبوع',
+                'en' => 'Weekends',
+                'created_at' => '2023-08-05 03:47:19',
+                'updated_at' => '2023-08-05 03:47:19',
+                'deleted_at' => NULL,
+            ),
+            125 => 
+            array (
+                'id' => 216,
+                'word' => 'feedbacks',
+                'ar' => 'فيدباك',
+                'en' => 'Feedbacks',
+                'created_at' => '2023-08-05 03:47:35',
+                'updated_at' => '2023-08-05 03:47:35',
+                'deleted_at' => NULL,
+            ),
+            126 => 
+            array (
+                'id' => 217,
+                'word' => 'salary',
+                'ar' => 'المرتب',
+                'en' => 'Salary',
+                'created_at' => '2023-08-05 03:50:15',
+                'updated_at' => '2023-08-05 03:50:15',
+                'deleted_at' => NULL,
+            ),
+            127 => 
+            array (
+                'id' => 218,
+                'word' => 'percentage',
+                'ar' => 'النسبة',
+                'en' => 'Percentage',
+                'created_at' => '2023-08-05 03:50:26',
+                'updated_at' => '2023-08-05 03:50:26',
+                'deleted_at' => NULL,
+            ),
+            128 => 
+            array (
+                'id' => 219,
+                'word' => 'attend',
+                'ar' => 'حضور',
+                'en' => 'Attend',
+                'created_at' => '2023-08-05 04:11:10',
+                'updated_at' => '2023-08-05 04:11:10',
+                'deleted_at' => NULL,
+            ),
+            129 => 
+            array (
+                'id' => 220,
+                'word' => 'leave',
+                'ar' => 'مغادرة',
+                'en' => 'Leave',
+                'created_at' => '2023-08-05 04:11:43',
+                'updated_at' => '2023-08-05 04:11:43',
+                'deleted_at' => NULL,
+            ),
+            130 => 
+            array (
+                'id' => 221,
+                'word' => 'phone',
+                'ar' => 'رقم الهاتف',
+                'en' => 'Phone Number',
+                'created_at' => '2023-08-05 04:14:30',
+                'updated_at' => '2023-08-05 04:14:30',
+                'deleted_at' => NULL,
+            ),
+            131 => 
+            array (
+                'id' => 222,
+                'word' => 'category',
+                'ar' => 'الفئة',
+                'en' => 'Category',
+                'created_at' => '2023-08-05 04:18:32',
+                'updated_at' => '2023-08-05 04:18:32',
+                'deleted_at' => NULL,
+            ),
+            132 => 
+            array (
+                'id' => 223,
+                'word' => 'month',
+                'ar' => 'الشهر',
+                'en' => 'Month',
+                'created_at' => '2023-08-05 04:21:32',
+                'updated_at' => '2023-08-05 04:21:32',
                 'deleted_at' => NULL,
             ),
         ));

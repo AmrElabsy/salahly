@@ -34,10 +34,10 @@
         {
             try {
                 $this->service->store($request->all());
+                return redirect()->route('permission.index')->with('success', 'Permission created successfully.');
             } catch (\Throwable $e) {
-            
+                return redirect()->back();
             }
-            return redirect()->route('permission.index')->with('success', 'Permission created successfully.');
         }
         
         public function edit(Permission $permission)
@@ -51,10 +51,10 @@
         {
             try {
                 $this->service->update($request->all(), $permission);
+                return redirect()->route('permissions.index')->with('success', 'Permission updated successfully.');
             } catch (\Throwable $exception) {
-            
+                return redirect()->back();
             }
-            return redirect()->route('permissions.index')->with('success', 'Permission updated successfully.');
         }
         
         public function destroy(Permission $permission)
@@ -63,9 +63,9 @@
     
             try {
                 $this->service->delete($permission);
+                return redirect()->route('permission.index')->with('success', 'Permission deleted successfully.');
             } catch (\Throwable $exception) {
-            
+                return redirect()->back();
             }
-            return redirect()->route('permission.index')->with('success', 'Permission deleted successfully.');
         }
     }

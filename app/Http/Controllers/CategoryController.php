@@ -33,10 +33,10 @@
         {
             try {
                 $this->service->store($request->all());
+                return redirect()->route("category.index")->withStatus(__("titles.category_added"));
             } catch (\Throwable $e) {
-            
+                return redirect()->back();
             }
-            return redirect()->route("category.index")->withStatus(__("titles.category_added"));
         }
         
         public function show(Category $category)
@@ -55,10 +55,10 @@
         {
             try {
                 $this->service->update($request->all(), $category);
+                return redirect()->route("category.index")->withStatus(__("titles.category_updated"));
             } catch (\Throwable $exception) {
-            
+                return redirect()->back();
             }
-            return redirect()->route("category.index")->withStatus(__("titles.category_updated"));
         }
         
         public function destroy(Category $category)

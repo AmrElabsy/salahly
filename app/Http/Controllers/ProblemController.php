@@ -54,7 +54,7 @@ class ProblemController extends Controller
 	
 	public function show( Problem $problem )
 	{
-		// @TODO: Implement the view
+		return view('problems.show', compact('problem'));
 	}
 	
 	public function edit( Problem $problem )

@@ -40,7 +40,12 @@
 					<tr>
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>
-							<a href="{{ route("user.show", $user->id) }}">{{ $user->name }}</a>
+							@if($user->hasRole('Employee'))
+								<a href="{{ route("user.show", $user->id) }}">{{ $user->name }}</a>
+							@else
+								{{ $user->name }}
+							@endif
+
 						</td>
 						<td>{{ $user->email }}</td>
 						<td>{{ $user->roles->pluck('name')->implode(', ') }}</td>

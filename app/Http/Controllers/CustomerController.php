@@ -33,10 +33,10 @@ class CustomerController extends Controller
     {
         try {
             $this->service->store($request->all());
+            return redirect()->route("customer.index")->withStatus(__("titles.customer_added"));
         } catch (\Throwable $e) {
-        
+            return redirect()->back();
         }
-        return redirect()->route("customer.index")->withStatus(__("titles.customer_added"));
     }
 
     public function show(Customer $customer)
@@ -55,10 +55,10 @@ class CustomerController extends Controller
     {
         try {
             $this->service->update($request->all(), $customer);
+            return redirect()->route("customer.index")->withStatus(__("titles.customer_updated"));
         } catch (\Throwable $exception) {
-        
+            return redirect()->back();
         }
-        return redirect()->route("customer.index")->withStatus(__("titles.customer_updated"));
     
     }
 
