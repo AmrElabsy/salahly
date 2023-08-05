@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Feedback</h1>
+        
         <form action="{{ route('feedback.store') }}" method="POST">
             @csrf
             <div class="form-group">
