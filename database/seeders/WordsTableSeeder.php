@@ -1349,9 +1349,9 @@ class WordsTableSeeder extends Seeder
                 'updated_at' => '2023-08-05 04:21:32',
                 'deleted_at' => NULL,
             ),
-            132 =>
+            133 =>
                 array (
-                    'id' => 226,
+                    'id' => 224,
                     'word' => 'known_from',
                     'ar' => 'عرفتنا منين',
                     'en' => 'Known From',
@@ -1359,9 +1359,9 @@ class WordsTableSeeder extends Seeder
                     'updated_at' => '2023-08-05 04:21:32',
                     'deleted_at' => NULL,
                 ),
-            132 =>
+            134 =>
                 array (
-                    'id' => 225,
+                    'id' => 227,
                     'word' => 'where_from',
                     'ar' => 'انت منين',
                     'en' => 'Where From',
@@ -1369,6 +1369,47 @@ class WordsTableSeeder extends Seeder
                     'updated_at' => '2023-08-05 04:21:32',
                     'deleted_at' => NULL,
                 ),
+            135 =>
+                array (
+                    'id' => 228,
+                    'word' => 'devices_under_detection',
+                    'ar' => 'أجهزة تحت الفحص',
+                    'en' => 'Devices Under Detection',
+                    'created_at' => '2023-08-05 04:21:32',
+                    'updated_at' => '2023-08-05 04:21:32',
+                    'deleted_at' => NULL,
+                ),
+            136 =>
+                array (
+                    'id' => 229,
+                    'word' => 'done',
+                    'ar' => 'تم التسليم',
+                    'en' => 'Done',
+                    'created_at' => '2023-08-05 04:21:32',
+                    'updated_at' => '2023-08-05 04:21:32',
+                    'deleted_at' => NULL,
+                ),
+            137 =>
+                array (
+                    'id' => 230,
+                    'word' => 'rejected',
+                    'ar' => 'الرفض',
+                    'en' => 'Rejected',
+                    'created_at' => '2023-08-05 04:21:32',
+                    'updated_at' => '2023-08-05 04:21:32',
+                    'deleted_at' => NULL,
+                ),
+            138 =>
+                array (
+                    'id' => 231,
+                    'word' => 'new_device',
+                    'ar' => 'جهاز جديد',
+                    'en' => 'New Device',
+                    'created_at' => '2023-08-05 04:21:32',
+                    'updated_at' => '2023-08-05 04:21:32',
+                    'deleted_at' => NULL,
+                ),
+
         ));
 
 

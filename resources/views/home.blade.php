@@ -12,7 +12,7 @@
                 <a href="{{route('problem.index')}}" class="btn btn-primary btn-lg btn-block">{{ __('titles.devices_under_detection') }}</a>
             </div>
             <div class="col-md-4">
-                <a href="{{route('attendance.index')}}" class="btn btn-primary btn-lg btn-block">الحضور والغياب</a>
+                <a href="{{route('attendance.index')}}" class="btn btn-primary btn-lg btn-block">{{__('titles.attendance')}}</a>
             </div>
         </div>
         <br>

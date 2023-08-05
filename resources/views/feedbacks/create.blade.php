@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="container">
-        
+
         <form action="{{ route('feedback.store') }}" method="POST">
             @csrf
             <div class="form-group">
