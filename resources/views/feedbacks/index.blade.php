@@ -30,7 +30,7 @@
                 <td>{{ $feedback->content }}</td>
                 <td>{{ $feedback->known_from }}</td>
                 <td>{{ $feedback->where_from }}</td>
-                <td>{{ $feedback->problem_id }}</td>
+                <td>{{ $feedback->problem->description }}</td>
                 <td>
                     <a href="{{ route('feedback.show', $feedback) }}" class="btn btn-primary">View</a>
                     <a href="{{ route('feedback.edit', $feedback) }}" class="btn btn-secondary">Edit</a>

@@ -129,7 +129,11 @@
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
 						<td>{{ $problem->due_time }}</td>
-						<td>{{ $problem->device?->customer?->name }}</td>
+						<td>
+							{{ $problem->device?->customer?->name }}
+							<br>
+							{{ $problem->device->customer->phones[0]->phone}}
+						</td>
 
 						<td class="d-flex ">
 							<div>

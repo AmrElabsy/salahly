@@ -27,7 +27,7 @@
 			</button>
 
 			<div class="d-none d-sm-block ml-2">
-				<h4 class="page-title">Dashboard</h4>
+				<h4 class="page-title">{{ __('titles.dashboard') }}</h4>
 			</div>
 		</div>
 
