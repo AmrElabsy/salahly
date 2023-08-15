@@ -27,7 +27,7 @@ class UpdateHolidayRequest extends FormRequest
             'start' => ['required', 'date'],
             'end' => ['required', 'date', 'after:start'],
             'employees' => ['required', 'array', 'min:1'],
-            'employees.*' => ['exists:employees,id'],
+            'employees.*' => ['exists:users,id'],
         ];
     }
 }

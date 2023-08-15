@@ -164,7 +164,7 @@
 
 			<tr class="table-success">
 				<td>Net Salary</td>
-				<td>{{ $problems->sum("price") * $user->percentage / 100 + $user->salary}}</td>
+				<td>{{ $user->netSalary($_month) }}</td>
 			</tr>
 
 			</tbody>

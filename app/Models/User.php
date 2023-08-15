@@ -136,6 +136,14 @@ class User extends Authenticatable
 	{
 		return $this->attendances()->whereDate('created_at', $day)->where("type", 0)->first()->created_at->format("h:i:s A");
 	}
+    
+    public function netSalary( $month ) {
+        /** @TODO: Calculate Salary
+         * By Target or Percentage
+         */
+        // $problems->sum("price") * $user->percentage / 100 + $user->salary
+        return 3500;
+    }
 	
 	public function left( $day )
 	{
