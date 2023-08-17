@@ -26,6 +26,8 @@ class UpdateStoredSupplyRequest extends FormRequest
         return [
             'supply_id' => ['required', 'exists:supplies,id'],
             'amount' => ['required', 'numeric', 'min:0'],
+            "price" => "numeric",
+
             'buying_date' => ['required', 'date'],
         ];
     }

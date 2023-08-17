@@ -23,7 +23,9 @@
 					<th>#</th>
 					<th>{{ __("titles.buying_date") }}</th>
 					<th>{{ __("titles.amount") }}</th>
-					<th>{{ __("titles.manage") }}</th>
+                    <th>{{ __("titles.price") }}</th>
+
+                    <th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -32,7 +34,9 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $supply->buying_date }}</td>
 						<td>{{ $supply->amount }}</td>
-						<td>
+                        <td>{{ $supply->price }}</td>
+
+                        <td>
 							@can("edit stored_supply")
 								<a href="{{ route("stock.supply.edit", $supply->id) }}"
 								   class="btn btn-primary">{{ __("titles.edit") }}</a>

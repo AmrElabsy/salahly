@@ -26,6 +26,8 @@ class StoreStoredMaterialRequest extends FormRequest
         return [
             'material_id' => ['required', 'exists:materials,id'],
             'amount' => ['required', 'numeric', 'min:0'],
+            "price" => "numeric",
+
             'buying_date' => ['required', 'date'],
         ];
     }

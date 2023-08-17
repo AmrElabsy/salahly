@@ -29,7 +29,9 @@
 					<th>#</th>
 					<th>{{ __("titles.supply") }}</th>
 					<th>{{ __("titles.amount") }}</th>
-				</tr>
+                    <th>{{ __("titles.price") }}</th>
+
+                </tr>
 				</thead>
 				<tbody>
 				@foreach($supplies as $i => $supply)
@@ -39,7 +41,9 @@
 							<a href="{{ route("stock.supply.show", $supply->id) }}">{{ $supply->name }}</a>
 						</td>
 						<td>{{ $supply->amount }}</td>
-					</tr>
+                        <td>{{ $supply->price?->prices}}</td>
+
+                    </tr>
 
 				@endforeach
 

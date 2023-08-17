@@ -34,6 +34,20 @@
 			</div>
 		</div>
 
+        <div class="form-group row">
+            <label for="price" class="col-sm-2 col-form-label">{{ __("titles.price") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("price") is-invalid @enderror"
+                       type="text" id="price" name="price"
+                       required value="{{ old("price") }}">
+                @error("price")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
 		<div class="form-group row">
 			<label for="buying_date" class="col-sm-2 col-form-label">{{ __("titles.buying_date") }}</label>
 			<div class="col-sm-6">
