@@ -113,6 +113,20 @@
 			</div>
 		</div>
 
+        <div class="form-group row">
+            <label for="salary" class="col-sm-2 col-form-label">{{ __("titles.target") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("target") is-invalid @enderror"
+                       type="number" id="target" name="target"
+                       value="{{ old("target") }}">
+                @error("target")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
 
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">

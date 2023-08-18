@@ -32,7 +32,8 @@
 					<th>{{ __("titles.roles") }}</th>
 					<th>{{ __("titles.salary") }}</th>
 					<th>{{ __("titles.percentage") }}</th>
-					<th>{{ __("titles.manage") }}</th>
+                    <th>{{ __("titles.target") }}</th>
+                    <th>{{ __("titles.manage") }}</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -51,6 +52,7 @@
 						<td>{{ $user->roles->pluck('name')->implode(', ') }}</td>
 						<td>{{ $user->salary }}</td>
 						<td>{{ $user->percentage }}%</td>
+                        <td>{{ $user->target }}</td>
 						<td>
 							@can("edit user")
 								<a href="{{ route("user.edit", $user->id) }}"

@@ -31,6 +31,7 @@ class UpdateUserRequest extends FormRequest
             'roles.*' => ['nullable', 'exists:roles,name'],
             'branches.*' => ['nullable', 'exists:branches,id'],
             'salary' => ['nullable', 'numeric', 'min:0'],
+            'target' => ['nullable', 'numeric', 'min:0'],
             'percentage' => ['nullable', 'numeric', 'min:0', 'max:100'],
         ];
     }
