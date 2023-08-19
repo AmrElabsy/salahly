@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", __("titles.add_user"))
+@section("title", __("titles.edit_user"))
 
 @section("style")
     <link rel="stylesheet" href="{{ asset("assets/libs/select2/css/select2.min.css") }}">
@@ -89,6 +89,21 @@
 
 
         <div class="form-group row">
+            <label for="salary" class="col-sm-2 col-form-label">{{ __("titles.salary") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("salary") is-invalid @enderror"
+                       type="number" id="salary" name="salary"
+                       value="{{ old("salary",$user->salary) }}">
+                @error("salary")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
+
+        <div class="form-group row">
             <label for="percentage" class="col-sm-2 col-form-label">{{ __("titles.percentage") }}</label>
             <div class="col-sm-6">
                 <input class="form-control @error("percentage") is-invalid @enderror"
@@ -109,6 +124,21 @@
                        type="number" id="target" name="target"
                        value="{{ old("target", $user->target) }}">
                 @error("target")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="arrival_time" class="col-sm-2 col-form-label">{{ __("titles.arrival_time") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("arrival_time") is-invalid @enderror"
+                       type="time" id="arrival_time" name="arrival_time"
+                       value="{{ old("arrival_time",$user->arrival_time) }}">
+                @error("arrival_time")
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Validator;
 
 class StoreUserRequest extends FormRequest
 {
@@ -33,6 +34,8 @@ class StoreUserRequest extends FormRequest
             'salary' => ['nullable', 'numeric', 'min:0'],
             'target' => ['nullable', 'numeric', 'min:0'],
             'percentage' => ['nullable', 'numeric', 'min:0', 'max:100'],
+            'arrival_time' => 'required',
+
         ];
     }
 }

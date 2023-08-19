@@ -19,6 +19,7 @@
 			$user->salary = $data["salary"] ?? null;
 			$user->percentage = $data["percentage"] ?? null;
             $user->target = $data["target"] ?? null;
+            $user->arrival_time = $data["arrival_time"] ?? null;
 
 
             $user->save();
@@ -40,6 +41,9 @@
             }
 			$resource->salary = $data["salary"] ?? null;
 			$resource->percentage = $data["percentage"] ?? null;
+            $resource->target = $data["target"] ?? null;
+            $resource->arrival_time = $data["arrival_time"] ?? null;
+
             $resource->save();
 
             if (isset($data["roles"])) {

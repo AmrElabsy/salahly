@@ -127,6 +127,20 @@
             </div>
         </div>
 
+        <div class="form-group row">
+            <label for="arrival_time" class="col-sm-2 col-form-label">{{ __("titles.arrival_time") }}</label>
+            <div class="col-sm-6">
+                <input class="form-control @error("arrival_time") is-invalid @enderror"
+                       type="time" id="arrival_time" name="arrival_time"
+                       value="{{ old("arrival_time") }}">
+                @error("arrival_time")
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+        </div>
+
 
 
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">

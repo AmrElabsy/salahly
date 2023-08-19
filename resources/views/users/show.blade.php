@@ -31,8 +31,9 @@
 				<thead>
 				<tr>
 					<th>{{ __("titles.day") }}</th>
-					<th>{{ __("titles.entrance") }}</th>
-					<th>{{ __("titles.minutes_late") }}</th>
+                    <th>{{ __("titles.arrival_time") }}</th>
+                    <th>{{ __("titles.entrance") }}</th>
+                    <th>{{ __("titles.minutes_late") }}</th>
 					<th>{{ __("titles.leaving") }}</th>
 				</tr>
 				</thead>
@@ -45,6 +46,7 @@
 							<td class="table-primary">{{ __('titles.holiday') }}</td>
 							<td class="table-primary">{{ __('titles.holiday') }}</td>
 						@else
+                            <td>{{$user->arrival_time}}</td>
 							@if($user->attended($day))
 								<td class="table-success">
 									{{ $user->attendanceTime($day) }}
