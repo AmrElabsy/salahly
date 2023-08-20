@@ -7,6 +7,7 @@ use App\Models\Problem;
 use App\Models\StoredMaterial;
 use App\Models\StoredSupply;
 use App\Models\SupplyReturn;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -43,27 +44,34 @@ class MoneyController extends Controller
 		$month["name"] = Carbon::createFromDate(null, $monthNumber)->format('F');
 		$month["paying"]["materials"] = 0;
 		$month["paying"]["supplies"] = 0;
+		$month["paying"]["salaries"] = 0;
 		$month["income"]["problems"] = 0;
 		$month["income"]["material_returns"] = 0;
 		$month["income"]["supply_returns"] = 0;
 		
 		$storedMaterials = StoredMaterial::whereMonth('buying_date', $m)->get();
 		$storedSupplies = StoredSupply::whereMonth('buying_date', $m)->get();
-		
-		$problems = Problem::whereMonth("created_at", $m)->get();
-		$materialReturns = MaterialReturn::whereMonth("return_date", $m)->get();
-		$supplyReturns = SupplyReturn::whereMonth("return_date", $m)->get();
-		
-		
-		foreach ($storedMaterials as $storedMaterial) {
+        $employees = User::employees()->get();
+        
+        $problems = Problem::whereMonth("delivered_at", $m)->get();
+        $materialReturns = MaterialReturn::whereMonth("return_date", $m)->get();
+        $supplyReturns = SupplyReturn::whereMonth("return_date", $m)->get();
+        
+        
+        
+        foreach ($storedMaterials as $storedMaterial) {
 			$month["paying"]["materials"] += $storedMaterial->price * $storedMaterial->amount;
 		}
 		
 		foreach ($storedSupplies as $storedSupply) {
 			$month["paying"]["supplies"] += $storedSupply->price * $storedSupply->amount;
 		}
-		
-		foreach ($problems as $problem) {
+        
+        foreach ($employees as $employee) {
+            $month["paying"]["salaries"] += $employee->netSalary($monthNumber);
+        }
+     
+        foreach ($problems as $problem) {
 			$month["income"]["problems"] += $problem->paid;
 		}
 		

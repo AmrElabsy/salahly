@@ -29,8 +29,15 @@ class StoredMaterialController extends Controller
     public function store(StoreStoredMaterialRequest $request)
     {
         $storedMaterial = new StoredMaterial();
-
-        $storedMaterial->material_id = $request->get("material_id");
+    
+        if( Material::where('id', $request->material_id)->exists() ) {
+            $storedMaterial->material_id = $request->get("material_id");
+        } else {
+            $material = new Material();
+            $material->name = $request->material_id;
+            $material->save();
+            $storedMaterial->material_id = $material->id;
+        }
         $storedMaterial->amount = $request->get("amount");
         $storedMaterial->price = $request->get("price");
         $storedMaterial->buying_date = $request->get("buying_date");

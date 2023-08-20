@@ -67,3 +67,14 @@
 		<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>
 @endsection
+
+
+@section("script")
+	<script src="{{ asset("assets/libs/select2/js/select2.min.js")  }}"></script>
+	<script>
+		$("#material_id").select2({
+			tags: true
+		});
+
+	</script>
+@endsection

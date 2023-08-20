@@ -74,9 +74,8 @@ class User extends Authenticatable
 		
 		$attendance = $this->attendances()->whereDate('created_at', $day)->where("type", 0)->first();
 		$timeAttended = $attendance->created_at;
-		
-		$timeStart = new Carbon($day);
-		$timeStart->setTime(10, 00);
+        
+        $timeStart = Carbon::parse($this->arrival_time);
 		if ( $timeAttended > $timeStart ) {
 			return $timeStart->diffInMinutes($timeAttended);
 		} else {
@@ -138,11 +137,20 @@ class User extends Authenticatable
 	}
     
     public function netSalary( $month ) {
-        /** @TODO: Calculate Salary
-         * By Target or Percentage
-         */
-        // $problems->sum("price") * $user->percentage / 100 + $user->salary
-        return 3500;
+        $salary = Salary::whereMonth('month', $month)->where('user_id', $this->id)->first();
+        if ($salary) {
+            return $salary->salary;
+        }
+        
+        $salary = $this->salary;
+        $target = $this->target ?? 0;
+        $percentage = $this->percentage ?? 0;
+        
+        $problems = $this->problems()->whereMonth('delivered_at', $month)->get();
+        
+        $salary += $target * count($problems);
+        $salary += $problems->sum("price") * $percentage / 100;
+        return $salary;
     }
 	
 	public function left( $day )

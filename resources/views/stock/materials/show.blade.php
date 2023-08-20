@@ -34,7 +34,7 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $material->buying_date }}</td>
 						<td>{{ $material->amount }}</td>
-                        <td>{{ $material->price?->price}}</td>
+                        <td>{{ $material->price}}</td>
 
                         <td>
 							@can("edit stored_material")

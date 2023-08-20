@@ -27,14 +27,14 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:2'],
-            'email' => ['required', 'email', Rule::unique('users')],
-            'password' => ['required', 'min:8'],
+            'email' => ['required', 'email', 'unique:users,email,' . request()->user->id],
+            'password' => ['nullable', 'min:8'],
             'roles.*' => ['nullable', 'exists:roles,name'],
             'branches.*' => ['nullable', 'exists:branches,id'],
             'salary' => ['nullable', 'numeric', 'min:0'],
             'target' => ['nullable', 'numeric', 'min:0'],
             'percentage' => ['nullable', 'numeric', 'min:0', 'max:100'],
-            'arrival_time' =>'required',
+            'arrival_time' => 'nullable',
         ];
     }
 }

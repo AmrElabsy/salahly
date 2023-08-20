@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Branch;
+use App\Models\Salary;
 use App\Models\User;
 use App\Services\UserService;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use DateInterval;
@@ -113,4 +115,25 @@ class UserController extends Controller
 		User::withTrashed()->find($user)->forceDelete();
 		return redirect()->back()->withStatus(__("titles.user_deleted"));
 	}
+    
+    public function salary(Request $request) {
+        $year = $request->year;
+        $month = $request->month;
+        $date = new Carbon($year . "-" . $month);
+        
+        $salary = Salary::whereMonth('month',$date)->where('user_id', $request->id)->first();
+        if ($salary) {
+            $salary->salary = $request->value;
+        } else {
+            $salary = new Salary();
+    
+            $salary->user_id = $request->id;
+            $salary->salary = $request->value;
+            $salary->month = $date;
+        }
+        
+        $salary->save();
+        
+        return $salary->salary;
+    }
 }

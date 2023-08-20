@@ -22,13 +22,14 @@
 				<tr>
 					<th rowspan="2">#</th>
 					<th rowspan="2">{{__('titles.months')}}</th>
-					<th colspan="2" class="table-danger">{{ __("titles.paying") }}</th>
+					<th colspan="3" class="table-danger">{{ __("titles.paying") }}</th>
 					<th colspan="3" class="table-success">{{ __("titles.income") }}</th>
 					<th rowspan="2">{{ __("titles.total") }}</th>
 				</tr>
 				<tr>
 					<th>{{ __("titles.materials") }}</th>
 					<th>{{ __("titles.supplies") }}</th>
+					<th>{{ __("titles.salaries") }}</th>
 					<th>{{ __("titles.problems") }}</th>
 					<th>{{ __("titles.material_returns") }}</th>
 					<th>{{ __("titles.supply_returns") }}</th>
@@ -43,6 +44,7 @@
 						</td>
 						<td class="table-danger">{{ $month["paying"]["materials"] }}</td>
 						<td class="table-danger">{{ $month["paying"]["supplies"] }}</td>
+						<td class="table-danger">{{ $month["paying"]["salaries"] }}</td>
 						<td class="table-success">{{ $month["income"]["problems"] }}</td>
 						<td class="table-success">{{ $month["income"]["material_returns"] }}</td>
 						<td class="table-success">{{ $month["income"]["supply_returns"] }}</td>

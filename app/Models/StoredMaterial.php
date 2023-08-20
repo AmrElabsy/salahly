@@ -12,17 +12,4 @@ class StoredMaterial extends Model
     public function material() {
         return $this->belongsTo(Material::class);
     }
-	
-	public function getPriceAttribute() {
-		$material = $this->material;
-		$buyingDate = $this->buying_date;
-		
-		$price = MaterialPrice::where('material_id', $material->id)
-			->where('start_date', '<', $buyingDate)
-			->orderBy('start_date', 'desc')
-			->first();
-		
-		return $price?->price;
-		
-	}
 }

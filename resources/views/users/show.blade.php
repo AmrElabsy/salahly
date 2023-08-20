@@ -2,10 +2,13 @@
 @section("title", $user->name)
 
 @section("style")
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
+
 	<link rel="stylesheet" href="{{ asset("assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css") }}">
 	<link rel="stylesheet" href="{{ asset("assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css") }}">
 
 	<link rel="stylesheet" href="{{ asset("assets/libs/select2/css/select2.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("assets/libs/bootstrap-editable/css/bootstrap-editable.css") }}">
 @endsection
 
 @section("content")
@@ -42,6 +45,7 @@
 					<tr>
 						<th scope="row">{{ $day->format("d M Y") }} {{ $day->format('l') }}</th>
 						@if($user->isHoliday($day))
+							<td class="table-primary">{{ __('titles.holiday') }}</td>
 							<td class="table-primary">{{ __('titles.holiday') }}</td>
 							<td class="table-primary">{{ __('titles.holiday') }}</td>
 							<td class="table-primary">{{ __('titles.holiday') }}</td>
@@ -166,7 +170,9 @@
 
 			<tr class="table-success">
 				<td>Net Salary</td>
-				<td>{{ $user->netSalary($_month) }}</td>
+				<td>
+					<a href="#" id="net_salary" data-type="number" data-pk="1" data-title="Enter username">{{ $user->netSalary($_month) }}</a>
+				</td>
 			</tr>
 
 			</tbody>
@@ -182,6 +188,7 @@
 	<script src="{{ asset("assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js") }}"></script>
 	<script src="{{ asset("assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js") }}"></script>
 	<script src="{{ asset("assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js") }}"></script>
+	<script src="{{ asset("assets/libs/bootstrap-editable/js/index.js") }}"></script>
 
 	<script src="{{ asset("assets/libs/jszip/jszip.min.js") }}"></script>
 	<script src="{{ asset("assets/libs/pdfmake/build/pdfmake.min.js") }}"></script>
@@ -206,6 +213,21 @@
 			// table.column(9).visible(false);
 			// table.column(10).visible(false);
 			// table.column(12).visible(false);
+		});
+		$.fn.editable.defaults.mode = 'inline';
+		$.fn.editable.defaults.params = function (params) {
+			params._token = $("meta[name=token]").attr("content");
+			params.id = '{{ $user->id }}';
+			params.month = {{ $_month }};
+			params.year = 2023;
+			return params;
+		};
+		$('#net_salary').editable({
+			type: 'number',
+			id: '{{ $user->id }}',
+			url: '{{ route('api.salary') }}',
+			month: {{ $_month }},
+			_token: '{{ csrf_token() }}'
 		});
 	</script>
 

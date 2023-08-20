@@ -34,7 +34,7 @@ class StoreUserRequest extends FormRequest
             'salary' => ['nullable', 'numeric', 'min:0'],
             'target' => ['nullable', 'numeric', 'min:0'],
             'percentage' => ['nullable', 'numeric', 'min:0', 'max:100'],
-            'arrival_time' => 'required',
+            'arrival_time' => 'nullable',
 
         ];
     }
