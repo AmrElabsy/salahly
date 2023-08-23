@@ -45,7 +45,7 @@
 
 		</div>
 	</div>
-
+<hr>
 	<div class="row">
 		<div class="col-12">
 			<div class="panel panel-default">
@@ -57,7 +57,7 @@
 						<thead>
 						<tr>
 							<td><strong>{{ __('titles.material') }}</strong></td>
-							<td class="text-center"><strong>{{ __('titles.price') }}</strong></td>
+							<td><strong>{{ __('titles.price') }}</strong></td>
 						</tr>
 						</thead>
 						<tbody>

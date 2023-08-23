@@ -27,7 +27,6 @@ class FeedbackController extends Controller
 
         $problems = Problem::all();
 
-        // @TODO: Add Inputs
 
         return view('feedbacks.create',compact('problems'));
     }
@@ -48,15 +47,16 @@ class FeedbackController extends Controller
     {
         $this->authorize("edit feedback");
         $problems = Problem::all();
-
-        return view('feedbacks.edit',compact('problems'));
-        // @TODO: Implement Edit Feedback
+        return view('feedbacks.edit',compact('problems','feedback'));
     }
     public function update(UpdateFeedbackRequest $request, Feedback $feedback)
     {
         try {
             $this->service->update($request->all(), $feedback);
+            return redirect()->route('feedback.index')->withStatus(__("titles.feedback_updated"));
+
         } catch (\Exception $e) {
+            return redirect()->back();
 
         }
 
@@ -65,7 +65,8 @@ class FeedbackController extends Controller
     public function destroy(Feedback $feedback)
     {
         $this->authorize("delete feedback");
+        $this->service->delete($feedback);
+        return redirect()->route("feedback.index")->withStatus(__("titles.feedback_deleted"));
 
-        // @TODO: Implement Delete Feedback
     }
 }

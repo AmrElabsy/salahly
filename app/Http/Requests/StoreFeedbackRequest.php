@@ -25,7 +25,11 @@ class StoreFeedbackRequest extends FormRequest
     {
         return [
             'content' => 'required|string|max:255',
-            'is_available' => 'nullable|boolean',
+            'known_from' => 'required|string|max:255',
+            'where_from' => 'required|string|max:255',
+            'problem' => 'required|string|max:255',
+
+
         ];
     }
 }

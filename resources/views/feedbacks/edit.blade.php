@@ -6,9 +6,10 @@
 @endsection
 
 @section('content')
+
 	<div class="container">
 		<h1>{{ __('titles.edit_feedback') }}</h1>
-		<form action="{{ route('feedback.update') }}" method="POST">
+		<form action="{{ route('feedback.update',$feedback) }}" method="POST">
 			@csrf
 			@method('PUT')
 			<div class="form-group">
@@ -18,13 +19,7 @@
 				<div class="text-danger">{{ $message }}</div>
 				@enderror
 			</div>
-			<div class="form-group">
-				<input type="checkbox" name="is_available" id="is_available" value="1" {{ old('is_available') ? 'checked' : '' }}>
-				<label for="is_available">Is Available?</label>
-				@error('is_available')
-				<div class="text-danger">{{ $message }}</div>
-				@enderror
-			</div>
+
 			<div class="form-group">
 				<label for="known_from">{{ __('titles.known_from') }}</label>
 				<input class="form-control @error(" known_from") is-invalid @enderror" type="text" id="known_from" name="known_from" required
@@ -51,7 +46,7 @@
 						<option
 								@selected(old('problem', $feedback->problem_id) == $problem->id)
 								value="{{ $problem->id }}">
-							{{ $problem->description }} ({{ $problem->device->name }}) ({{ $problem->device->customer->name }})
+							{{ $problem->description }} ({{$problem->device->name}}) ({{ $problem->device->customer->name }})
 						</option>
 					@endforeach
 				</select>
