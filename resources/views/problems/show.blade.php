@@ -36,7 +36,11 @@
 						<strong>{{ __('titles.comment') }}: </strong> {{ $problem->comment }}
 					</p>
 
-				</div>
+                    <p>
+                        <strong>{{ __('titles.feedback') }}: </strong> {{$problem->feedback->content??"none"}}
+                    </p>
+
+                </div>
 			</div>
 
 		</div>

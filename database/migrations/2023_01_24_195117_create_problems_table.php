@@ -31,6 +31,7 @@ return new class extends Migration
             $table->foreign("branch_id")->on("branches")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
             $table->foreign("device_id")->on("devices")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
             $table->foreign("status_id")->on("statuses")->references("id")->onDelete("CASCADE")->onUpdate("CASCADE");
+
         });
     }
 

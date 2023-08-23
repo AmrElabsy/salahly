@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Feedback extends Model
 {
     use HasFactory;
-    
+
     public function problem() {
         return $this->belongsTo(Problem::class);
     }

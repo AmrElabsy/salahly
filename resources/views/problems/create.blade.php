@@ -235,6 +235,8 @@
             </div>
         </div>
 
+
+
         <input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">
 	</form>
 @endsection

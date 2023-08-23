@@ -49,12 +49,9 @@ class FeedbackController extends Controller
         $this->authorize("edit feedback");
         $problems = Problem::all();
 
-        // @TODO: Add Inputs
-
         return view('feedbacks.edit',compact('problems'));
         // @TODO: Implement Edit Feedback
     }
-
     public function update(UpdateFeedbackRequest $request, Feedback $feedback)
     {
         try {

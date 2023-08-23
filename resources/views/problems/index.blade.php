@@ -14,8 +14,10 @@
 			<h2>{{ __("titles.problems") }}</h2>
 			<div>
 				@can("add problem")
-					<a href="{{ route("problem.create") }}" class="btn btn-success">{{ __("titles.add") }}</a>
-				@endcan
+					<a href="{{ route("problem.create") }}" class="btn btn-success">{{ __("titles.add_problem") }}</a>
+                    <a href="{{ route("feedback.create") }}" class="btn btn-success">{{ __("titles.add_feedback") }}</a>
+
+                @endcan
 			</div>
 		</div>
 
@@ -103,7 +105,7 @@
 					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
-					<th>{{ __("titles.due_time") }}</th>
+                    <th>{{ __("titles.due_time") }}</th>
 					<th>{{ __("titles.customer") }}</th>
 					<th>{{ __("titles.manage") }}</th>
 				</tr>
@@ -128,11 +130,12 @@
 						<td>{{ $problem->price }}</td>
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
-						<td>{{ $problem->due_time }}</td>
+
+                        <td>{{ $problem->due_time }}</td>
 						<td>
 							{{ $problem->device?->customer?->name }}
-							<br>
-							{{ $problem->device->customer->phones[0]->phone}}
+{{--							<br>--}}
+{{--							{{ $problem->device->customer->phones[0]->phone}}--}}
 						</td>
 
 						<td class="d-flex ">
