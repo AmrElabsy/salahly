@@ -150,6 +150,16 @@ class User extends Authenticatable
         
         $salary += $target * count($problems);
         $salary += $problems->sum("price") * $percentage / 100;
+        
+        if($this->minutesLateByMonth($month) > 15 * 60) {
+            $daySalary = $this->salary / 30;
+            $lateHours = $this->minutesLateByMonth($month) / 60;
+            
+            $subtract = $daySalary * $lateHours / (8 * 60);
+            
+            $salary -= $subtract;
+        }
+        
         return $salary;
     }
 	
