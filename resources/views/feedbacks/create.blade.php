@@ -44,7 +44,7 @@
                 <select name="problem" id="problem_id" class="form-control">
                     @foreach($problems as $problem)
                         <option
-                            @selected(old('problem') == $problem->id)
+                            @selected(old('problem', $p->id ?? '') == $problem->id)
                             value="{{ $problem->id }}">
                             {{ $problem->description }} ({{ $problem->device->name }}) ({{ $problem->device->customer->name }})
                         </option>

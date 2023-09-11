@@ -31,8 +31,8 @@
 
             $materials = $this->getMaterialsData($data["materials"] ?? []);
 
-            $problem->materials()->sync($materials);
-            $problem->categories()->sync($data["categories"]);
+            $problem->materials()->sync($materials ?? []);
+            $problem->categories()->sync($data["categories"] ?? []);
             return $problem;
         }
 
@@ -49,6 +49,10 @@
 
             $materials = $this->getMaterialsData($data["materials"] ?? []);
             $resource->materials()->sync($materials);
+
+            if ($resource->isDirty(['status_id']) && $resource->status_id == 5) {
+                $resource->delivered_at = now();
+            }
 
             $resource->save();
         }

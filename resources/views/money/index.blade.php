@@ -5,6 +5,9 @@
 	<div class="container">
 		<div class="d-flex justify-content-between">
 			<h2>{{ __("titles.money") }}</h2>
+            <div>
+                <a href="{{ route('money.todayBuys') }}" class="btn btn-success">{{ __('titles.todayBuys') }}</a>
+            </div>
 		</div>
 
 		@if(session('status'))

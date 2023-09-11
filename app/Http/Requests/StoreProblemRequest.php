@@ -24,6 +24,7 @@ class StoreProblemRequest extends FormRequest
     public function rules()
     {
         return [
+            'user' => "required|exists:users,id",
             "description" => "required|min:2",
             "price" => "numeric",
             "paid" => "numeric",

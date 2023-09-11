@@ -56,7 +56,7 @@
 							@foreach($employees as $employee)
 								<option
 										@selected(old('employee') == $employee->id)
-										value="{{ $employee->id }}">{{ $employee->user?->name }}</option>
+										value="{{ $employee->id }}">{{ $employee->name }}</option>
 							@endforeach
 						</select>
 					</div>
@@ -69,7 +69,7 @@
 							@foreach($customers as $customer)
 								<option
 										@selected(old('customer') == $customer->id)
-										value="{{ $customer->id }}">{{ $customer->name }}</option>
+										value="{{ $customer->id }}">{{ $customer->name }}( {{ $customer->phone }} )</option>
 							@endforeach
 						</select>
 					</div>
@@ -134,8 +134,8 @@
                         <td>{{ $problem->due_time }}</td>
 						<td>
 							{{ $problem->device?->customer?->name }}
-{{--							<br>--}}
-{{--							{{ $problem->device->customer->phones[0]->phone}}--}}
+							<br>
+							{{ $problem->device->customer->phone}}
 						</td>
 
 						<td class="d-flex ">
@@ -145,6 +145,12 @@
 									   class="btn btn-primary">{{ __("titles.edit") }}</a>
 								@endcan
 							</div>
+                            <div>
+                                @can("add feedback")
+                                    <a href="{{ route("problem.feedback", $problem->id) }}"
+                                       class="btn btn-success">{{ __("titles.add_feedback") }}</a>
+                                @endcan
+                            </div>
 							@can("delete problem")
 								@include("layouts.delete", ["action" => route("problem.destroy", $problem->id)])
 							@endcan

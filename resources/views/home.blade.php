@@ -35,6 +35,10 @@
                 <a href="{{ route('feedback.index') }}" class="btn btn-primary btn-lg btn-block">{{ __('titles.feedbacks') }}</a>
             </div>
 
+            <div class="col-md-4">
+                <a href="{{ route('money.todayBuys') }}" class="btn btn-primary btn-lg btn-block">{{ __('titles.todayBuys') }}</a>
+            </div>
+
         </div>
     </div>
 @endsection

@@ -25,15 +25,16 @@ Route::group([
     Route::group(["middleware" => "auth"], function() {
         Route::get('/', "HomeController@index")->name("home");
         Route::get('/home', "HomeController@index")->name('home');
-	
+
 		Route::group([
 			"prefix" => "money",
 			"as" => "money."
 		], function () {
 			Route::get('/', "MoneyController@index")->name('index');
-			Route::get('/{month}', "MoneyController@month")->name('month');
-			
-		});
+            Route::get('/today', 'MoneyController@todayBuys')->name('todayBuys');
+            Route::get('/{month}', "MoneyController@month")->name('month');
+
+        });
 
 		/**
         Route::group(["prefix" => "branch", "as" => "branch."], function() {
@@ -83,7 +84,7 @@ Route::group([
             Route::get("/restore/{supply}", "SupplyController@restore")->name("restore");
             Route::get("/forcedelete/{supply}", "SupplyController@forceDelete")->name("forceDelete");
         });
-		
+
         Route::group(["prefix" => "service", "as" => "service."], function() {
             Route::get("/deleted", "ServiceController@deleted")->name("deleted");
             Route::get("/restore/{service}", "ServiceController@restore")->name("restore");
@@ -121,7 +122,8 @@ Route::group([
                 'weekend' => "WeekendController",
             ]);
 			Route::get("user/{user}/{year?}/{month?}", "UserController@show")->name("user.show");
-            
+			Route::get("problem/feedback/{problem}", "ProblemController@feedback")->name("problem.feedback");
+
             Route::group(["prefix" => "stock", "as" => "stock."], function () {
                 Route::resources([
                     "supply" => "StoredSupplyController",
