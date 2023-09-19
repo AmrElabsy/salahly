@@ -10,12 +10,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Customer extends Model
 {
     use HasFactory;
-	
+
     public function phones(): HasMany {
         return $this->hasMany(Phone::class);
     }
-    
+
     public function devices(): HasMany {
         return $this->hasMany(Device::class);
+    }
+    public function getPhoneAttribute()
+    {
+        if (isset($this->phones[0]))
+        {
+            return $this->phones[0]->phone;
+        }
+        return null;
     }
 }

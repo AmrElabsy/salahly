@@ -86,6 +86,11 @@ class ProblemController extends Controller
 		return redirect()->route("problem.index")->withStatus(__("titles.problem_deleted"));
 	}
 
+    public function feedback(Problem $problem) {
+        $problems = Problem::all();
+        return view('feedbacks.create', ['p' => $problem, 'problems' => $problems]);
+    }
+
 	private function filter()
 	{
 		$problems = Problem::query();
