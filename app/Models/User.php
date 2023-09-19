@@ -149,16 +149,18 @@ class User extends Authenticatable
         $problems = $this->problems()->whereMonth('delivered_at', $month)->get();
 
         $salary += $target * count($problems);
-        $salary += $problems->sum("paid") * $percentage / 100;
-//        dd($problems);
+        $salary += $problems->sum("price") * $percentage / 100;
 
-        if ($this->absentDays($month) > 2) {
-            $subtractDays = $this->absentDays($month) - 2;
+        if($this->minutesLateByMonth($month) > 15 * 60) {
             $daySalary = $this->salary / 30;
+            $lateHours = $this->minutesLateByMonth($month) / 60;
 
-            $salary -= $daySalary * $subtractDays;
+            $subtract = $daySalary * $lateHours / (8 * 60);
+
+            $salary -= $subtract;
         }
-        return (int) $salary;
+
+        return $salary;
     }
 
 	public function left( $day )
