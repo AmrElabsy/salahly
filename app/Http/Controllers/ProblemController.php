@@ -42,7 +42,7 @@ class ProblemController extends Controller
 		$branches = $this->getBranches();
 		$materials = Material::all();
 		$categories = Category::all();
-		$employees = User::role("employee")->get();
+		$employees = User::role(["employee",'engineer'])->get();
         $feedbacks = Feedback::all();
 
 		return view("problems.create", compact("devices", "statuses", "customers", "branches", "materials", "employees", "categories","feedbacks"));
