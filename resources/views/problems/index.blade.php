@@ -74,6 +74,10 @@
 						</select>
 					</div>
 
+                    <label for="date" class="col-sm-2 col-form-label">{{ __("titles.date") }}</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" type="date" id="date" name="date">
+                    </div>
 
 					<div class="col-sm-2">
 						<input type="submit" class="btn btn-primary" value="{{ __("titles.submit") }}">

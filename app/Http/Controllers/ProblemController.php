@@ -98,6 +98,7 @@ class ProblemController extends Controller
 		$status = request("status");
 		$employee = request("employee");
 		$customer = request("customer");
+        $date = request("date");
 
 		if ( $branch ) {
 			$problems = $problems->where("branch_id", $branch);
@@ -126,6 +127,9 @@ class ProblemController extends Controller
 
 			$problems = $problems->whereNot("status_id", Status::DONE);
 		}
+        if ($date) {
+            $problems->whereDate("created_at", "=", $date);
+        }
 		return $problems->get();
 	}
 

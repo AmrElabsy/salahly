@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -131,6 +130,7 @@ Route::group([
                     "materialreturn" => "MaterialReturnController",
                     "materialwaste" => "MaterialWasteController",
                     "supplyreturn" => "SupplyReturnController",
+                    'loan'=>"LoanController",
                 ]);
 
 				/**

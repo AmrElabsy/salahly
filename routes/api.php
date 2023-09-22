@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,5 +22,5 @@ Route::group([
     "namespace" => "App\Http\Controllers",
 ], function ()
 {
-    Route::post('/salary', "UserController@salary")->name('api.salary');
+    Route::post('/salary', [UserController::class,'salary'])->name('api.salary');
 });
