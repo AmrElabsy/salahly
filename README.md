@@ -17,25 +17,6 @@ This is a freelancing project to develop Salahly Phone, a revolutionary web-base
 - HTML/CSS
 - JavaScript
 
-## Installation
-
-1. Clone the repository:
-   git clone https://github.com/your-username/salahly-phone.git
-
-2. Install dependencies:
-   composer install
-
-3. Configure the database connection in the `.env` file.
-
-4. Run database migrations and seeders:
-5. Configure the database connection in the `.env` file.
-
-6. Run database migrations and seeders:
-   php artisan migrate --seed
-
-7. Start the development server:
-   php artisan serve
-
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to Salahly Phone, please follow these steps:
