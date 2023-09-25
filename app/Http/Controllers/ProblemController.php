@@ -50,7 +50,8 @@ class ProblemController extends Controller
 
 	public function store( StoreProblemRequest $request )
 	{
-		$this->service->store($request->all());
+        $this->service->store($request->all());
+
 		return redirect()->route("problem.index")->withStatus(__("titles.problem_added"));
 	}
 
@@ -81,7 +82,6 @@ class ProblemController extends Controller
 	public function destroy( Problem $problem )
 	{
 		$this->authorize("delete problem");
-
 		$problem->delete();
 		return redirect()->route("problem.index")->withStatus(__("titles.problem_deleted"));
 	}

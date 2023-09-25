@@ -9,7 +9,103 @@
 	<form action="{{ route("problem.store") }}" method="post">
 		@csrf
 
-		<div class="form-group row">
+
+        <div class="form-group row">
+            <label for="is_new_device" class="col-sm-2 col-form-label">{{ __("titles.is_new_device") }}</label>
+            <div class="col-sm-6">
+                <div class="form-check form-switch">
+                    <input type="checkbox" id="is_new_device" name="is_new_device" class="form-check-input">
+                </div>
+            </div>
+        </div>
+
+        <div id="new_device">
+            <div class="form-group row">
+                <label for="device_name" class="col-sm-2 col-form-label">{{ __("titles.device") }}</label>
+                <div class="col-sm-6">
+                    <input class="form-control @error("device_name") is-invalid @enderror"
+                           type="text" id="device_name" name="device_name"
+                           value="{{ old("device_name") }}">
+                    @error("device_name")
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="is_new_customer" class="col-sm-2 col-form-label">{{ __("titles.is_new_customer") }}</label>
+                <div class="col-sm-6">
+                    <div class="form-check form-switch">
+                        <input type="checkbox" id="is_new_customer" name="is_new_customer" class="form-check-input">
+                    </div>
+                </div>
+            </div>
+
+            <div id="new_customer">
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label">{{ __("titles.customer") }}</label>
+                    <div class="col-sm-6">
+                        <input class="form-control @error("name") is-invalid @enderror"
+                               type="text" id="name" name="name"
+                               value="{{ old("name") }}">
+                        @error("name")
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="phones" class="col-sm-2 col-form-label">{{ __("titles.phone") }}</label>
+                    <div class="col-sm-6">
+                        <select name="phones[]" id="phones" multiple class="form-control @error("phones.*") is-invalid @enderror">
+                            @foreach(old("phones", []) as $phone)
+                                <option value="{{ $phone }}" selected>{{ $phone }}</option>
+                            @endforeach
+                        </select>
+                        @error("phones.*")
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+
+            <div id="old_customer">
+                <div class="form-group row">
+                    <label for="customer" class="col-sm-2 col-form-label">{{ __("titles.customer") }}</label>
+                    <div class="col-sm-6">
+                        <select name="customer_id" id="customer" class="form-control">
+                            @foreach($customers as $customer)
+                                <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="old_device">
+            <div class="form-group row">
+                <label for="device" class="col-sm-2 col-form-label">{{ __("titles.device") }}</label>
+                <div class="col-sm-6">
+                    <select name="device_id" id="device" class="form-control">
+                        @foreach($devices as $device)
+                            <option value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer?->name }})</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group row">
 			<label for="description" class="col-sm-2 col-form-label">{{ __("titles.description") }}</label>
 			<div class="col-sm-6">
 				<input class="form-control @error("description") is-invalid @enderror"
@@ -126,98 +222,6 @@
 								value="{{ $material->id }}">{{ $material->name }} ({{ $material->amount }} {{ __("titles.piece") }})</option>
 					@endforeach
 				</select>
-			</div>
-		</div>
-
-		<div class="form-group row">
-			<label for="is_new_device" class="col-sm-2 col-form-label">{{ __("titles.is_new_device") }}</label>
-			<div class="col-sm-6">
-				<div class="form-check form-switch">
-					<input type="checkbox" id="is_new_device" name="is_new_device" class="form-check-input">
-				</div>
-			</div>
-		</div>
-
-		<div id="new_device">
-			<div class="form-group row">
-				<label for="device_name" class="col-sm-2 col-form-label">{{ __("titles.device") }}</label>
-				<div class="col-sm-6">
-					<input class="form-control @error("device_name") is-invalid @enderror"
-						   type="text" id="device_name" name="device_name"
-						   value="{{ old("device_name") }}">
-					@error("device_name")
-					<div class="invalid-feedback">
-						{{ $message }}
-					</div>
-					@enderror
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label for="is_new_customer" class="col-sm-2 col-form-label">{{ __("titles.is_new_customer") }}</label>
-				<div class="col-sm-6">
-					<div class="form-check form-switch">
-						<input type="checkbox" id="is_new_customer" name="is_new_customer" class="form-check-input">
-					</div>
-				</div>
-			</div>
-
-			<div id="new_customer">
-				<div class="form-group row">
-					<label for="name" class="col-sm-2 col-form-label">{{ __("titles.customer") }}</label>
-					<div class="col-sm-6">
-						<input class="form-control @error("name") is-invalid @enderror"
-							   type="text" id="name" name="name"
-							   value="{{ old("name") }}">
-						@error("name")
-						<div class="invalid-feedback">
-							{{ $message }}
-						</div>
-						@enderror
-					</div>
-				</div>
-
-				<div class="form-group row">
-					<label for="phones" class="col-sm-2 col-form-label">{{ __("titles.phone") }}</label>
-					<div class="col-sm-6">
-						<select name="phones[]" id="phones" multiple class="form-control @error("phones.*") is-invalid @enderror">
-							@foreach(old("phones", []) as $phone)
-								<option value="{{ $phone }}" selected>{{ $phone }}</option>
-							@endforeach
-						</select>
-						@error("phones.*")
-						<div class="invalid-feedback">
-							{{ $message }}
-						</div>
-						@enderror
-					</div>
-				</div>
-			</div>
-
-			<div id="old_customer">
-				<div class="form-group row">
-					<label for="customer" class="col-sm-2 col-form-label">{{ __("titles.customer") }}</label>
-					<div class="col-sm-6">
-						<select name="customer_id" id="customer" class="form-control">
-							@foreach($customers as $customer)
-								<option value="{{ $customer->id }}">{{ $customer->name }}</option>
-							@endforeach
-						</select>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="old_device">
-			<div class="form-group row">
-				<label for="device" class="col-sm-2 col-form-label">{{ __("titles.device") }}</label>
-				<div class="col-sm-6">
-					<select name="device_id" id="device" class="form-control">
-						@foreach($devices as $device)
-							<option value="{{ $device->id }}">{{ $device->name }} ({{ $device->customer?->name }})</option>
-						@endforeach
-					</select>
-				</div>
 			</div>
 		</div>
 
