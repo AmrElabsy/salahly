@@ -82,11 +82,11 @@
 		<div class="form-group row">
 			<label for="employee" class="col-sm-2 col-form-label">{{ __("titles.employee") }}</label>
 			<div class="col-sm-6">
-				<select name="user" id="employee" class="form-control">
+				<select name="user" id="user" class="form-control">
 					<option value=""></option>
 					@foreach($employees as $employee)
 						<option
-								@selected(old('employee', $problem->user?->id) == $employee->id)
+								@selected(old('user', $problem->user?->id) == $employee->id)
 								value="{{ $employee->id }}">{{ $employee->name }}</option>
 					@endforeach
 				</select>
