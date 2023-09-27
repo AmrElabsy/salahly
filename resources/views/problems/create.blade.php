@@ -9,7 +9,6 @@
 	<form action="{{ route("problem.store") }}" method="post">
 		@csrf
 
-
         <div class="form-group row">
             <label for="is_new_device" class="col-sm-2 col-form-label">{{ __("titles.is_new_device") }}</label>
             <div class="col-sm-6">

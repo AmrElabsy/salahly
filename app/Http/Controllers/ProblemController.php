@@ -78,6 +78,15 @@ class ProblemController extends Controller
 		$this->service->update($request->all(), $problem);
 		return redirect()->route("problem.index")->withStatus(__("titles.problem_updated"));
 	}
+    
+    public function deliver(Problem $problem) {
+        $problem->paid = $problem->price;
+        $problem->status_id = 5;
+        $problem->delivered_at = now();
+        
+        $problem->save();
+        return redirect()->route("problem.index")->withStatus(__("titles.problem_updated"));
+    }
 
 	public function destroy( Problem $problem )
 	{

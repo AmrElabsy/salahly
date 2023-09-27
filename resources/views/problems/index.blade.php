@@ -105,7 +105,7 @@
 					@admin
 					<th>{{ __("titles.branch") }}</th>
 					@endadmin
-					<th>{{ __("titles.device") }}</th>
+{{--					<th>{{ __("titles.device") }}</th>--}}
 					<th>{{ __("titles.price") }}</th>
 					<th>{{ __("titles.paid") }}</th>
 					<th>{{ __("titles.status") }}</th>
@@ -132,7 +132,7 @@
 						@admin()
 						<td>{{ $problem->branch->name }}</td>
 						@endadmin
-						<td>{{ $problem->device->name }}</td>
+{{--						<td>{{ $problem->device->name }}</td>--}}
 						<td>{{ $problem->price }}</td>
 						<td>{{ $problem->paid }}</td>
 						<td>{{ $problem->status?->name }}</td>
@@ -157,6 +157,12 @@
                                        class="btn btn-success">{{ __("titles.add_feedback") }}</a>
                                 @endcan
                             </div>
+							<div>
+								@can("edit problem")
+									<a href="{{ route("problem.deliver", $problem->id) }}"
+									   class="btn btn-info">{{ __("titles.deliver") }}</a>
+								@endcan
+							</div>
 							@can("delete problem")
 								@include("layouts.delete", ["action" => route("problem.destroy", $problem->id)])
 							@endcan

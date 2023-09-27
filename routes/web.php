@@ -101,6 +101,7 @@ Route::group([
 
         Route::group(["middleware" => "auth"], function () {
 
+            Route::get('problems/{problem}/deliver', [\App\Http\Controllers\ProblemController::class, 'deliver'])->name('problem.deliver');
             Route::resources(["device" => "DeviceController",
                 "customer" => "CustomerController",
                 "status" => "StatusController",
