@@ -117,7 +117,9 @@
 				<tbody>
 				@foreach($problems as $i => $problem)
 					<tr
-							@if($problem->due_time_is_today)
+							@if($problem->status_id = 5)
+							class="table-success"
+							@elseif($problem->due_time_is_today)
 							class="table-warning"
 							@elseif($problem->due_time_has_passed)
 							class="table-danger"
