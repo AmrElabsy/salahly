@@ -29,8 +29,16 @@
         public function store(StoreStoredSupplyRequest $request)
         {
             $storedSupply = new StoredSupply();
+            
+            if ( Supply::where('id', $request->supply_id)->exists() ) {
+                $storedSupply->supply_id = $request->get("supply_id");
+            } else {
+                $supply = new Supply();
+                $supply->name = $request->supply_id;
+                $supply->save();
+                $storedSupply->supply_id = $supply->id;
+            }
 
-            $storedSupply->supply_id = $request->get("supply_id");
             $storedSupply->amount = $request->get("amount");
             $storedSupply->price = $request->get("price");
 
