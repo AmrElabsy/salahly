@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use App\Models\Material;
 use App\Models\MaterialReturn;
 use App\Models\Problem;
@@ -29,14 +30,14 @@ class MoneyController extends Controller
 	public function month(int $month) {
 		$storedMaterials = StoredMaterial::whereMonth("buying_date", $month)->get();
 		$storedSupplies = StoredSupply::whereMonth("buying_date", $month)->get();
+        $loans = Loan::whereMonth('month', $month)->get();
 
 		$problems = Problem::whereMonth("created_at", $month)->get();
 		$materialReturns = MaterialReturn::whereMonth("return_date", $month)->get();
 		$supplyReturns = SupplyReturn::whereMonth("return_date", $month)->get();
 
 		$month = $this->getMonthData($month);
-		return view("money.month", compact("month", "storedMaterials", "storedSupplies", "problems", "materialReturns", "supplyReturns"));
-
+		return view("money.month", compact("month", "storedMaterials", "storedSupplies", 'loans', "problems", "materialReturns", "supplyReturns"));
 	}
 
 	private function getMonthData(int $monthNumber) {
@@ -46,6 +47,7 @@ class MoneyController extends Controller
 		$month["paying"]["materials"] = 0;
 		$month["paying"]["supplies"] = 0;
 		$month["paying"]["salaries"] = 0;
+		$month["paying"]["loans"] = 0;
 		$month["income"]["problems"] = 0;
 		$month["income"]["material_returns"] = 0;
 		$month["income"]["supply_returns"] = 0;
@@ -70,6 +72,10 @@ class MoneyController extends Controller
 
         foreach ($employees as $employee) {
             $month["paying"]["salaries"] += $employee->netSalary($monthNumber);
+        }
+        
+        foreach ($employees as $employee) {
+            $month["paying"]["loans"] += $employee->monthLoans($monthNumber);
         }
 
         foreach ($problems as $problem) {

@@ -120,6 +120,7 @@ Route::group([
                 'service' => "ServiceController",
                 'holiday' => "HolidayController",
                 'weekend' => "WeekendController",
+                'loan' => "LoanController",
             ]);
 			Route::get("user/{user}/{year?}/{month?}", "UserController@show")->name("user.show");
 			Route::get("problem/feedback/{problem}", "ProblemController@feedback")->name("problem.feedback");

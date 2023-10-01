@@ -50,43 +50,42 @@
 		</div>
 
 		<div class="d-flex justify-content-between mt-5">
-			<h2>{{ __("titles.supplies") }}</h2>
+			<h2>{{ __("titles.loans") }}</h2>
 		</div>
 
 		<div class="table-responsive">
-			<table class="table table-striped mb-0">
+			<table class="table">
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>{{ __("titles.supply") }}</th>
-					<th>{{ __("titles.buying_date") }}</th>
-					<th>{{ __("titles.amount") }}</th>
-					<th>{{ __("titles.price") }}</th>
-					<th>{{ __("titles.manage") }}</th>
+					<th>{{__('titles.employee')}}</th>
+					<th>{{__('titles.quantity')}}</th>
+					<th>{{__('titles.month')}}</th>
+					<th>{{__('titles.manage')}}</th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($storedSupplies as $i => $supply)
+				@foreach ($loans as $loan)
 					<tr>
-						<th scope="row">{{ $i + 1 }}</th>
-						<td>{{ $supply->supply->name }}</td>
-						<td>{{ $supply->buying_date }}</td>
-						<td>{{ $supply->amount }}</td>
-						<td>{{ $supply->price }}</td>
+						<td>{{ $loan->id }}</td>
+						<td>{{ $loan->user->name }}</td>
+						<td>{{ $loan->quantity }}</td>
+						<td>{{ $loan->month }}</td>
 						<td>
-							@can("edit stored_supply")
-								<a href="{{ route("stock.supply.edit", $supply->id) }}"
-								   class="btn btn-primary">{{ __("titles.edit") }}</a>
-							@endcan
-							@can("delete stored_supply")
-								@include("layouts.delete", ["action" => route("stock.supply.destroy", $supply->id)])
-							@endcan
+							<a href="{{ route('loan.edit', $loan) }}" class="btn btn-secondary">Edit</a>
+							<form action="{{ route('loan.destroy', $loan) }}" method="POST"
+								  style="display: inline-block">
+								@csrf
+								@method('DELETE')
+								<button type="submit" class="btn btn-danger"
+										onclick="return confirm('Are you sure you want to delete this loan?')">Delete
+								</button>
+							</form>
 						</td>
 					</tr>
 				@endforeach
 				</tbody>
-			</table>
-		</div>
+			</table>		</div>
 
 		<div class="d-flex justify-content-between mt-5">
 			<h2>{{ __("titles.problems") }}</h2>

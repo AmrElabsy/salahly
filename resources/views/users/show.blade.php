@@ -167,6 +167,12 @@
 				<td>{{ $user->minutesLateByMonth($_month) }}</td>
 			</tr>
 
+			<tr>
+				<td>Total Loans</td>
+
+				<td>{{ $user->monthLoans($_month) }}</td>
+			</tr>
+
 
 			<tr class="table-success">
 				<td>Net Salary</td>

@@ -5,82 +5,68 @@ namespace App\Http\Controllers;
 use App\Models\Loan;
 use App\Http\Requests\StoreLoanRequest;
 use App\Http\Requests\UpdateLoanRequest;
+use App\Models\User;
+use App\Services\LoanService;
 
 class LoanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(
+        public LoanService $service
+    ) {}
+    
     public function index()
     {
+        $loans = Loan::all();
+        
+        return view('loans.index', compact('loans'));
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $employees = User::employees()->get();
+        
+        return view('loans.create', compact('employees'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreLoanRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreLoanRequest $request)
     {
-        //
+        try {
+            $this->service->store($request->all());
+            return redirect()->route("loan.index")->withStatus(__("titles.loan_added"));
+        } catch (\Throwable $e) {
+            dd($e->getMessage());
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Loan  $loan
-     * @return \Illuminate\Http\Response
-     */
     public function show(Loan $loan)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Loan  $loan
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Loan $loan)
     {
-        //
+        $employees = User::employees()->get();
+        return view("loans.edit", compact('loan', "employees"));
+    
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateLoanRequest  $request
-     * @param  \App\Models\Loan  $loan
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateLoanRequest $request, Loan $loan)
     {
-        //
+        try {
+            $this->service->update($request->all(), $loan);
+            return redirect()->route("loan.index")->withStatus(__("titles.loan_updated"));
+        } catch (\Throwable $exception) {
+    
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Loan  $loan
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Loan $loan)
     {
-        //
+        $loan->delete();
+        
+        return redirect()->route("loan.index")->withStatus(__("titles.loan_deleted"));
     }
 }

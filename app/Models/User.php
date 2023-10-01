@@ -60,6 +60,18 @@ class User extends Authenticatable
 	{
 		return $this->hasMany(Problem::class);
 	}
+    
+    public function loans() {
+        return $this->hasMany(Loan::class);
+    }
+    
+    public function monthLoans( $month ) {
+        $loans = $this->loans()->whereMonth('month', $month)->get();
+   
+        $total = $loans->sum('quantity');
+        
+        return $total;
+    }
 
 	public function attended( $day )
 	{
@@ -159,6 +171,8 @@ class User extends Authenticatable
 
             $salary -= $subtract;
         }
+        
+        $salary -= $this->monthLoans($month);
 
         return $salary;
     }
