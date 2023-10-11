@@ -22,6 +22,9 @@ Route::group([
     Auth::routes(["register" => false]);
 
     Route::group(["middleware" => "auth"], function() {
+        Route::get('migrate', function () {
+            \Illuminate\Support\Facades\Artisan::call('migrate');
+        });
         Route::get('/', "HomeController@index")->name("home");
         Route::get('/home', "HomeController@index")->name('home');
 
